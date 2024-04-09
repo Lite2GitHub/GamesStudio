@@ -33,12 +33,4 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement);
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PickUp"))
-        {
-            // Example: You can add a log message or any other action when the player collides with a pick-up object
-            Debug.Log("Picked up item!");
-        }
-    }
 }
