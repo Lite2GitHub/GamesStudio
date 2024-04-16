@@ -5,14 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust this to change the movement speed
-
-
-    void Start()
-    {
-
-    }
+    public bool isInteracting = false;
 
     void Update()
+    {
+        if (!isInteracting)
+        {
+            // movement
+            PlayerMovementHandler();
+        } 
+        else
+        {
+            // stop player movement
+        }
+    }
+
+    void PlayerMovementHandler()
     {
         // Get input from the player
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -31,6 +39,22 @@ public class PlayerController : MonoBehaviour
         movement *= moveSpeed * Time.deltaTime;
 
         transform.Translate(movement);
-
     }
+
+    public void SetInteracting(bool interacting)
+    {
+        isInteracting = interacting;
+
+        /*
+        if (isInteracting)
+        {
+
+        }
+        else
+        {
+
+        }
+        */
+    }
+
 }

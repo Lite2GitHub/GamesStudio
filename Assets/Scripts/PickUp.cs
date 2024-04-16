@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public string itemName = "GreenFlower"; //Name of flower
+    public string itemName; //Name of flower
     
     public AudioClip pickUpSound;
     private bool playerInRange = false;
