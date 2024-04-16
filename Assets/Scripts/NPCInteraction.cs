@@ -11,9 +11,11 @@ public class NPCInteraction : MonoBehaviour
     public PlayerController playerController;
     public InventoryManager playerInventory; // inventory
 
+    private bool isMenuUIOpen = false;
+
     public Text interactionText;
 
-    private string requiredItemIdentifier; // Not sure whether to use string or gameobject 
+    private string requiredItemIdentifier = "blueFlower"; // Not sure whether to use string or gameobject 
     // private bool isInteracting = false; // redundancy?
 
     private void OnTriggerEnter(Collider other)
@@ -37,13 +39,28 @@ public class NPCInteraction : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.Mouse1)) //right click to interact
         {
             Debug.Log("Interact by click work");
-            dialogueCanvas.SetActive(true); // open up prompt
-            inventoryMenu.SetActive(true); // open up inventory menu
+            dialogueCanvas.SetActive(true); // dialogue only, prompt to open inventory with [Tab]
             playerController.SetInteracting(true); // disables player controller
             
             // isInteracting = true; // redundacy 
             
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab)) // open up inventory menu
+        {
+            Menu();
+        } 
+
+        if (Input.GetKeyDown(KeyCode.Escape)) // can add other methods of exitting
+        {
+            UnlockPlayer();
+        }
+    }
+
+    private void Menu()
+    {
+        isMenuUIOpen = !isMenuUIOpen;
+        inventoryMenu.SetActive(isMenuUIOpen);
     }
 
     public void SelectItemFromInventory (string itemIdentifier)
@@ -61,14 +78,16 @@ public class NPCInteraction : MonoBehaviour
             // enabling the lockdown timer probably starts from here
         }
 
-        CloseMenu();
+        UnlockPlayer();
     }
 
-    void CloseMenu()
+    void UnlockPlayer()
     {
         // isInteracting = false;
         playerController.SetInteracting(false); // Enable player movement
         inventoryMenu.SetActive(false);
+        isMenuUIOpen = false;
+        dialogueCanvas.SetActive(false);
         interactionText.text = "";
     }
 
