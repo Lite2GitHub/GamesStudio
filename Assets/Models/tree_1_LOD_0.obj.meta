@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tree_1_leaves_tree_1_LOD_1Mat
-    second: {fileID: -876546973899608171, guid: 74fcc4ac9cbb4c34586fa22a7b9c27a5, type: 3}
+    second: {fileID: 2100000, guid: 4ef8b61a6fca82a45b3813cc78fa50e1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
