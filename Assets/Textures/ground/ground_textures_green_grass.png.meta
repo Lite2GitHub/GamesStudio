@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 32ace196f0c2a794e8e4eda9aeb681b2
+guid: 9ab09b3f3a8c19e44a2f5d4203aa6c24
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -52,7 +52,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
   textureShape: 1
