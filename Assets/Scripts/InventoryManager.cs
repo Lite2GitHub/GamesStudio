@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
 
     // gameobject
 
-    private List<string> items = new List<string>();
+    public List<string> items = new List<string>();
     // this stores items as a string, so as a list of names
     private void Awake()
     {
