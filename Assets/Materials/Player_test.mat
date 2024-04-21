@@ -88,7 +88,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shader_Ramp:
-        m_Texture: {fileID: 2800000, guid: 68ffabbdf40c2cd4aa0a8aaf5f69340c, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -96,7 +96,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: 4dead45d4be185d47853633032841331, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9b9428ef83d5fbf44a3893d375f02075, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -129,6 +129,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossinessSource: 0
     - _GlossyReflections: 0
+    - _Lambertion_Shading_Strength: 0.5
     - _Metallic: 0
     - _Mode: 1
     - _OcclusionStrength: 1
