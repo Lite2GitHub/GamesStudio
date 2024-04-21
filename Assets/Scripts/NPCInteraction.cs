@@ -13,7 +13,7 @@ public class NPCInteraction : MonoBehaviour
 
     public Text interactionText;
 
-    private string requiredItemIdentifier = "blueFlower"; // Not sure whether to use string or gameobject 
+    private string requiredItem = "blueFlower"; // Not sure whether to use string or gameobject 
     // private bool isInteracting = false; // redundancy?
 
     private void OnTriggerEnter(Collider other)
@@ -44,28 +44,18 @@ public class NPCInteraction : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab)) // open up inventory menu
-        {
-            Menu();
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape)) // can add other methods of exitting
         {
             UnlockPlayer();
         }
     }
 
-    private void Menu()
-    {
-        isMenuUIOpen = !isMenuUIOpen;
-        inventoryMenu.SetActive(isMenuUIOpen); // this talks to inventory UI
-    }
-
+    /*
     public void SelectItemFromInventory(string itemIdentifier) // this needs to talk to inventory manager
     {
-        if (itemIdentifier == requiredItemIdentifier && playerInventory.HasItem(requiredItemIdentifier))
+        if (itemIdentifier == requiredItem && playerInventory.HasItem(requiredItem))
         {
-            playerInventory.RemoveItem(requiredItemIdentifier); // correct item taken/consumed
+            playerInventory.RemoveItem(requiredItem); // correct item taken/consumed
             Debug.Log("Correct item selected & consumed");
             interactionText.text = "spirit is relieved.";
         }
@@ -78,6 +68,8 @@ public class NPCInteraction : MonoBehaviour
 
         UnlockPlayer();
     }
+    */
+
 
     void UnlockPlayer()
     {
@@ -86,12 +78,11 @@ public class NPCInteraction : MonoBehaviour
         inventoryMenu.SetActive(false);
         isMenuUIOpen = false;
         dialogueCanvas.SetActive(false);
-        interactionText.text = "";
     }
 
     public void SetRequiredItem(string itemIdentifier) //this needs to talk to item ID system
     {
-        requiredItemIdentifier = itemIdentifier;
+        requiredItem = itemIdentifier;
     }
 
 }

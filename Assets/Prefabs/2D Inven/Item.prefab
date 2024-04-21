@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6773039018595615519}
   - component: {fileID: 6599695003331230694}
   m_Layer: 5
-  m_Name: Item Icon
+  m_Name: ItemIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8330070142364353698}
   - component: {fileID: 1989289445868998645}
   m_Layer: 5
-  m_Name: Delete Button
+  m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8330070142364353698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -440882627306922530}
+        m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
+        m_MethodName: RemoveItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2554869096056983778
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +220,7 @@ GameObject:
   - component: {fileID: 2688521318211227951}
   - component: {fileID: 9108523225306858417}
   m_Layer: 5
-  m_Name: Item Name
+  m_Name: ItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,6 +490,7 @@ GameObject:
   - component: {fileID: 1745112846531291843}
   - component: {fileID: 5740475122936727782}
   - component: {fileID: 7429684759024588094}
+  - component: {fileID: -440882627306922530}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -589,3 +602,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-440882627306922530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6402054271142970683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb547269985520458f6ec1e8f6a1ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
