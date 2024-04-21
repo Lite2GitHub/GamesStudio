@@ -281,7 +281,7 @@ MonoBehaviour:
   inventoryMenu: {fileID: 133049192}
   playerInRange: 0
   playerController: {fileID: 1520552205}
-  playerInventory: {fileID: 1113676454}
+  playerInventory: {fileID: 0}
   interactionText: {fileID: 0}
 --- !u!136 &196497652
 CapsuleCollider:
@@ -1008,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1016,15 +1016,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1056,11 +1056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1092,7 +1092,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113676453}
-  - component: {fileID: 1113676454}
   m_Layer: 0
   m_Name: Inventory Manager
   m_TagString: Untagged
@@ -1115,18 +1114,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1113676454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113676452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91606dea91afaaa4b8cafd8e60e6c698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1232776788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1877,6 @@ GameObject:
   - component: {fileID: 1909896432}
   - component: {fileID: 1909896431}
   - component: {fileID: 1909896430}
-  - component: {fileID: 1909896435}
   m_Layer: 0
   m_Name: Blue Flower
   m_TagString: PickUp
@@ -1910,7 +1896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6e5be00fb726c4ba96ebcadb9dda5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: BlueFlower
+  itemName: Blue Flower
   pickUpSound: {fileID: 0}
 --- !u!135 &1909896431
 SphereCollider:
@@ -1998,19 +1984,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1909896435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909896429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa607d51ed6a9084f9595a66eef18f4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: blueFlower
 --- !u!1 &1973163780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,7 +1997,6 @@ GameObject:
   - component: {fileID: 1973163783}
   - component: {fileID: 1973163782}
   - component: {fileID: 1973163781}
-  - component: {fileID: 1973163786}
   m_Layer: 0
   m_Name: Yellow Flower
   m_TagString: PickUp
@@ -2044,7 +2016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6e5be00fb726c4ba96ebcadb9dda5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: YellowFlower
+  itemName: Yellow Flower
   pickUpSound: {fileID: 0}
 --- !u!135 &1973163782
 SphereCollider:
@@ -2132,19 +2104,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1973163786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973163780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa607d51ed6a9084f9595a66eef18f4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: yellowFlower
 --- !u!224 &1974285395 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5997207852914135837, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
@@ -2163,7 +2122,6 @@ GameObject:
   - component: {fileID: 2060479613}
   - component: {fileID: 2060479612}
   - component: {fileID: 2060479611}
-  - component: {fileID: 2060479616}
   m_Layer: 0
   m_Name: Green Flower
   m_TagString: PickUp
@@ -2183,7 +2141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6e5be00fb726c4ba96ebcadb9dda5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: GreenFlower
+  itemName: Green Flower
   pickUpSound: {fileID: 0}
 --- !u!135 &2060479612
 SphereCollider:
@@ -2271,19 +2229,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2060479616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060479610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa607d51ed6a9084f9595a66eef18f4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: greenFlower
 --- !u!1 &2112494487
 GameObject:
   m_ObjectHideFlags: 0

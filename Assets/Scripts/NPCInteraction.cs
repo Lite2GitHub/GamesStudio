@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +7,7 @@ public class NPCInteraction : MonoBehaviour
     public GameObject inventoryMenu; // Menu UI 
     public bool playerInRange;
     public PlayerController playerController;
-    public InventoryManager playerInventory; // inventory
+    public InventoryManager playerInventory; // inventory!!!
 
     private bool isMenuUIOpen = false;
 
@@ -41,15 +39,15 @@ public class NPCInteraction : MonoBehaviour
             Debug.Log("Interact by click work");
             dialogueCanvas.SetActive(true); // dialogue only, prompt to open inventory with [Tab]
             playerController.SetInteracting(true); // disables player controller
-            
+
             // isInteracting = true; // redundacy 
-            
+
         }
 
         if (Input.GetKeyDown(KeyCode.Tab)) // open up inventory menu
         {
             Menu();
-        } 
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape)) // can add other methods of exitting
         {
@@ -60,19 +58,19 @@ public class NPCInteraction : MonoBehaviour
     private void Menu()
     {
         isMenuUIOpen = !isMenuUIOpen;
-        inventoryMenu.SetActive(isMenuUIOpen);
+        inventoryMenu.SetActive(isMenuUIOpen); // this talks to inventory UI
     }
 
-    public void SelectItemFromInventory (string itemIdentifier)
+    public void SelectItemFromInventory(string itemIdentifier) // this needs to talk to inventory manager
     {
         if (itemIdentifier == requiredItemIdentifier && playerInventory.HasItem(requiredItemIdentifier))
         {
             playerInventory.RemoveItem(requiredItemIdentifier); // correct item taken/consumed
             Debug.Log("Correct item selected & consumed");
             interactionText.text = "spirit is relieved.";
-        } 
-        else 
-        { 
+        }
+        else
+        {
             Debug.Log("Incorrect item selected or player does not have the item required.");
             interactionText.text = "spirit is confused.";
             // enabling the lockdown timer probably starts from here
@@ -91,7 +89,7 @@ public class NPCInteraction : MonoBehaviour
         interactionText.text = "";
     }
 
-    public void SetRequiredItem(string itemIdentifier)
+    public void SetRequiredItem(string itemIdentifier) //this needs to talk to item ID system
     {
         requiredItemIdentifier = itemIdentifier;
     }
