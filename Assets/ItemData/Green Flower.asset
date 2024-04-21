@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Green Flower
   value: 0
   icon: {fileID: 21300000, guid: cf13f75dd8a6b29449011ff309df75d4, type: 3}
+  itemType: 1

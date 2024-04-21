@@ -20,4 +20,19 @@ public class InventoryItemController : MonoBehaviour
         item = newItem;
     }
 
+    public void UseItem() //I have no idea whats happening, just add in the types i guess
+    {
+        switch (item.itemType)
+        {
+            case Item.ItemType.Blue:
+                break;
+            case Item.ItemType.Green:
+                break;
+            case Item.ItemType.Yellow:
+                break;
+        }
+        
+        RemoveItem();
+    }
+
 }

@@ -3,18 +3,24 @@ using UnityEngine.UI;
 
 public class NPCInteraction : MonoBehaviour
 {
+    Item Item;
+
     public GameObject dialogueCanvas; // Back story + Prompt
     public GameObject inventoryMenu; // Menu UI 
+    public GameObject successDialogue;
+    public GameObject failDialogue;
+
+
     public bool playerInRange;
     public PlayerController playerController;
-    public InventoryManager playerInventory; // inventory!!!
+
+    public GameObject requiredItem;
+    public GameObject selectedItem;
+    private bool correctItemReceived = false;
 
     private bool isMenuUIOpen = false;
 
     public Text interactionText;
-
-    private string requiredItem = "blueFlower"; // Not sure whether to use string or gameobject 
-    // private bool isInteracting = false; // redundancy?
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,8 +45,19 @@ public class NPCInteraction : MonoBehaviour
             Debug.Log("Interact by click work");
             dialogueCanvas.SetActive(true); // dialogue only, prompt to open inventory with [Tab]
             playerController.SetInteracting(true); // disables player controller
-
+            inventoryMenu.SetActive(true);
             // isInteracting = true; // redundacy 
+
+            if (!correctItemReceived && selectedItem == requiredItem )
+            {
+                correctItemReceived = true;
+                successDialogue.SetActive(true);
+            } 
+            else
+            {
+                correctItemReceived = false;
+                failDialogue.SetActive(true);
+            }
 
         }
 
@@ -49,27 +66,6 @@ public class NPCInteraction : MonoBehaviour
             UnlockPlayer();
         }
     }
-
-    /*
-    public void SelectItemFromInventory(string itemIdentifier) // this needs to talk to inventory manager
-    {
-        if (itemIdentifier == requiredItem && playerInventory.HasItem(requiredItem))
-        {
-            playerInventory.RemoveItem(requiredItem); // correct item taken/consumed
-            Debug.Log("Correct item selected & consumed");
-            interactionText.text = "spirit is relieved.";
-        }
-        else
-        {
-            Debug.Log("Incorrect item selected or player does not have the item required.");
-            interactionText.text = "spirit is confused.";
-            // enabling the lockdown timer probably starts from here
-        }
-
-        UnlockPlayer();
-    }
-    */
-
 
     void UnlockPlayer()
     {
@@ -80,9 +76,5 @@ public class NPCInteraction : MonoBehaviour
         dialogueCanvas.SetActive(false);
     }
 
-    public void SetRequiredItem(string itemIdentifier) //this needs to talk to item ID system
-    {
-        requiredItem = itemIdentifier;
-    }
 
 }
