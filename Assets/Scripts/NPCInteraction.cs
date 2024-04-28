@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class NPCInteraction : MonoBehaviour
 {
     Item Item;
+    NPC NPC;
 
     public GameObject dialogueCanvas; // Back story + Prompt
-    public GameObject inventoryMenu; // Menu UI 
     public GameObject successDialogue;
     public GameObject failDialogue;
 
@@ -14,8 +14,9 @@ public class NPCInteraction : MonoBehaviour
     public bool playerInRange;
     public PlayerController playerController;
 
-    public GameObject requiredItem;
-    public GameObject selectedItem;
+
+    private NPC ItemRequired;
+    public GameObject ItemSelected; //to be changed 
     private bool correctItemReceived = false;
 
     private bool isMenuUIOpen = false;
@@ -45,10 +46,9 @@ public class NPCInteraction : MonoBehaviour
             Debug.Log("Interact by click work");
             dialogueCanvas.SetActive(true); // dialogue only, prompt to open inventory with [Tab]
             playerController.SetInteracting(true); // disables player controller
-            inventoryMenu.SetActive(true);
             // isInteracting = true; // redundacy 
 
-            if (!correctItemReceived && selectedItem == requiredItem )
+            if (!correctItemReceived && ItemSelected == ItemRequired)
             {
                 correctItemReceived = true;
                 successDialogue.SetActive(true);
@@ -71,10 +71,8 @@ public class NPCInteraction : MonoBehaviour
     {
         // isInteracting = false;
         playerController.SetInteracting(false); // Enable player movement
-        inventoryMenu.SetActive(false);
         isMenuUIOpen = false;
-        dialogueCanvas.SetActive(false);
     }
 
-
+    
 }

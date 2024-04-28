@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+
     public static InventoryManager Instance; //made into a singleton (?)
     public List<Item> Items = new List<Item>(); //List that stores items
 
@@ -11,6 +12,12 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryItem; //this is for the 2D prefab item (?) icon?
 
     public Toggle EnableRemove;
+
+    public Transform DisplayArea; //the display slot
+    public GameObject ItemDisplay; //the display prefab
+
+    public Transform HandheldArea; //the equipped slot
+    public GameObject EquippedItem; //the equipped prefab
 
     public InventoryItemController[] InventoryItems; //array?
 
@@ -91,6 +98,48 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
+        }
+    }
+
+    public void SetDisplayItem(Item item)
+    {
+        GameObject obj = Instantiate(ItemDisplay, DisplayArea);
+        var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
+        var descriptiveText = obj.transform.Find("DescriptiveText").GetComponent<TMPro.TextMeshProUGUI>();
+
+        itemSprite.sprite = item.icon;
+        descriptiveText.text = item.itemDescription;
+    }
+
+    public void ClearDisplayItems()
+    {
+        if (DisplayArea != null)
+        {
+            foreach (Transform child in DisplayArea.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    public void SetEquippedItem(Item item)
+    {
+        if (DisplayArea != null)
+        {   
+            /*
+            GameObject obj = Instantiate(EquippedItem, HandheldArea);
+            var itemSprite = obj.transform.Find("ItemEquiptIcon").GetComponent<Image>();
+
+            itemSprite.sprite = = item.icon;
+            */
+        }
+    }
+
+    public void ClearEquippedSlot()
+    {
+        foreach (Transform child in HandheldArea.transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }

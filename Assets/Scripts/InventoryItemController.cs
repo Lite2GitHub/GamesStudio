@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Security;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class InventoryItemController : MonoBehaviour
 {
     Item item;
+
+    public bool DisplayIsOn = false;
 
     public void RemoveItem() //giving the 'X' mark the power to remove items from the list
     {
@@ -20,19 +23,30 @@ public class InventoryItemController : MonoBehaviour
         item = newItem;
     }
 
-    public void UseItem() //I have no idea whats happening, just add in the types i guess
+    public void UseItem()
     {
-        switch (item.itemType)
+        if (!DisplayIsOn)
         {
-            case Item.ItemType.Blue:
-                break;
-            case Item.ItemType.Green:
-                break;
-            case Item.ItemType.Yellow:
-                break;
+            DisplayIsOn = true;
         }
         
-        RemoveItem();
+        if (DisplayIsOn)
+        {
+            InventoryManager.Instance.ClearDisplayItems();
+            DisplayIsOn = false;
+        }
+        
+        InventoryManager.Instance.SetDisplayItem(item);
+    }
+
+    public void Equipt()
+    {
+        InventoryManager.Instance.SetEquippedItem(item);
+    }
+
+    public void Unequipt()
+    {
+        InventoryManager.Instance.ClearEquippedSlot();
     }
 
 }
