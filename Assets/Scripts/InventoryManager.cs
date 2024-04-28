@@ -1,71 +1,145 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance;
 
-    // gameobject
+    public static InventoryManager Instance; //made into a singleton (?)
+    public List<Item> Items = new List<Item>(); //List that stores items
 
-    private List<string> items = new List<string>();
-    // this stores items as a string, so as a list of names
-    private void Awake()
+    public Transform ItemContent; //the info of the item
+    public GameObject InventoryItem; //this is for the 2D prefab item (?) icon?
+
+    public Toggle EnableRemove;
+
+    public Transform DisplayArea; //the display slot
+    public GameObject ItemDisplay; //the display prefab
+
+    public Transform HandheldArea; //the equipped slot
+    public GameObject EquippedItem; //the equipped prefab
+
+    public InventoryItemController[] InventoryItems; //array?
+
+    public void Awake()
     {
-        if (Instance == null)
+        Instance = this;
+    }
+
+    public void Add(Item item) //adds items using Item (Scriptable) as the parameter
+    {
+        Items.Add(item);
+    }
+
+    public void Remove(Item item)
+    {
+        Items.Remove(item);
+    }
+
+    public void ListItems()
+    {
+        // This cleans the content UI?
+        foreach (Transform item in ItemContent)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Optional: Keeps the inventory manager alive between scenes
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in Items)
+        {
+            GameObject obj = Instantiate(InventoryItem, ItemContent); //Create item/fill out item slot for each item in Item List
+            var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
+            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
+
+            itemName.text = item.itemName;
+            itemIcon.sprite = item.icon;
+
+            if (EnableRemove.isOn)
+            {
+                removeButton.gameObject.SetActive(true);
+            }
+
+        }
+
+        SetInventoryItems();
+    }
+
+    public void EnableItemsRemove()
+    {
+        if (EnableRemove.isOn)
+        {
+            foreach (Transform item in ItemContent)
+            {
+                item.Find("RemoveButton").gameObject.SetActive(true);
+            }
         }
         else
         {
-            Destroy(gameObject);
-        }
-    }
-
-    public bool HasItem(string itemIdentifier) // item checker
-    {
-        int itemCount = 0;
-        foreach (string item in items)
-        {
-            if (item == itemIdentifier)
+            foreach (Transform item in ItemContent)
             {
-                itemCount++;
+                item.Find("RemoveButton").gameObject.SetActive(false);
             }
         }
-        return itemCount > 0;
     }
 
-    public void AddItem(string itemName)
+    public void ItemRemoveToggler()
     {
-        items.Add(itemName);
-        Debug.Log(itemName + " added to inventory.");
-    }
-
-    public void RemoveItem(string itemIdentifier)
-    {
-        bool itemRemoved = false; // Flag to track if an item has been removed
-        
-        for (int i = 0; i < items.Count; i++)
+        // turn the toggle off; to use when menu inventory is turned off
+        if (EnableRemove.isOn)
         {
-            string item = items[i];
-            
-            if (items[i] == itemIdentifier)
+            EnableRemove.isOn = false;
+        }
+    }
+
+    public void SetInventoryItems()
+    {
+        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+
+        for (int i = 0; i < Items.Count; i++)
+        {
+            InventoryItems[i].AddItem(Items[i]);
+        }
+    }
+
+    public void SetDisplayItem(Item item)
+    {
+        GameObject obj = Instantiate(ItemDisplay, DisplayArea);
+        var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
+        var descriptiveText = obj.transform.Find("DescriptiveText").GetComponent<TMPro.TextMeshProUGUI>();
+
+        itemSprite.sprite = item.icon;
+        descriptiveText.text = item.itemDescription;
+    }
+
+    public void ClearDisplayItems()
+    {
+        if (DisplayArea != null)
+        {
+            foreach (Transform child in DisplayArea.transform)
             {
-                items.RemoveAt(i); // Remove the item at index i
-                itemRemoved = true;
-                return;
+                Destroy(child.gameObject);
             }
         }
+    }
 
-        if (itemRemoved)
-        {
-            Debug.Log("One instance of item with identifier '" + itemIdentifier + "' removed.");
+    public void SetEquippedItem(Item item)
+    {
+        if (DisplayArea != null)
+        {   
+            /*
+            GameObject obj = Instantiate(EquippedItem, HandheldArea);
+            var itemSprite = obj.transform.Find("ItemEquiptIcon").GetComponent<Image>();
+
+            itemSprite.sprite = = item.icon;
+            */
         }
-        else
+    }
+
+    public void ClearEquippedSlot()
+    {
+        foreach (Transform child in HandheldArea.transform)
         {
-            Debug.Log("Item with identifier '" + itemIdentifier + "' not found in inventory.");
+            Destroy(child.gameObject);
         }
     }
 }

@@ -1,11 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Item Item;
+
     public float moveSpeed = 5f; // Adjust this to change the movement speed
     public bool isInteracting = false;
+    private bool isMenuUIOpen = false;
+    public GameObject inventoryMenu; // Menu UI for Inventory!
+
+    public GameObject itemEquipped;
 
     void Update()
     {
@@ -13,11 +17,15 @@ public class PlayerController : MonoBehaviour
         {
             // movement
             PlayerMovementHandler();
-        } 
+        }
         else
         {
             // stop player movement
+
         }
+
+        // if (Input.GetKeyDown(KeyCode.Tab)) // open up inventory menu
+
     }
 
     void PlayerMovementHandler()
@@ -58,3 +66,4 @@ public class PlayerController : MonoBehaviour
     }
 
 }
+
