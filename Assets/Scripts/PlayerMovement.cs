@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("References")]
+
+
+    [Header("Movement Variables")]
+    [SerializeField] float movementSpeed;
+
+
+    Rigidbody rb;
+
+
     void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }
