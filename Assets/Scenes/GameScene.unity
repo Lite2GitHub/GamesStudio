@@ -132,9 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90590098}
-  - component: {fileID: 90590096}
   - component: {fileID: 90590100}
   - component: {fileID: 90590099}
+  - component: {fileID: 90590101}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -142,22 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &90590096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90590095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f6a9c2d2b0bbc4580d18f7efe99303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  isInteracting: 0
-  inventoryMenu: {fileID: 0}
-  itemEquipped: {fileID: 0}
 --- !u!4 &90590098
 Transform:
   m_ObjectHideFlags: 0
@@ -221,9 +205,23 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &90590101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90590095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6972c3d39a76f4396010fa2c0620b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSprite: {fileID: 835103983}
+  movementSpeed: 2
 --- !u!1 &835103981
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1026275620}
   - component: {fileID: 1026275619}
-  - component: {fileID: 1026275618}
   - component: {fileID: 1026275617}
   m_Layer: 0
   m_Name: TerrainColourCamera
@@ -371,14 +368,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1026275618
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026275616}
-  m_Enabled: 1
 --- !u!20 &1026275619
 Camera:
   m_ObjectHideFlags: 0
@@ -762,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836802460}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20939311, y: 0.000000018810855, z: -0.000000004028162, w: 0.97783154}
+  m_LocalRotation: {x: 0.20939311, y: -0.000000018810857, z: 0.000000004028162, w: 0.97783154}
   m_LocalPosition: {x: 10.78, y: 1.9453875, z: 5.4500003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4307,7 +4296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8363974250750473732}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20939311, y: 0.000000018810855, z: -0.000000004028162, w: 0.97783154}
+  m_LocalRotation: {x: 0.20939311, y: -0.000000018810857, z: 0.000000004028162, w: 0.97783154}
   m_LocalPosition: {x: 10.78, y: 1.9453875, z: 5.4500003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
