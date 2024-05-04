@@ -19,33 +19,11 @@ public class InteractionController : MonoBehaviour
 
     void Update()
     {
-        if (interactableObjects.Count > 0)
-        {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        CheckForHover();
 
-            if (Physics.Raycast(ray, out hit, maxDistance, layerMasks))
-            {
-                if (hit.collider != null)
-                {
-                    foreach (GameObject interactable in interactableObjects)
-                    {
-                        if (interactable == hit.collider.gameObject)
-                        {
-                            hoveredInteractable = interactable;
-                            return;
-                        }
-                    }
-                    hoveredInteractable = null;
-                }
-                else
-                {
-                    hoveredInteractable = null;
-                }
-            }
-        }
-        else
+        if (hoveredInteractable && Input.GetMouseButtonDown(0))
         {
-            hoveredInteractable = null;
+            hoveredInteractable.GetComponent<IInteractable>().interact();
         }
     }
 
@@ -64,6 +42,46 @@ public class InteractionController : MonoBehaviour
         if (interactable != null)
         {
             interactableObjects.Remove(other.gameObject);
+        }
+    }
+
+    void CheckForHover()
+    {
+        if (interactableObjects.Count > 0)
+        {
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, maxDistance, layerMasks))
+            {
+                if (hit.collider != null)
+                {
+                    foreach (GameObject interactable in interactableObjects)
+                    {
+                        if (interactable == hit.collider.gameObject)
+                        {
+                            if (hoveredInteractable != interactable)
+                            hoveredInteractable = interactable;
+                            print(hit.collider.gameObject);
+                            hoveredInteractable.GetComponent<IInteractable>().hover(true);
+                            return;
+                        }
+                    }
+
+                }
+            }
+            if (hoveredInteractable != null)
+            {
+                hoveredInteractable.GetComponent<IInteractable>().hover(false);
+                hoveredInteractable = null;
+            }
+        }
+        else
+        {
+            if (hoveredInteractable != null)
+            {
+                hoveredInteractable.GetComponent<IInteractable>().hover(false);
+                hoveredInteractable = null;
+            }
         }
     }
 }
