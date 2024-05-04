@@ -64,7 +64,7 @@ public class InventoryManager : MonoBehaviour
         SetInventoryItems();
     }
 
-    public void EnableItemsRemove()
+    public void EnableItemsRemove() //For deleteing items in the inventory (button on top right of items)
     {
         if (EnableRemove.isOn)
         {
@@ -91,7 +91,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetInventoryItems()
+    public void SetInventoryItems() //this add the list of items into the inventory's list
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
@@ -101,7 +101,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetDisplayItem(Item item)
+    public void SetDisplayItem(Item item) //used in the journal
     {
         GameObject obj = Instantiate(ItemDisplay, DisplayArea);
         var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
@@ -109,9 +109,11 @@ public class InventoryManager : MonoBehaviour
 
         itemSprite.sprite = item.icon;
         descriptiveText.text = item.itemDescription;
+
+
     }
 
-    public void ClearDisplayItems()
+    public void ClearDisplayItems() //cleanser for display
     {
         if (DisplayArea != null)
         {
@@ -124,14 +126,16 @@ public class InventoryManager : MonoBehaviour
 
     public void SetEquippedItem(Item item)
     {
-        if (DisplayArea != null)
-        {   
-            /*
+        if (DisplayArea != null) //WHAT THE FUCK IS WRONNGGGG?????
+        {
+            
             GameObject obj = Instantiate(EquippedItem, HandheldArea);
-            var itemSprite = obj.transform.Find("ItemEquiptIcon").GetComponent<Image>();
+            var itemIcon = obj.transform.Find("ItemEquipIcon").GetComponent<Image>();
 
-            itemSprite.sprite = = item.icon;
-            */
+            itemIcon.sprite = item.icon; //APPARENTLY THIS LINE BUT THEY ARE ALL IDENTICAL WHY FAIL NOW?
+            
+            
+
         }
     }
 

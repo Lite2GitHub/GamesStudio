@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7778050784666442622}
+  - component: {fileID: 8140076297476791746}
   m_Layer: 5
-  m_Name: Equipt
+  m_Name: Equip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +37,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8140076297476791746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168241891467226161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb547269985520458f6ec1e8f6a1ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayIsOn: 0
 --- !u!1 &6999541419024348672
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +62,7 @@ GameObject:
   - component: {fileID: 2650477948956583241}
   - component: {fileID: 8869898330080563083}
   m_Layer: 5
-  m_Name: ItemEquiptIcon
+  m_Name: ItemEquipIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

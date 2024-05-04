@@ -23,7 +23,7 @@ public class InventoryItemController : MonoBehaviour
         item = newItem;
     }
 
-    public void UseItem()
+    public void UseItem() //onClick the items in inventory grid
     {
         if (!DisplayIsOn)
         {
@@ -39,12 +39,12 @@ public class InventoryItemController : MonoBehaviour
         InventoryManager.Instance.SetDisplayItem(item);
     }
 
-    public void Equipt()
+    public void Equip()
     {
         InventoryManager.Instance.SetEquippedItem(item);
     }
 
-    public void Unequipt()
+    public void Unequip()
     {
         InventoryManager.Instance.ClearEquippedSlot();
     }
