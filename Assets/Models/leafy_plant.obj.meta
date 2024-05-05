@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bbb91e31098d5af48914c07756046850
+guid: e5a07224e2182d148baee380875b9d6f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tree_1_LOD_1_tree_1_trunkMat
-    second: {fileID: 2100000, guid: cee66a3c0b9ddaa45b1211866116c112, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tree_1_leaves_tree_1_LOD_1Mat
-    second: {fileID: 2100000, guid: 4ef8b61a6fca82a45b3813cc78fa50e1, type: 2}
+      name: leafy_plantMat
+    second: {fileID: 2100000, guid: 2796a1fd5ba96214b8441f52e4189078, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 0.0025
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -77,7 +72,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
@@ -100,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 0.0025
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

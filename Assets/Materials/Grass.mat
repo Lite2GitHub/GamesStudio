@@ -85,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Terrain_Colour:
-        m_Texture: {fileID: 8400000, guid: 8509e5b1de47e9548a53686226bc6bee, type: 2}
+        m_Texture: {fileID: 8400000, guid: 93fd37f0f8c065044a9480c101ba4d74, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
@@ -140,7 +140,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Terrain_Offset: 0
-    - _Terrain_Size: 20
+    - _Terrain_Size: 80
     - _USE_TERRAIN_COLOUR: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
