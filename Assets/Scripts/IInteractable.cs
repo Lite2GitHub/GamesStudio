@@ -4,7 +4,9 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void interact();
+    void interact(string context);
 
     void hover(bool hovering);
+
+    void LeftRange();
 }

@@ -10,8 +10,8 @@ public class InteractionController : MonoBehaviour
 
     [Header("Ray Cast Variables")]
     [SerializeField] float maxDistance;
-
     [SerializeField] List<GameObject> interactableObjects = new List<GameObject>();
+    [SerializeField] public string heldItem = "flower";
 
     Ray ray;
     RaycastHit hit;
@@ -23,7 +23,7 @@ public class InteractionController : MonoBehaviour
 
         if (hoveredInteractable && Input.GetMouseButtonDown(0))
         {
-            hoveredInteractable.GetComponent<IInteractable>().interact();
+            hoveredInteractable.GetComponent<IInteractable>().interact(heldItem);
         }
     }
 
@@ -41,6 +41,7 @@ public class InteractionController : MonoBehaviour
         IInteractable interactable = other.GetComponent<IInteractable>();
         if (interactable != null)
         {
+            interactable.LeftRange();
             interactableObjects.Remove(other.gameObject);
         }
     }
