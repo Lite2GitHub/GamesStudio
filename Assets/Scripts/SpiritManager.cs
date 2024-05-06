@@ -58,7 +58,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
             {
                 case "flower":
                     dialogueIndex++;
-                    if (dialogueIndex > dialogueList.Length)
+                    if (dialogueIndex > dialogueList.Length - 1)
                     {
                         ready = true;
                     }
@@ -90,6 +90,10 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         //dialogueBox.FadeTextBox(1, true);
         dialogueBox.ToggleTextBox(false);
+        if (ready)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void DialogueLengthTimer(float length)
@@ -98,6 +102,11 @@ public class SpiritManager : MonoBehaviour, IInteractable
         {
             //dialogueBox.FadeTextBox(1, true);
             dialogueBox.ToggleTextBox(false);
+
+            if (ready)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
