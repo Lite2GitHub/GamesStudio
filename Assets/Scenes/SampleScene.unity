@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -161, y: 78}
+  m_AnchoredPosition: {x: -161, y: -10}
   m_SizeDelta: {x: 140, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17378795
@@ -181,8 +181,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Slow progress, currently still working on implementing Gifting flowers.
-    In terms of progress, I am currently behind schedule, will be putting in more
-    hours and speeding up implementation.
+    In terms of progress, I am currently behind schedule. Quite a number of bugs
+    to be worked thru too.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 36912616}
   - component: {fileID: 36912615}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: prompt text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Equipt?
+  m_text: Equip?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1153,9 +1153,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -440882627306922530, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
+      - m_Target: {fileID: 8140076297476791746, guid: fc4453107e7ffc24180e37c28a97d045, type: 3}
         m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
-        m_MethodName: Equipt
+        m_MethodName: Equip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1759,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 255}
+  m_AnchoredPosition: {x: -120, y: 72.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &905348346
@@ -2373,6 +2373,8 @@ MonoBehaviour:
   Items: []
   ItemContent: {fileID: 1025794628}
   InventoryItem: {fileID: 6402054271142970683, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
+  InventoryCanvas: {fileID: 133049192}
+  isInventoryOn: 0
   EnableRemove: {fileID: 302059456}
   DisplayArea: {fileID: 1535545861}
   ItemDisplay: {fileID: 1249973654121427369, guid: 48d519d35a1032143955754bef2846de, type: 3}
@@ -2476,7 +2478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845089074829822827, guid: 231b1e5e8e628794a8f72ef82a4689f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0626097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845089074829822827, guid: 231b1e5e8e628794a8f72ef82a4689f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2815,7 +2817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -161, y: 255}
+  m_AnchoredPosition: {x: -161, y: 72.5}
   m_SizeDelta: {x: 140, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459882698
@@ -2866,8 +2868,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2952,7 +2954,6 @@ MonoBehaviour:
   moveSpeed: 5
   isInteracting: 0
   inventoryMenu: {fileID: 133049192}
-  itemEquipped: {fileID: 0}
 --- !u!136 &1520552206
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3220,6 +3221,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535545860}
   m_CullTransparentMesh: 1
+--- !u!1001 &1573206558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770307890897361585, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_Name
+      value: Green Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980719415718200985, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d8c95026c94f6c4c9ec9b7b77f90842, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
 --- !u!1 &1643232676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,9 +3365,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -440882627306922530, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
+      - m_Target: {fileID: 8140076297476791746, guid: fc4453107e7ffc24180e37c28a97d045, type: 3}
         m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
-        m_MethodName: Unequipt
+        m_MethodName: Unequip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3947,11 +4009,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5018652420071493347, guid: 07cd90425a12f594cb20aa7209d750e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.983158
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5018652420071493347, guid: 07cd90425a12f594cb20aa7209d750e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25000048
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5018652420071493347, guid: 07cd90425a12f594cb20aa7209d750e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4111,63 +4173,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068262984}
   m_CullTransparentMesh: 1
---- !u!1001 &2096546050
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.25000048
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.0287347
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770307890897361585, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_Name
-      value: Green Flower
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
 --- !u!1 &2112494487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,7 +4323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2140613705
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4331,15 +4336,15 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 905348345}
   - {fileID: 1459882697}
   - {fileID: 17378794}
+  - {fileID: 905348345}
   m_Father: {fileID: 757974097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 265, y: -321}
-  m_SizeDelta: {x: 500, y: 600}
+  m_AnchoredPosition: {x: 964, y: -960}
+  m_SizeDelta: {x: 500, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140613706
 MonoBehaviour:
@@ -4392,6 +4397,6 @@ SceneRoots:
   - {fileID: 1520552209}
   - {fileID: 1525829557}
   - {fileID: 757974097}
-  - {fileID: 2096546050}
   - {fileID: 1976273710}
   - {fileID: 1148656822}
+  - {fileID: 1573206558}

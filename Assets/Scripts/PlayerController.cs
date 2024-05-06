@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private bool isMenuUIOpen = false;
     public GameObject inventoryMenu; // Menu UI for Inventory!
 
-    public GameObject itemEquipped;
+    // public GameObject itemEquipped;
 
     void Update()
     {

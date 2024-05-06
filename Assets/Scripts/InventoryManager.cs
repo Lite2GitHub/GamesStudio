@@ -11,6 +11,9 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent; //the info of the item
     public GameObject InventoryItem; //this is for the 2D prefab item (?) icon?
 
+    public GameObject InventoryCanvas;
+    public bool isInventoryOn;
+
     public Toggle EnableRemove;
 
     public Transform DisplayArea; //the display slot
@@ -21,9 +24,29 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryItemController[] InventoryItems; //array?
 
+
     public void Awake()
     {
         Instance = this;
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        { 
+            if (!isInventoryOn)
+            {
+                InventoryCanvas.SetActive(true);
+                isInventoryOn = true;
+                ListItems();
+
+            } else
+            {
+                InventoryCanvas.SetActive(false);
+                isInventoryOn = false;
+                ClearInventoryItems();
+            }
+        }
     }
 
     public void Add(Item item) //adds items using Item (Scriptable) as the parameter
@@ -64,7 +87,7 @@ public class InventoryManager : MonoBehaviour
         SetInventoryItems();
     }
 
-    public void EnableItemsRemove()
+    public void EnableItemsRemove() //For deleteing items in the inventory (button on top right of items)
     {
         if (EnableRemove.isOn)
         {
@@ -91,7 +114,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetInventoryItems()
+    public void SetInventoryItems() //this add the list of items into the inventory's list
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
@@ -101,7 +124,15 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetDisplayItem(Item item)
+    public void ClearInventoryItems()
+    {
+        for (int i = 0; i < InventoryItems.Length - 1; i++)
+        {
+            InventoryItems[i].RemoveItem();
+        }
+    }
+
+    public void SetDisplayItem(Item item) //used in the journal
     {
         GameObject obj = Instantiate(ItemDisplay, DisplayArea);
         var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
@@ -109,9 +140,10 @@ public class InventoryManager : MonoBehaviour
 
         itemSprite.sprite = item.icon;
         descriptiveText.text = item.itemDescription;
+
     }
 
-    public void ClearDisplayItems()
+    public void ClearDisplayItems() //cleanser for display
     {
         if (DisplayArea != null)
         {
@@ -122,16 +154,14 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetEquippedItem(Item item)
+    public void SetEquippedItem(Item item) //issue here item.icon obj ref not set to an instance
     {
-        if (DisplayArea != null)
-        {   
-            /*
+        if (DisplayArea != null) 
+        {
             GameObject obj = Instantiate(EquippedItem, HandheldArea);
-            var itemSprite = obj.transform.Find("ItemEquiptIcon").GetComponent<Image>();
+            var itemIcon = obj.transform.Find("ItemEquipIcon").GetComponent<Image>();
 
-            itemSprite.sprite = = item.icon;
-            */
+            itemIcon.sprite = item.icon; 
         }
     }
 
