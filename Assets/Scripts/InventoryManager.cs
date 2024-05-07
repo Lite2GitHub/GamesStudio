@@ -21,6 +21,7 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryItemController[] InventoryItems; //array?
 
+
     public void Awake()
     {
         Instance = this;
@@ -110,7 +111,6 @@ public class InventoryManager : MonoBehaviour
         itemSprite.sprite = item.icon;
         descriptiveText.text = item.itemDescription;
 
-
     }
 
     public void ClearDisplayItems() //cleanser for display
@@ -124,18 +124,14 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetEquippedItem(Item item)
+    public void SetEquippedItem(Item item) //issue here item.icon obj ref not set to an instance
     {
-        if (DisplayArea != null) //WHAT THE FUCK IS WRONNGGGG?????
+        if (DisplayArea != null) 
         {
-            
             GameObject obj = Instantiate(EquippedItem, HandheldArea);
             var itemIcon = obj.transform.Find("ItemEquipIcon").GetComponent<Image>();
 
-            itemIcon.sprite = item.icon; //APPARENTLY THIS LINE BUT THEY ARE ALL IDENTICAL WHY FAIL NOW?
-            
-            
-
+            itemIcon.sprite = item.icon; 
         }
     }
 

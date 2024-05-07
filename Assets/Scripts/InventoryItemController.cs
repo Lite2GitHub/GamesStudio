@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Security;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour
 {
@@ -29,24 +24,30 @@ public class InventoryItemController : MonoBehaviour
         {
             DisplayIsOn = true;
         }
-        
+
         if (DisplayIsOn)
         {
             InventoryManager.Instance.ClearDisplayItems();
             DisplayIsOn = false;
         }
-        
+
         InventoryManager.Instance.SetDisplayItem(item);
     }
 
     public void Equip()
     {
-        InventoryManager.Instance.SetEquippedItem(item);
+        if (!DisplayIsOn)
+        {
+            InventoryManager.Instance.SetEquippedItem(item);
+        }
     }
 
     public void Unequip()
     {
-        InventoryManager.Instance.ClearEquippedSlot();
+        if (DisplayIsOn)
+        {
+            InventoryManager.Instance.ClearEquippedSlot();
+        }
     }
 
 }
