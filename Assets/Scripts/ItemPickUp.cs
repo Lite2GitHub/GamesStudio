@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
-    Item item; //this line gives access to Item.cs as "Item"
+    public Item Item; //this line gives access to Item.cs as "Item"
     public AudioClip pickUpSound;
     private bool playerInRange = false;
     
@@ -40,7 +40,7 @@ public class ItemPickUp : MonoBehaviour
         } 
         */
 
-        InventoryManager.Instance.Add(item);
+        InventoryManager.Instance.Add(Item);
         Destroy(gameObject);
 
         Debug.Log("Pickup success.");

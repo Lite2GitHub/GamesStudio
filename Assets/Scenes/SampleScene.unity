@@ -2373,6 +2373,8 @@ MonoBehaviour:
   Items: []
   ItemContent: {fileID: 1025794628}
   InventoryItem: {fileID: 6402054271142970683, guid: 538cfa522068cff46b6e409fbf019eb7, type: 3}
+  InventoryCanvas: {fileID: 133049192}
+  isInventoryOn: 0
   EnableRemove: {fileID: 302059456}
   DisplayArea: {fileID: 1535545861}
   ItemDisplay: {fileID: 1249973654121427369, guid: 48d519d35a1032143955754bef2846de, type: 3}
@@ -2476,7 +2478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845089074829822827, guid: 231b1e5e8e628794a8f72ef82a4689f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0626097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845089074829822827, guid: 231b1e5e8e628794a8f72ef82a4689f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3219,6 +3221,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535545860}
   m_CullTransparentMesh: 1
+--- !u!1001 &1573206558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770307890897361585, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: m_Name
+      value: Green Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980719415718200985, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
+      propertyPath: Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d8c95026c94f6c4c9ec9b7b77f90842, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
 --- !u!1 &1643232676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3946,11 +4009,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5018652420071493347, guid: 07cd90425a12f594cb20aa7209d750e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.983158
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5018652420071493347, guid: 07cd90425a12f594cb20aa7209d750e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25000048
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5018652420071493347, guid: 07cd90425a12f594cb20aa7209d750e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4110,63 +4173,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068262984}
   m_CullTransparentMesh: 1
---- !u!1001 &2096546050
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.25000048
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.0287347
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4469856157342655339, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770307890897361585, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: m_Name
-      value: Green Flower
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
 --- !u!1 &2112494487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4391,6 +4397,6 @@ SceneRoots:
   - {fileID: 1520552209}
   - {fileID: 1525829557}
   - {fileID: 757974097}
-  - {fileID: 2096546050}
   - {fileID: 1976273710}
   - {fileID: 1148656822}
+  - {fileID: 1573206558}

@@ -37,10 +37,14 @@ public class InventoryManager : MonoBehaviour
             if (!isInventoryOn)
             {
                 InventoryCanvas.SetActive(true);
+                isInventoryOn = true;
+                ListItems();
 
             } else
             {
-
+                InventoryCanvas.SetActive(false);
+                isInventoryOn = false;
+                ClearInventoryItems();
             }
         }
     }
@@ -117,6 +121,14 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
+        }
+    }
+
+    public void ClearInventoryItems()
+    {
+        for (int i = 0; i < InventoryItems.Length - 1; i++)
+        {
+            InventoryItems[i].RemoveItem();
         }
     }
 
