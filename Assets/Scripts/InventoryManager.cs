@@ -11,6 +11,9 @@ public class InventoryManager : MonoBehaviour
     public Transform ItemContent; //the info of the item
     public GameObject InventoryItem; //this is for the 2D prefab item (?) icon?
 
+    public GameObject InventoryCanvas;
+    public bool isInventoryOn;
+
     public Toggle EnableRemove;
 
     public Transform DisplayArea; //the display slot
@@ -25,6 +28,21 @@ public class InventoryManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        { 
+            if (!isInventoryOn)
+            {
+                InventoryCanvas.SetActive(true);
+
+            } else
+            {
+
+            }
+        }
     }
 
     public void Add(Item item) //adds items using Item (Scriptable) as the parameter
