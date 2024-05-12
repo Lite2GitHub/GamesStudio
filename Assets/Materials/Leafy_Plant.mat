@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Alpha_Mask:
-        m_Texture: {fileID: 2800000, guid: df8f3f60bd7b299448e4ea071cc7ae1d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 065c2d76a090dc64189c4bbad55640ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -85,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shader_Ramp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 68ffabbdf40c2cd4aa0a8aaf5f69340c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -93,7 +93,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: df8f3f60bd7b299448e4ea071cc7ae1d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 065c2d76a090dc64189c4bbad55640ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
