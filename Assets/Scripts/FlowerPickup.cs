@@ -7,6 +7,13 @@ public class FlowerPickup : MonoBehaviour, IInteractable
     [Header("References")]
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] InteractionController playerInteraction; //temporrary
+    [SerializeField] string flowerDialogue;
+    [SerializeField] string flowerType;
+
+    void Start()
+    {
+        playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
+    }
 
     public void hover(bool hovering)
     {
@@ -23,7 +30,7 @@ public class FlowerPickup : MonoBehaviour, IInteractable
     public void interact(string context)
     {
         print("collected flower");
-        playerInteraction.heldItem = "flower";
+        playerInteraction.heldItem = flowerType;
         Destroy(gameObject);
     }
 

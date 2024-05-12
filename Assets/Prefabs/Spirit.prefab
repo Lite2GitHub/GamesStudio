@@ -49,10 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 8826941343343368110}
   dialogueBox: {fileID: 2804376711430125641}
-  dialogueList:
-  - 011
-  - 012
-  - 000
+  playerInteraction: {fileID: 0}
+  flowersRequired: 0
+  requiredFlowersList: []
 --- !u!135 &7378294299445449835
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -100,8 +99,8 @@ Transform:
   m_GameObject: {fileID: 6560650295604550161}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.049999997, y: 0.05, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5942688092340827464}
@@ -147,9 +146,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4dead45d4be185d47853633032841331, type: 3}
-  m_Color: {r: 0.20125782, g: 0.20125782, b: 0.20125782, a: 1}
-  m_FlipX: 1
+  m_Sprite: {fileID: 21300000, guid: 2c213ed38503f8f40bd8d94babfdf471, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.97, y: 13.37}
@@ -166,21 +165,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5942688092340827464}
     m_Modifications:
+    - target: {fileID: 258098868073944264, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 258098868073944264, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 258098868073944264, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 531890555269260340, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_Name
       value: DialogueTextBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2761788082051238102, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761788082051238102, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 3486325157159590222, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -0.485
       objectReference: {fileID: 0}
     - target: {fileID: 3486325157159590222, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0.587
       objectReference: {fileID: 0}
     - target: {fileID: 3486325157159590222, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 0.171
       objectReference: {fileID: 0}
     - target: {fileID: 3486325157159590222, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalRotation.w
@@ -209,6 +228,30 @@ PrefabInstance:
     - target: {fileID: 3486325157159590222, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807535270722540991, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807535270722540991, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807535270722540991, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377247506890850008, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377247506890850008, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377247506890850008, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

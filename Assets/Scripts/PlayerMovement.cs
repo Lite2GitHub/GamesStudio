@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement.normalized * movementSpeed * Time.fixedDeltaTime);
     }
 
     void CheckFlipSprite()

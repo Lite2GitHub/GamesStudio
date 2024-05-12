@@ -11,7 +11,7 @@ public class InteractionController : MonoBehaviour
     [Header("Ray Cast Variables")]
     [SerializeField] float maxDistance;
     [SerializeField] List<GameObject> interactableObjects = new List<GameObject>();
-    [SerializeField] public string heldItem = "flower";
+    public string heldItem;
 
     Ray ray;
     RaycastHit hit;
