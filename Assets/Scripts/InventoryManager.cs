@@ -22,7 +22,7 @@ public class InventoryManager : MonoBehaviour
     public Transform HandheldArea; //the equipped slot
     public GameObject EquippedItem; //the equipped prefab
 
-    public InventoryItemController[] InventoryItems; //array?
+    // public InventoryItemController[] InventoryItems; // REDUNDANT
 
 
     public void Awake()
@@ -32,19 +32,20 @@ public class InventoryManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab)) 
-        { 
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
             if (!isInventoryOn)
             {
                 InventoryCanvas.SetActive(true);
                 isInventoryOn = true;
                 ListItems();
 
-            } else
+            }
+            else
             {
                 InventoryCanvas.SetActive(false);
                 isInventoryOn = false;
-                ClearInventoryItems();
+                
             }
         }
     }
@@ -59,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         Items.Remove(item);
     }
 
-    public void ListItems()
+    public void ListItems() //this instantiates items onto the Inventory UI (ItemContent) 
     {
         // This cleans the content UI?
         foreach (Transform item in ItemContent)
@@ -84,7 +85,7 @@ public class InventoryManager : MonoBehaviour
 
         }
 
-        SetInventoryItems();
+        // SetInventoryItems(); //REDUNDANT
     }
 
     public void EnableItemsRemove() //For deleteing items in the inventory (button on top right of items)
@@ -114,6 +115,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    /*  //REDUNDANT
     public void SetInventoryItems() //this add the list of items into the inventory's list
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
@@ -124,22 +126,24 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ClearInventoryItems()
+    public void ClearInventoryItems() //this is causing problems i think
     {
         for (int i = 0; i < InventoryItems.Length - 1; i++)
         {
             InventoryItems[i].RemoveItem();
         }
     }
+    */
 
-    public void SetDisplayItem(Item item) //used in the journal
+
+    public void SetDisplayItem(Item Item) //used in the journal
     {
         GameObject obj = Instantiate(ItemDisplay, DisplayArea);
         var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
         var descriptiveText = obj.transform.Find("DescriptiveText").GetComponent<TMPro.TextMeshProUGUI>();
 
-        itemSprite.sprite = item.icon;
-        descriptiveText.text = item.itemDescription;
+        itemSprite.sprite = Item.icon;
+        descriptiveText.text = Item.itemDescription;
 
     }
 
@@ -156,12 +160,12 @@ public class InventoryManager : MonoBehaviour
 
     public void SetEquippedItem(Item item) //issue here item.icon obj ref not set to an instance
     {
-        if (DisplayArea != null) 
+        if (DisplayArea != null)
         {
             GameObject obj = Instantiate(EquippedItem, HandheldArea);
             var itemIcon = obj.transform.Find("ItemEquipIcon").GetComponent<Image>();
 
-            itemIcon.sprite = item.icon; 
+            itemIcon.sprite = item.icon;
         }
     }
 

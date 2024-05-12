@@ -2380,7 +2380,6 @@ MonoBehaviour:
   ItemDisplay: {fileID: 1249973654121427369, guid: 48d519d35a1032143955754bef2846de, type: 3}
   HandheldArea: {fileID: 983631196}
   EquippedItem: {fileID: 2168241891467226161, guid: fc4453107e7ffc24180e37c28a97d045, type: 3}
-  InventoryItems: []
 --- !u!1 &1125426632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,10 +3272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green Flower
       objectReference: {fileID: 0}
-    - target: {fileID: 8980719415718200985, guid: 14df9fc6a12709a41a894f790413f635, type: 3}
-      propertyPath: Item
-      value: 
-      objectReference: {fileID: 11400000, guid: 5d8c95026c94f6c4c9ec9b7b77f90842, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
