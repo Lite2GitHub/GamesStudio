@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blue Flower
   m_EditorClassIdentifier: 
   id: 1
-  itemName: Blue Flower
+  itemName: Lavender
   lifetime: 3
   icon: {fileID: 21300000, guid: eda2907b31351df4cab57c0c1b72dcb0, type: 3}
   itemDescription: This is a blue flower

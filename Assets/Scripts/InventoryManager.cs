@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,13 +40,14 @@ public class InventoryManager : MonoBehaviour
                 InventoryCanvas.SetActive(true);
                 isInventoryOn = true;
                 ListItems();
-
+                
             }
             else
             {
                 InventoryCanvas.SetActive(false);
                 isInventoryOn = false;
                 
+
             }
         }
     }
@@ -58,18 +60,19 @@ public class InventoryManager : MonoBehaviour
     public void Remove(Item item)
     {
         Items.Remove(item);
+        
         Debug.Log("Item removed");
     }
 
     public void ListItems() //this instantiates items onto the Inventory UI (ItemContent) 
     {
-        // This cleans the content UI?
-        
+        // This cleans the content UI
+
         foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
-        
+
 
         foreach (var item in Items)
         {
@@ -139,15 +142,14 @@ public class InventoryManager : MonoBehaviour
     */
 
 
-    public void SetDisplayItem(Item Item) //used in the journal
+    public void SetDisplayItem(Item item) //used in the journal
     {
         GameObject obj = Instantiate(ItemDisplay, DisplayArea);
         var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
         var descriptiveText = obj.transform.Find("DescriptiveText").GetComponent<TMPro.TextMeshProUGUI>();
 
-        itemSprite.sprite = Item.icon;
-        descriptiveText.text = Item.itemDescription;
-
+        itemSprite.sprite = item.icon;
+        descriptiveText.text = item.itemDescription;
     }
 
     public void ClearDisplayItems() //cleanser for display

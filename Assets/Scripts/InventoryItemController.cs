@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class InventoryItemController : MonoBehaviour
 {
     Item item;
 
     public bool DisplayIsOn = false;
+    public Button RemoveButton;
 
     public void RemoveItem() //giving the 'X' mark the power to remove items from the list
     {
+        Destroy(gameObject);
+
         InventoryManager.Instance.Remove(item);
+        
     }
 
     public void AddItem(Item newItem)
@@ -21,6 +27,7 @@ public class InventoryItemController : MonoBehaviour
         if (!DisplayIsOn)
         {
             DisplayIsOn = true;
+            InventoryManager.Instance.SetDisplayItem(item);
         }
 
         if (DisplayIsOn)
@@ -28,8 +35,6 @@ public class InventoryItemController : MonoBehaviour
             InventoryManager.Instance.ClearDisplayItems();
             DisplayIsOn = false;
         }
-
-        InventoryManager.Instance.SetDisplayItem(item);
     }
 
     public void Equip()

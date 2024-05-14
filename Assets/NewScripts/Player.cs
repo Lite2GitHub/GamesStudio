@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,5 +12,10 @@ public class Player : MonoBehaviour
             inventory.AddItem(item.item, 1);
             Destroy(other.gameObject);
         }
+    }
+
+    private void OnApplicationQuit()    // Pretty poggers, might be changed in future?
+    {
+        inventory.Container.Clear();
     }
 }
