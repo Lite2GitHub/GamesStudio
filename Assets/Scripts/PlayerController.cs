@@ -49,21 +49,9 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement);
     }
 
-    public void SetInteracting(bool interacting)
+    public bool SetInteracting()
     {
-        isInteracting = interacting;
-
-        /*
-        if (isInteracting)
-        {
-
-        }
-        else
-        {
-
-        }
-        */
+        isInteracting = false;
     }
-
 }
 
