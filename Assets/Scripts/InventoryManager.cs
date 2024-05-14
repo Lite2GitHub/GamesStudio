@@ -58,15 +58,18 @@ public class InventoryManager : MonoBehaviour
     public void Remove(Item item)
     {
         Items.Remove(item);
+        Debug.Log("Item removed");
     }
 
     public void ListItems() //this instantiates items onto the Inventory UI (ItemContent) 
     {
         // This cleans the content UI?
+        
         foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
+        
 
         foreach (var item in Items)
         {

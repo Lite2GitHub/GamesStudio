@@ -9,7 +9,6 @@ public class InventoryItemController : MonoBehaviour
     public void RemoveItem() //giving the 'X' mark the power to remove items from the list
     {
         InventoryManager.Instance.Remove(item);
-        Destroy(gameObject);
     }
 
     public void AddItem(Item newItem)
