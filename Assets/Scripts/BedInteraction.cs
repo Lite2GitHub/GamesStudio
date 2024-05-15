@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class BedInteraction : MonoBehaviour, IInteractable
 {
-    [Header("References")]
-    [SerializeField] Material noMat;
-    [SerializeField] Material outlineMat;
+    void Start()
+    {
+        GetComponent<Outline>().enabled = false;
+    }
+
     public void hover(bool hovering)
     {
         if (hovering)
         {
-            GetComponent<MeshRenderer>().material = outlineMat;
-            print("outlining");
+            GetComponent<Outline>().enabled = true;
         }
         else
         {
-            GetComponent<MeshRenderer>().material = noMat;
-            print("no outlining");
+            GetComponent<Outline>().enabled = false;
         }
     }
 
