@@ -6,6 +6,8 @@ public class FlowerPickup : MonoBehaviour, IInteractable
 {
     [Header("References")]
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] Material standardMat;
+    [SerializeField] Material outlineMat;
     [SerializeField] InteractionController playerInteraction; //temporrary
     [SerializeField] string flowerDialogue;
     [SerializeField] string flowerType;
@@ -19,11 +21,11 @@ public class FlowerPickup : MonoBehaviour, IInteractable
     {
         if (hovering)
         {
-            sprite.color= Color.gray;
+            sprite.material = outlineMat;
         }
         else
         {
-            sprite.color = Color.white;
+            sprite.material = standardMat;
         }
     }
 
