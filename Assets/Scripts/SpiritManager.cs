@@ -9,6 +9,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] TextBoxImageAssignment dialogueBox;
     [SerializeField] public InteractionController playerInteraction;
+    [SerializeField] Material standardMat;
+    [SerializeField] Material outlineMat;
 
     [Header("Dialogue Variables")]
     [SerializeField] int flowersRequired;
@@ -56,11 +58,11 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (hovering)
         {
-            sprite.color = Color.gray;
+            sprite.material = outlineMat;
         }
         else
         {
-            sprite.color = Color.white;
+            sprite.material = standardMat;
         }
     }
 

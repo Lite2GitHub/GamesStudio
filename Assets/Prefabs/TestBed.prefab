@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7857377710418108667}
   - component: {fileID: 6034397359277802341}
   - component: {fileID: 7641411510093753918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestBed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,8 +63,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 0}
   - {fileID: 2100000, guid: 9a94066c87584394aae5ae4635bf2a5c, type: 2}
-  - {fileID: 2100000, guid: 2f955c2d1f156e747943af361147c584, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +101,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a280b367b2141945aa4573fb5e39b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noMat: {fileID: 0}
+  outlineMat: {fileID: 2100000, guid: 2f955c2d1f156e747943af361147c584, type: 2}
