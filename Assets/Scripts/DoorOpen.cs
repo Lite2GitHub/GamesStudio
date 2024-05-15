@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
-public class BedInteraction : MonoBehaviour, IInteractable
+public class DoorOpen : MonoBehaviour, IInteractable
 {
-    public GameEvent endOfDay;
-
+    [SerializeField] SceneController sceneController;
+    [SerializeField] string targetSceneName;
     void Start()
     {
         GetComponent<Outline>().enabled = false;
@@ -27,7 +26,7 @@ public class BedInteraction : MonoBehaviour, IInteractable
 
     public void interact(string context)
     {
-        endOfDay.TriggerEvent();
+        sceneController.StartNextScene(targetSceneName);
     }
 
     public void LeftRange()
