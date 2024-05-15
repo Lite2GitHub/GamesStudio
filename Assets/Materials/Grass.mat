@@ -153,7 +153,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission_Colour: {r: 0.23921569, g: 0.49803922, b: 0.3882353, a: 0}
     - _Far_Colour: {r: 0.823, g: 1, b: 0.8942391, a: 0}
-    - _Near_Colour: {r: 0.31781366, g: 0.3962264, b: 0.2747419, a: 1}
+    - _Near_Colour: {r: 0.27450982, g: 0.39607844, b: 0.34161362, a: 1}
     - _Near_Far_Range: {r: 1, g: 20, b: 0, a: 0}
     - _Shadow_Colour: {r: 0.18801177, g: 0.4480553, b: 0.6132076, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
