@@ -25,7 +25,7 @@ public class DoorOpen : MonoBehaviour, IInteractable
 
     public void interact(string context)
     {
-        SceneManager.LoadScene(targetSceneName);
+        SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
     }
 
     public void LeftRange()
