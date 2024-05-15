@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a280b367b2141945aa4573fb5e39b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endOfDay: {fileID: 11400000, guid: eb5c460e3b432594099e431bbb715897, type: 2}
 --- !u!114 &360828975018920611
 MonoBehaviour:
   m_ObjectHideFlags: 0

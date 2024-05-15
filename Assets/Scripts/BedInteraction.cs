@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BedInteraction : MonoBehaviour, IInteractable
 {
+    public GameEvent endOfDay;
+
     void Start()
     {
         GetComponent<Outline>().enabled = false;
@@ -23,7 +27,7 @@ public class BedInteraction : MonoBehaviour, IInteractable
 
     public void interact(string context)
     {
-        throw new System.NotImplementedException();
+        endOfDay.TriggerEvent();
     }
 
     public void LeftRange()
