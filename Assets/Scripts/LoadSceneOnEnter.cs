@@ -9,6 +9,6 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] string targetSceneName;
     void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(targetSceneName);
+        SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
     }
 }
