@@ -109,6 +109,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Alpha_Clip_Threshold: 0.1
+    - _Base_Colour_Strength: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -125,7 +126,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Height_Blend: 3.66
+    - _Height_Blend: 2
     - _Lambertion_Shading_Strength: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -146,13 +147,14 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Bottom_Colour: {r: 0.14117643, g: 0.32549015, b: 0.3490196, a: 0}
+    - _Base_Colour: {r: 0.4390369, g: 0.7294118, b: 0.25882354, a: 1}
+    - _Bottom_Colour: {r: 0.6039216, g: 0.78431374, b: 0.49019608, a: 0}
     - _Color: {r: 0.23921569, g: 0.49803922, b: 0.3882353, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission_Colour: {r: 0.23921569, g: 0.49803922, b: 0.3882353, a: 0}
-    - _Far_Colour: {r: 0.14509805, g: 0.3137255, b: 0.28627452, a: 0}
-    - _Near_Colour: {r: 0.6039216, g: 0.78431374, b: 0.49019608, a: 0}
-    - _Near_Far_Range: {r: 10, g: 25, b: 0, a: 0}
+    - _Far_Colour: {r: 0.823, g: 1, b: 0.8942391, a: 0}
+    - _Near_Colour: {r: 0.31781366, g: 0.3962264, b: 0.2747419, a: 1}
+    - _Near_Far_Range: {r: 1, g: 20, b: 0, a: 0}
     - _Shadow_Colour: {r: 0.18801177, g: 0.4480553, b: 0.6132076, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

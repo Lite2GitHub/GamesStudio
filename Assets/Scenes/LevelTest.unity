@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -9665,7 +9665,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 24.89, y: 18.66}
+    m_SensorSize: {x: 54.12, y: 25.59}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9682,8 +9682,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3719169, y: 0.00000002258796, z: -0.000000009050037, w: 0.92826605}
-  m_LocalPosition: {x: 6.54, y: 2.6853874, z: 35.44}
+  m_LocalRotation: {x: 0.34305376, y: 0.000000016162224, z: -0.000000005902714, w: 0.9393158}
+  m_LocalPosition: {x: 6.54, y: 1.7653874, z: 36.239998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13109,12 +13109,12 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 2
   m_FocusDistance: 10
-  m_FocalLength: 13.921731
+  m_FocalLength: 19.092022
   m_BladeCount: 6
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
   m_Anamorphism: 0
-  m_SensorSize: {x: 24.89, y: 18.66}
+  m_SensorSize: {x: 54.12, y: 25.59}
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -13150,8 +13150,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3719169, y: 0.00000002258796, z: -0.000000009050037, w: 0.92826605}
-  m_LocalPosition: {x: 6.54, y: 2.6853874, z: 35.44}
+  m_LocalRotation: {x: 0.34305376, y: 0.000000016162224, z: -0.000000005902714, w: 0.9393158}
+  m_LocalPosition: {x: 6.54, y: 1.7653874, z: 36.239998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18493,7 +18493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 2.32, z: -2.2}
+  m_FollowOffset: {x: 0, y: 1.4, z: -1.4}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -21141,7 +21141,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Color: {r: 0.5, g: 0.48110723, b: 0.4365, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30

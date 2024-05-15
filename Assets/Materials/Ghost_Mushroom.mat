@@ -134,6 +134,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossinessSource: 0
     - _GlossyReflections: 1
+    - _Lambertion_Shading_Strength: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -158,6 +159,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.7572351, g: 1, b: 0.4575472, a: 1}
     - _Emission_Colour: {r: 1, g: 1, b: 1, a: 0}
+    - _Far_Colour: {r: 0.1852941, g: 0.2470588, b: 0.2470588, a: 0}
+    - _Near_Colour: {r: 0, g: 0, b: 0, a: 0}
+    - _Near_Far_Range: {r: 1, g: 20, b: 0, a: 0}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
 --- !u!114 &7564299684207627592
