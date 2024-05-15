@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelTest.unity
     guid: 3382d0783db96514795dd3e7097f84f7
+  - enabled: 1
+    path: Assets/Scenes/InsideHouse.unity
+    guid: 7029ad8626072034ea90399e64d3d98b
+  - enabled: 1
+    path: Assets/Scenes/SafeLevel.unity
+    guid: 300ea93b2fcc16846a657baf34129bfe
   m_configObjects: {}
