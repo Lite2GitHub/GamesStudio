@@ -5,24 +5,25 @@ using UnityEngine.UI;
 
 public class FadeScreen : MonoBehaviour
 {
-    Image image;
-    public void Awake()
-    {
-        image = GetComponent<Image>();
-    }
-    public void FadeIn()
-    {
-        var newColor = image.color;
-        newColor.a = 255;
+    Animator animator;
+    [SerializeField] GameEvent fadeOutDone;
 
-        image.color = newColor;
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
-
     public void FadeOut()
     {
-        var newColor = image.color;
-        newColor.a = 0;
+        animator.SetTrigger("Fade_Out");
+    }
 
-        image.color = newColor;
+    public void FadeIn()
+    {
+        animator.SetTrigger("Fade_In");
+    }
+
+    public void FadeOutDone()
+    {
+        fadeOutDone.TriggerEvent();
     }
 }

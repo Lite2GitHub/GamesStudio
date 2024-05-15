@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorOpen : MonoBehaviour, IInteractable
 {
+    [SerializeField] SceneController sceneController;
     [SerializeField] string targetSceneName;
     void Start()
     {
@@ -25,7 +26,7 @@ public class DoorOpen : MonoBehaviour, IInteractable
 
     public void interact(string context)
     {
-        SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
+        sceneController.StartNextScene(targetSceneName);
     }
 
     public void LeftRange()

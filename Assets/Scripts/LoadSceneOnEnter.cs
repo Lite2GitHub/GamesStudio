@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class DoorTrigger : MonoBehaviour
 {
+    [SerializeField] SceneController sceneController;
+
     [SerializeField] string targetSceneName;
+
     void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
+        sceneController.StartNextScene(targetSceneName);
     }
 }
