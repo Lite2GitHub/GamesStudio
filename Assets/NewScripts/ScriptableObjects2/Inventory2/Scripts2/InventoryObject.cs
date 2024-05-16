@@ -10,7 +10,7 @@ public class InventoryObject : ScriptableObject
     public void AddItem(ItemObject _item, int _amount)  // Adding items to inventory
     {
         bool hasItem = false;
-        for (int i  = 0; i < Container.Count; i++)
+        for (int i = 0; i < Container.Count; i++)
         {
             if (Container[i].item == _item)  // if has item, add to the amount (stack)
             {
@@ -23,10 +23,7 @@ public class InventoryObject : ScriptableObject
         {
             Container.Add(new InventorySlot(_item, _amount));
         }
-
     }
-
-
 }
 
 [System.Serializable]

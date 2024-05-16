@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()    // Pretty poggers, might be changed in future?
+    private void OnApplicationQuit()    // Cleanser for when Quit clears list of all scriptables
     {
         inventory.Container.Clear();
     }
