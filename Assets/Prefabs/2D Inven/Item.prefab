@@ -625,6 +625,8 @@ GameObject:
   - component: {fileID: 5740475122936727782}
   - component: {fileID: 7429684759024588094}
   - component: {fileID: -440882627306922530}
+  - component: {fileID: 5258378068130512560}
+  - component: {fileID: 5446830664393086896}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -763,3 +765,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayIsOn: 0
   RemoveButton: {fileID: 1989289445868998645}
+--- !u!114 &5258378068130512560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6402054271142970683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c83439037f754c43afb25861549c60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &5446830664393086896
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6402054271142970683}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
