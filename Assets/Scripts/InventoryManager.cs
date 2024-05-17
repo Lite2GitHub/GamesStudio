@@ -52,6 +52,7 @@ public class InventoryManager : MonoBehaviour
                 CleanContentUI();
                 InventoryCanvas.SetActive(false);
                 isInventoryOn = false;
+                ItemRemoveToggler();
             }
         }
     }
@@ -137,14 +138,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ClearInventoryItems() //this is causing problems i think
-    {
-        for (int i = 0; i < InventoryItems.Length - 1; i++)
-        {
-            InventoryItems[i].RemoveItem();
-        }
-    }
-    
+    //public void ClearInventoryItems() //this is causing problems i think
+    //{
+    //    for (int i = 0; i < InventoryItems.Length - 1; i++)
+    //    {
+    //        InventoryItems[i].RemoveItem();
+    //    }
+    //}
 
 
     public void SetDisplayItem(Item item) //used in the journal

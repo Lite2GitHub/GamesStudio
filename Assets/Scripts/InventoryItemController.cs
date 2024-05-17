@@ -1,13 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class InventoryItemController : MonoBehaviour
+public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 {
     Item item;
+
+    public UnityEvent rightClick;   // self explanatory adding right click func to button
 
     public bool DisplayIsOn = false;
 
     public Button RemoveButton;
+    public Button InventoryItemAsButton;
+
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            rightClick.Invoke();
+            // Works on the button yes
+        }
+    }
+
 
     public void RemoveItem() //giving the 'X' mark the power to remove items from the list
     {
@@ -20,7 +36,7 @@ public class InventoryItemController : MonoBehaviour
         item = newItem;
     }
 
-    public void UseItem() //onClick the items in inventory grid
+    public void DisplayItem()   // On left click
     {
 
         if (!DisplayIsOn)
@@ -34,6 +50,14 @@ public class InventoryItemController : MonoBehaviour
             InventoryManager.Instance.ClearDisplayItems();
             DisplayIsOn = false;
         }
+    }
+
+    public void RightClick()    // On right click; works its attached to script
+    {
+        
+        
+        RemoveItem();
+
     }
 
     public void Equip()

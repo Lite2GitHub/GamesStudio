@@ -741,7 +741,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -440882627306922530}
         m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: DisplayItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -763,8 +763,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb547269985520458f6ec1e8f6a1ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -440882627306922530}
+        m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
+        m_MethodName: RightClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DisplayIsOn: 0
   RemoveButton: {fileID: 1989289445868998645}
+  InventoryItemAsButton: {fileID: 0}
 --- !u!114 &5258378068130512560
 MonoBehaviour:
   m_ObjectHideFlags: 0
