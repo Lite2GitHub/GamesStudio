@@ -16,6 +16,7 @@ public class VaseInventory : MonoBehaviour
     bool vaseInventoryUIVisible = false;
     bool inRange = false;
 
+    public InventoryItemController[] InventoryItems;    // !May cause problems exists in manager (changed to private)
 
     public void Awake()
     {
@@ -28,18 +29,18 @@ public class VaseInventory : MonoBehaviour
         {
             if (!vaseInventoryUIVisible)
             {
-                Debug.Log("UI open");
+                // Debug.Log("UI open");
                 vaseInventoryUI.SetActive(true);
                 vaseInventoryUIVisible = true;
-
                 ListItems();
             }
             else
             {
-                Debug.Log("UI close");
+                // Debug.Log("UI close");
                 vaseInventoryUI.SetActive(false);
                 vaseInventoryUIVisible = false;
                 CleanContentUI();
+                ItemRemoveToggler();
             }
         }
 
@@ -57,6 +58,17 @@ public class VaseInventory : MonoBehaviour
         vaseInventoryUIVisible = false;
         vaseInventoryUI.SetActive(false);
         CleanContentUI();
+    }
+
+    // No idea if this will work, please god make this work
+    public void Add(Item item)
+    {
+        VaseItems.Add(item);
+    }
+
+    public void Remove(Item item)
+    {
+        VaseItems.Remove(item);
     }
 
     public void ListItems()
@@ -78,10 +90,18 @@ public class VaseInventory : MonoBehaviour
 
         }
 
-        // SetInventoryItems();
+        SetInventoryItems();
     }
 
+    public void SetInventoryItems() //this add the list of items into the inventory's list
+    {
+        InventoryItems = Content.GetComponentsInChildren<InventoryItemController>();
 
+        for (int i = 0; i < VaseItems.Count; i++)
+        {
+            InventoryItems[i].AddItem(VaseItems[i]);
+        }
+    }
 
 
     public void CleanContentUI()
@@ -94,7 +114,16 @@ public class VaseInventory : MonoBehaviour
         }
     }
 
-    public void EnableItemsRemove() //For deleteing items in the inventory (button on top right of items)
+    public void ItemRemoveToggler()
+    {
+        // turn the toggle off; to use when menu inventory is turned off
+        if (EnableRemove.isOn)
+        {
+            EnableRemove.isOn = false;
+        }
+    }
+
+    public void EnableItemsRemove() //For deleting items in the inventory (button on top right of items)
     {
         if (EnableRemove.isOn)
         {

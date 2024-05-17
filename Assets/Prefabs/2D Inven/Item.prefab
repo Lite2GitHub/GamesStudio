@@ -765,22 +765,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -440882627306922530}
-        m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
-        m_MethodName: RightClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   DisplayIsOn: 0
   RemoveButton: {fileID: 1989289445868998645}
-  InventoryItemAsButton: {fileID: 0}
+  InventoryItemAsButton: {fileID: 7429684759024588094}
 --- !u!114 &5258378068130512560
 MonoBehaviour:
   m_ObjectHideFlags: 0

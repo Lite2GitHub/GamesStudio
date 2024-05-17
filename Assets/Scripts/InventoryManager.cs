@@ -99,7 +99,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void EnableItemsRemove() //For deleteing items in the inventory (button on top right of items)
+    public void EnableItemsRemove() //For deleting items in the inventory (button on top right of items)
     {
         if (EnableRemove.isOn)
         {
@@ -147,7 +147,7 @@ public class InventoryManager : MonoBehaviour
     //}
 
 
-    public void SetDisplayItem(Item item) //used in the journal
+    public void SetDisplayItem(Item item) //used in the journal; currently broken
     {
 
         GameObject obj = Instantiate(ItemDisplay, DisplayArea);
@@ -169,22 +169,23 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetEquippedItem(Item item) //issue here item.icon obj ref not set to an instance
-    {
-        if (DisplayArea != null)
-        {
-            GameObject obj = Instantiate(EquippedItem, HandheldArea);
-            var itemIcon = obj.transform.Find("ItemEquipIcon").GetComponent<Image>();
+    // Unused Code here; tried to make an equip slot
+    //public void SetEquippedItem(Item item) //issue here item.icon obj ref not set to an instance
+    //{
+    //    if (DisplayArea != null)
+    //    {
+    //        GameObject obj = Instantiate(EquippedItem, HandheldArea);
+    //        var itemIcon = obj.transform.Find("ItemEquipIcon").GetComponent<Image>();
 
-            itemIcon.sprite = item.icon;
-        }
-    }
+    //        itemIcon.sprite = item.icon;
+    //    }
+    //}
 
-    public void ClearEquippedSlot()
-    {
-        foreach (Transform child in HandheldArea.transform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
+    //public void ClearEquippedSlot()
+    //{
+    //    foreach (Transform child in HandheldArea.transform)
+    //    {
+    //        Destroy(child.gameObject);
+    //    }
+    //}
 }
