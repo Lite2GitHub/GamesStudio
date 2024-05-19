@@ -60,10 +60,15 @@ public class VaseInventory : MonoBehaviour
         CleanContentUI();
     }
 
-    // No idea if this will work, please god make this work
+    // Of course it doesnt work
     public void Add(Item item)
     {
-        VaseItems.Add(item);
+        Debug.Log("right click is passed through");
+        if (inRange)
+        {
+            Debug.Log("Item adding in range yes");
+            VaseItems.Add(item);
+        }
     }
 
     public void Remove(Item item)
