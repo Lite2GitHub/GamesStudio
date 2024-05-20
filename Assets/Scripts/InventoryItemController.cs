@@ -46,11 +46,10 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            rightClick.Invoke();
+            rightClick.Invoke();    // May be redundant
             Debug.Log("right click is Invoked");
-            //OnRightClick();
+            OnRightClick();
             Add2Vase(item);
-            // Works on the button yes
         }
     }
 
@@ -60,10 +59,12 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 
     }
 
-    //public void OnRightClick()
-    //{
-    //    VaseInventory.Instance.Add(item);
-    //}
+    public void OnRightClick()
+    {
+        VaseInventory.Instance.Add(item);
+        InventoryManager.Instance.Remove(item);     // Destroys item from List()
+        Destroy(gameObject);
+    }
 
     // Unused equip script test; was thinking of making an equip slot that
     // npcs can check on itme verification (i.e. scan the slot (probs array

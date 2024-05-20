@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
 
 public class ItemRightClick : MonoBehaviour, IPointerClickHandler
 {
