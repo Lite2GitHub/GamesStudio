@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17644355, g: 0.22084181, b: 0.3031577, a: 1}
+  m_IndirectSpecularColor: {r: 0.17653312, g: 0.22095893, b: 0.3032708, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2397,6 +2397,7 @@ GameObject:
   - component: {fileID: 169094384}
   - component: {fileID: 169094383}
   - component: {fileID: 169094382}
+  - component: {fileID: 169094389}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -2557,6 +2558,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &169094389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169094381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad63ac97775bf1c429ec56c874fc8138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: af8163dd06cefe14b9194fb9d4a08227, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 235698687}
+        m_TargetAssemblyTypeName: FadeScreen, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &183695602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7585,10 +7614,10 @@ PrefabInstance:
       addedObject: {fileID: 650124999}
     - targetCorrespondingSourceObject: {fileID: -7360911331510008976, guid: c23cb049bfe6f8e488a7d4747551bfae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 650124998}
+      addedObject: {fileID: 650124997}
     - targetCorrespondingSourceObject: {fileID: -7360911331510008976, guid: c23cb049bfe6f8e488a7d4747551bfae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 650124997}
+      addedObject: {fileID: 650125003}
   m_SourcePrefab: {fileID: 100100000, guid: c23cb049bfe6f8e488a7d4747551bfae, type: 3}
 --- !u!1 &650124996 stripped
 GameObject:
@@ -7616,19 +7645,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.44
   m_Center: {x: -0.5434174, y: 0.20636438, z: -0.1768548}
---- !u!114 &650124998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650124996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a280b367b2141945aa4573fb5e39b28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endOfDay: {fileID: 11400000, guid: eb5c460e3b432594099e431bbb715897, type: 2}
 --- !u!114 &650124999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7647,6 +7663,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &650125003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650124996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5254b852996a84444ad2f71da8b7aff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextDayPeriod: {fileID: 11400000, guid: af8163dd06cefe14b9194fb9d4a08227, type: 2}
 --- !u!4 &654460608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 146631527932343965, guid: 39462cab580c02d479b9259e10d1625a, type: 3}
@@ -14396,6 +14425,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53552e529cf642541bba9a223ae42501, type: 3}
   m_PrefabInstance: {fileID: 1278662245}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1280266806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280266809}
+  - component: {fileID: 1280266808}
+  - component: {fileID: 1280266807}
+  m_Layer: 0
+  m_Name: TimeOfDayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1280266807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280266806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad63ac97775bf1c429ec56c874fc8138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: af8163dd06cefe14b9194fb9d4a08227, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1280266808}
+        m_TargetAssemblyTypeName: TimeOfDayController, Assembly-CSharp
+        m_MethodName: UpdateDayTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1280266808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280266806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f911705bc3cb214da1e87d238f734bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 4488b6cc1d5cefd4c8fe5e45a559eb1e, type: 2}
+  directionalLight: {fileID: 3850287186273932638}
+  daySunAngle: 64
+  eveningSunAngle: 10
+--- !u!4 &1280266809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280266806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3615937, y: -4.234065, z: 56.958435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282264263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24956,13 +25062,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3850287186273932638}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.526313, y: -0.0877127, z: 0.09818756, w: 0.8400359}
+  m_LocalRotation: {x: 0.5237178, y: -0.08757909, z: 0.09819332, w: 0.8416696}
   m_LocalPosition: {x: 9.943229, y: 3, z: 9.914747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 64.352, y: -5.836, z: 9.66}
+  m_LocalEulerAnglesHint: {x: 64, y: -5.836, z: 9.66}
 --- !u!1001 &1347991771705824626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25251,3 +25357,4 @@ SceneRoots:
   - {fileID: 1590823909}
   - {fileID: 169094388}
   - {fileID: 2119938769}
+  - {fileID: 1280266809}
