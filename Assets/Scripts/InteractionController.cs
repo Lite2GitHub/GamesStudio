@@ -62,7 +62,6 @@ public class InteractionController : MonoBehaviour
                         {
                             if (hoveredInteractable != interactable)
                             hoveredInteractable = interactable;
-                            print(hit.collider.gameObject);
                             hoveredInteractable.GetComponent<IInteractable>().hover(true);
                             return;
                         }

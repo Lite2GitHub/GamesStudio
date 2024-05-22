@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class TextBoxImageAssignment : MonoBehaviour
 {
@@ -13,6 +14,38 @@ public class TextBoxImageAssignment : MonoBehaviour
     string currentLetter;
     [SerializeField] List<string> inputSymbolsTrueLen = new List<string>();
 
+
+    int textFadeIndex;
+    bool fadeBool;
+    bool startFadeIn;
+    int symbolOffset;
+
+    bool symbolsOn;
+    bool fadeSymbols;
+    private void Start()
+    {
+        dialogueBox.SetActive(true);
+    }
+
+    void Update()
+    {
+        if (startFadeIn)
+        {
+            if (fadeBool)
+            {
+                if (textFadeIndex < symbolHolders.Count && !fadeSymbols)
+                {
+                    print("coroutine started");
+                    StartCoroutine(FadeInText());
+                }
+                else 
+                {
+                    startFadeIn = false;
+                    symbolsOn = true;
+                }
+            }
+        }
+    }
     public void SetSymbolImages(string inputSymbols)
     {
         currentLetter = "";
@@ -20,10 +53,8 @@ public class TextBoxImageAssignment : MonoBehaviour
 
         for (int i = 0; i < inputSymbols.Length; i++)
         {
-            print("the input: " + inputSymbols);
             if (inputSymbols[i].ToString() == ",")
             {
-                print("the current letter: " + currentLetter);
                 inputSymbolsTrueLen.Add(currentLetter);
                 currentLetter = "";
             }
@@ -33,18 +64,19 @@ public class TextBoxImageAssignment : MonoBehaviour
 
                 if (i + 1 == inputSymbols.Length)
                 {
-                    print("the current letter: " + currentLetter);
                     inputSymbolsTrueLen.Add(currentLetter);
                     currentLetter = "";
                 }
             }
         }
 
+        symbolOffset = symbolHolders.Count - inputSymbolsTrueLen.Count;
+
         for (int i = 0; i < symbolHolders.Count; i++)
         {
-            if (i < inputSymbolsTrueLen.Count)
+            if (i < inputSymbolsTrueLen.Count + symbolOffset && i >= symbolOffset)
             {
-                tempIndex = inputSymbolsTrueLen[i].ToString();
+                tempIndex = inputSymbolsTrueLen[i - symbolOffset].ToString();
                 symbolHolders[i].sprite = symbol[int.Parse(tempIndex)];
             }
             else
@@ -53,51 +85,42 @@ public class TextBoxImageAssignment : MonoBehaviour
             }
         }
         tempIndex = "";
+
+        startFadeIn = true;
+        fadeBool = true;
+        textFadeIndex = symbolOffset;
+
+        symbolsOn = true;
     }
 
-    public void ToggleTextBox(bool shouldHide)
+    public void FadeOut()
     {
-        dialogueBox.SetActive(shouldHide);
-
-        Color textBoxColor = dialogueBox.GetComponent<SpriteRenderer>().color;
-        textBoxColor.a = 255;
-        dialogueBox.GetComponent<SpriteRenderer>().color = textBoxColor;
+        if (symbolsOn)
+        {
+            foreach (var symbol in symbolHolders)
+            {
+                symbol.gameObject.GetComponent<Animator>().SetTrigger("FadeOut");
+                FadeOutWait();
+            }
+            symbolsOn = false;
+        }
     }
 
-    public void FadeTextBox(float duration, bool fadeOut)
+    IEnumerator FadeOutWait()
     {
-        StartCoroutine(FadeOut(duration, dialogueBox.GetComponent<SpriteRenderer>(), fadeOut));
-
-        foreach (SpriteRenderer symbol in symbolHolders)
-        {
-            StartCoroutine(FadeOut(duration, symbol, fadeOut));
-        }
-
+        fadeSymbols = true;
+        yield return new WaitForSeconds(0.5f);
+        fadeSymbols = false;
     }
 
-    IEnumerator FadeOut(float fadeDuration, SpriteRenderer target, bool fadeOut)
+    IEnumerator FadeInText()
     {
-        Color initialColor = target.color;
-        Color targetColor = initialColor;
-
-        float elapsedTime = 0;
-
-        if (fadeOut)
-        {
-            targetColor.a = 0;
-        }
-        else
-        {
-            targetColor.a = 255;
-        }
-
-        while (elapsedTime < fadeDuration) 
-        {
-            elapsedTime += Time.deltaTime;
-            dialogueBox.GetComponent<SpriteRenderer>().color = Color.Lerp(initialColor, targetColor, elapsedTime / fadeDuration);
-            yield return null;
-        }
-        ToggleTextBox(fadeOut);
-        print("remove");
+        fadeBool = false;
+        symbolHolders[textFadeIndex].GetComponent<Animator>().SetTrigger("FadeIn");
+        print("start fade");
+        yield return new WaitForSeconds(.75f);
+        print("next fade");
+        fadeBool = true;
+        textFadeIndex++;
     }
 }

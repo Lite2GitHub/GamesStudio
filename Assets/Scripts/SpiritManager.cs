@@ -32,9 +32,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
     void Start()
     {
-        //dialogueBox.FadeTextBox(0.1f, true);
-        dialogueBox.ToggleTextBox(false);
-
         GenerateFlowerList();
 
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
@@ -45,12 +42,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
         if (timerActive)
         {
             DialogueLengthTimer(7);
-        }
-
-        if (fadeText)
-        {
-            dialogueBox.FadeTextBox(1f, true);
-            fadeText = false;
         }
     }
 
@@ -83,8 +74,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
                     else
                     {
                         //add tear stuff
-                        dialogueBox.FadeTextBox(1, false);
-                        dialogueBox.ToggleTextBox(true);
                         dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
 
                         timerTracker = 0;
@@ -100,7 +89,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
             else
             {
                 //dialogueBox.FadeTextBox(1, false);
-                dialogueBox.ToggleTextBox(true);
                 dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
 
                 timerTracker = 0;
@@ -112,7 +100,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     public void LeftRange()
     {
         //dialogueBox.FadeTextBox(1, true);
-        dialogueBox.ToggleTextBox(false);
+        dialogueBox.FadeOut();
     }
 
     void DialogueLengthTimer(float length)
@@ -120,7 +108,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
         if (timerTracker >= length)
         {
             //dialogueBox.FadeTextBox(1, true);
-            dialogueBox.ToggleTextBox(false);
+            dialogueBox.FadeOut();
 
             if (ready)
             {
