@@ -33,6 +33,7 @@ public class WindManager : MonoBehaviour
         if (locations[location].transform.childCount < 1)
         {
             GameObject windParticle = Instantiate(particles[particle], locations[location].transform);
+            windParticle.GetComponent<ParticleSystem>().Play();
             currentParticle = windParticle;
         }
         

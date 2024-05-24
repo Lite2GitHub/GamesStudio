@@ -143,8 +143,8 @@ Material:
     - _Terrain_Offset: 0
     - _Terrain_Size: 80
     - _USE_TERRAIN_COLOUR: 1
-    - _Wind_Speed: 1.1
-    - _Wind_Strength: 0.085
+    - _Wind_Speed: 2
+    - _Wind_Strength: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
