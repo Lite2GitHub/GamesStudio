@@ -143,6 +143,8 @@ Material:
     - _Terrain_Offset: 0
     - _Terrain_Size: 80
     - _USE_TERRAIN_COLOUR: 1
+    - _Wind_Speed: 1.1
+    - _Wind_Strength: 0.085
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -157,6 +159,7 @@ Material:
     - _Near_Far_Range: {r: 1, g: 20, b: 0, a: 0}
     - _Shadow_Colour: {r: 0.23887502, g: 0.60558134, b: 0.8301887, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Wind_Direction: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5678741790139305314
 MonoBehaviour:
