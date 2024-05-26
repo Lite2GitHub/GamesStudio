@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 {
@@ -14,8 +13,8 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 
     public UnityEvent rightClick;   // self explanatory adding right click func to button
 
-    bool IsActive = false;
-    public GameObject VaseInventoryCanvas;
+    public bool VaseInRange = false;
+    public bool inVase = false;
 
     public void RemoveItem() //giving the 'X' mark the power to remove items from the list
     {
@@ -47,13 +46,13 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 
     public void Update()
     {
-        if (VaseInventoryCanvas.activeInHierarchy)
+        if (VaseInventory.Instance.inRange == true)
         {
-            IsActive = true;
+            VaseInRange = true;
         }
-        else 
+        else
         {
-            IsActive = false;
+            VaseInRange = false;
         }
     }
 
@@ -70,23 +69,25 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
     public void Add2Vase(Item newItem)
     {
         item = newItem;
-
     }
 
     public void OnRightClick()
     {
-        if (IsActive == true)
+        Debug.Log("OnRightClick");
+
+        if (VaseInRange && !inVase)
         {
             VaseInventory.Instance.Add(item);
             Add2Vase(item);
-
+            VaseInventory.Instance.ListItems();
+            
             Destroy(gameObject);
 
-            InventoryManager.Instance.Remove(item);     // Destroys item from List()
+            InventoryManager.Instance.Remove(item);
         }
-        else
+        if (inVase)
         {
-            Debug.Log("vase inventory not active");
+            
         }
     }
 

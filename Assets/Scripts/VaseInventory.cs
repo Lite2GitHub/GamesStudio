@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +14,8 @@ public class VaseInventory : MonoBehaviour
 
     public GameObject vaseInventoryUI;
     bool vaseInventoryUIVisible = false;
-    bool inRange = false;
+    public bool inRange = false;
+    public bool inVase;
 
     public InventoryItemController[] InventoryItems;    // !May cause problems exists in manager (changed to private)
 
@@ -59,23 +59,22 @@ public class VaseInventory : MonoBehaviour
         vaseInventoryUIVisible = false;
         vaseInventoryUI.SetActive(false);
         CleanContentUI();
+        ItemRemoveToggler();
     }
 
-    // Of course it doesnt work
-    public void Add(Item item)
+    public void Add(Item item)      // Do not remove, may be important
     {
         Debug.Log("right click is passed through");
         if (inRange)
         {
             Debug.Log("Item adding in range yes");
-            VaseItems.Add(item);
-        }   
+            VaseItems.Add(item);    // This might be adding the item onto the list (memory)
+        }
         else
         {
             Debug.Log("not in range");
             return;
         }
-
     }
 
     public void Remove(Item item)
@@ -85,6 +84,8 @@ public class VaseInventory : MonoBehaviour
 
     public void ListItems()
     {
+        CleanContentUI();
+
         foreach (var item in VaseItems)
         {
             GameObject obj = Instantiate(InventoryItem, Content); //Create item/fill out item slot for each item in Item List
@@ -115,6 +116,10 @@ public class VaseInventory : MonoBehaviour
         }
     }
 
+    public void InVase()
+    {
+        //inVase = Content.GetCom
+    }
 
     public void CleanContentUI()
     {
