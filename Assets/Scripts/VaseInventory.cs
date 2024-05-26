@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,7 +69,13 @@ public class VaseInventory : MonoBehaviour
         {
             Debug.Log("Item adding in range yes");
             VaseItems.Add(item);
+        }   
+        else
+        {
+            Debug.Log("not in range");
+            return;
         }
+
     }
 
     public void Remove(Item item)
