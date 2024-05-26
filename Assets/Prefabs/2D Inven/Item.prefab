@@ -762,12 +762,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb547269985520458f6ec1e8f6a1ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayIsOn: 0
+  item: {fileID: 0}
   RemoveButton: {fileID: 1989289445868998645}
   rightClick:
     m_PersistentCalls:
       m_Calls: []
-  InventoryItemAsButton: {fileID: 7429684759024588094}
+  VaseInventoryCanvas: {fileID: 0}
 --- !u!225 &5446830664393086896
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -2,17 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
 
-    public bool DisplayIsOn = false;
+    bool DisplayIsOn = false;
 
     public Button RemoveButton;
 
     public UnityEvent rightClick;   // self explanatory adding right click func to button
 
+    bool IsActive = false;
+    public GameObject VaseInventoryCanvas;
 
     public void RemoveItem() //giving the 'X' mark the power to remove items from the list
     {
@@ -42,6 +45,18 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void Update()
+    {
+        if (VaseInventoryCanvas.activeInHierarchy)
+        {
+            IsActive = true;
+        }
+        else 
+        {
+            IsActive = false;
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -49,7 +64,6 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
             rightClick.Invoke();    // May be redundant
             Debug.Log("right click is Invoked");
             OnRightClick();
-            Add2Vase(item);
         }
     }
 
@@ -61,9 +75,19 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 
     public void OnRightClick()
     {
-        VaseInventory.Instance.Add(item);
-        InventoryManager.Instance.Remove(item);     // Destroys item from List()
-        Destroy(gameObject);
+        if (IsActive == true)
+        {
+            VaseInventory.Instance.Add(item);
+            Add2Vase(item);
+
+            Destroy(gameObject);
+
+            InventoryManager.Instance.Remove(item);     // Destroys item from List()
+        }
+        else
+        {
+            Debug.Log("vase inventory not active");
+        }
     }
 
     // Unused equip script test; was thinking of making an equip slot that
