@@ -69,6 +69,8 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems() //this instantiates items onto the Inventory UI (ItemContent) 
     {
+        CleanContentUI();
+
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent); //Create item/fill out item slot for each item in Item List
@@ -84,6 +86,8 @@ public class InventoryManager : MonoBehaviour
                 removeButton.gameObject.SetActive(true);
             }
 
+            var inventoryItemController = obj.GetComponent<InventoryItemController>();
+            inventoryItemController.inVase = false;
         }
 
         SetInventoryItems();

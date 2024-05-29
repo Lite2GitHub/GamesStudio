@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 {
@@ -80,14 +81,22 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
             VaseInventory.Instance.Add(item);
             Add2Vase(item);
             VaseInventory.Instance.ListItems();
-            
-            Destroy(gameObject);
 
             InventoryManager.Instance.Remove(item);
+            // InventoryManager.Instance.ListItems();
+
+            Destroy(gameObject);
         }
         if (inVase)
         {
-            
+            InventoryManager.Instance.Add(item);
+            AddItem(item);
+            InventoryManager.Instance.ListItems();
+
+            VaseInventory.Instance.Remove(item);
+            // VaseInventory.Instance.ListItems();
+
+            Destroy(gameObject);
         }
     }
 

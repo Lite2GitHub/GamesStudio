@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,7 +45,6 @@ public class VaseInventory : MonoBehaviour
                 ItemRemoveToggler();
             }
         }
-
     }
 
     public void OnTriggerEnter(Collider other)
@@ -101,6 +101,8 @@ public class VaseInventory : MonoBehaviour
                 removeButton.gameObject.SetActive(true);
             }
 
+            var inventoryItemController = obj.GetComponent<InventoryItemController>();
+            inventoryItemController.inVase = true;
         }
 
         SetInventoryItems();
@@ -116,10 +118,16 @@ public class VaseInventory : MonoBehaviour
         }
     }
 
-    public void InVase()
-    {
-        //inVase = Content.GetCom
-    }
+    //public void SetInVaseStatus()
+    //{
+    //    InventoryItems = Content.GetComponentsInChildren<InventoryItemController>();
+
+    //    for (int i = 0; i < VaseItems.Count; i++)
+    //    {
+    //        InventoryItems[i].AddItem(VaseItems[i]);
+    //    }
+    //}
+
 
     public void CleanContentUI()
     {
@@ -128,6 +136,11 @@ public class VaseInventory : MonoBehaviour
         foreach (Transform item in Content)
         {
             Destroy(item.gameObject);
+        }
+
+        // foreach (item in InventoryItems)
+        {
+
         }
     }
 
