@@ -52,18 +52,6 @@ public class PlayerController : MonoBehaviour
     public void SetInteracting(bool interacting)
     {
         isInteracting = interacting;
-
-        /*
-        if (isInteracting)
-        {
-
-        }
-        else
-        {
-
-        }
-        */
     }
-
 }
 
