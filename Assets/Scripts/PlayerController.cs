@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f; // Adjust this to change the movement speed
     public bool isInteracting = false;
-    private bool isMenuUIOpen = false;
+    //private bool isMenuUIOpen = false;    // Unused, initially for checking menu UI isOpen
     //public GameObject inventoryMenu; // Menu UI for Inventory!
 
     // public GameObject itemEquipped;

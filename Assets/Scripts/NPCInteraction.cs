@@ -1,78 +1,78 @@
-using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine;
+//using UnityEngine.UI;
 
-public class NPCInteraction : MonoBehaviour
-{
-    Item Item;
-    NPC NPC;
+//public class NPCInteraction : MonoBehaviour
+//{
+//    Item Item;
+//    NPC NPC;
 
-    public GameObject dialogueCanvas; // Back story + Prompt
-    public GameObject successDialogue;
-    public GameObject failDialogue;
-
-
-    public bool playerInRange;
-    public PlayerController playerController;
+//    public GameObject dialogueCanvas; // Back story + Prompt
+//    public GameObject successDialogue;
+//    public GameObject failDialogue;
 
 
-    private NPC ItemRequired;
-    public GameObject ItemSelected; //to be changed 
-    private bool correctItemReceived = false;
+//    public bool playerInRange;
+//    public PlayerController playerController;
 
-    private bool isMenuUIOpen = false;
 
-    public Text interactionText;
+//    private NPC ItemRequired;
+//    public GameObject ItemSelected; //to be changed 
+//    private bool correctItemReceived = false;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
+//    private bool isMenuUIOpen = false;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }
+//    public Text interactionText;
 
-    private void Update()
-    {
-        if (playerInRange && Input.GetKeyDown(KeyCode.Mouse1)) //right click to interact
-        {
-            Debug.Log("Interact by click work");
-            dialogueCanvas.SetActive(true); // dialogue only, prompt to open inventory with [Tab]
-            playerController.SetInteracting(true); // disables player controller
-            // isInteracting = true; // redundacy 
+//    private void OnTriggerEnter(Collider other)
+//    {
+//        if (other.CompareTag("Player"))
+//        {
+//            playerInRange = true;
+//        }
+//    }
 
-            if (!correctItemReceived && ItemSelected == ItemRequired)
-            {
-                correctItemReceived = true;
-                successDialogue.SetActive(true);
-            } 
-            else
-            {
-                correctItemReceived = false;
-                failDialogue.SetActive(true);
-            }
+//    private void OnTriggerExit(Collider other)
+//    {
+//        if (other.CompareTag("Player"))
+//        {
+//            playerInRange = false;
+//        }
+//    }
 
-        }
+//    private void Update()
+//    {
+//        if (playerInRange && Input.GetKeyDown(KeyCode.Mouse1)) //right click to interact
+//        {
+//            Debug.Log("Interact by click work");
+//            dialogueCanvas.SetActive(true); // dialogue only, prompt to open inventory with [Tab]
+//            playerController.SetInteracting(true); // disables player controller
+//            // isInteracting = true; // redundacy 
 
-        if (Input.GetKeyDown(KeyCode.Escape)) // can add other methods of exitting
-        {
-            UnlockPlayer();
-        }
-    }
+//            if (!correctItemReceived && ItemSelected == ItemRequired)
+//            {
+//                correctItemReceived = true;
+//                successDialogue.SetActive(true);
+//            } 
+//            else
+//            {
+//                correctItemReceived = false;
+//                failDialogue.SetActive(true);
+//            }
 
-    void UnlockPlayer()
-    {
-        // isInteracting = false;
-        playerController.SetInteracting(false); // Enable player movement
-        isMenuUIOpen = false;
-    }
+//        }
+
+//        if (Input.GetKeyDown(KeyCode.Escape)) // can add other methods of exitting
+//        {
+//            UnlockPlayer();
+//        }
+//    }
+
+//    void UnlockPlayer()
+//    {
+//        // isInteracting = false;
+//        playerController.SetInteracting(false); // Enable player movement
+//        isMenuUIOpen = false;
+//    }
 
     
-}
+//}     UNUSED SCRIPTS
