@@ -53,6 +53,7 @@ MonoBehaviour:
   playerInteraction: {fileID: 0}
   flowerDialogue: 4,1
   flowerType: magnolia
+  Item: {fileID: 11400000, guid: c978c796488b4db43b011f578856921f, type: 2}
 --- !u!136 &6663569518664358804
 CapsuleCollider:
   m_ObjectHideFlags: 0

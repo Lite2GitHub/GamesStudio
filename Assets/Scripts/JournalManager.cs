@@ -55,11 +55,11 @@ public class JournalManager : MonoBehaviour
             }
         }
 
-        // Vase inventory shifting inventory to right; numbers are wack due to Unity but it is adjusted.
+        // Vase inventory shifting inventory to right; !Numbers are very wack, ensure you're playing in Maximized.
 
         if (VaseInventory.Instance.vaseInventoryUIVisible == true)
         {
-            inventory.transform.position = new Vector2(920, 270);
+            inventory.transform.position = new Vector2(2200, 600);
         }
         else
         {

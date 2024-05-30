@@ -53,6 +53,7 @@ MonoBehaviour:
   playerInteraction: {fileID: 0}
   flowerDialogue: 5,0,11
   flowerType: daisy
+  Item: {fileID: 11400000, guid: c4c02b761dfacd84ea6223e20294f5be, type: 2}
 --- !u!136 &2118792026321328410
 CapsuleCollider:
   m_ObjectHideFlags: 0

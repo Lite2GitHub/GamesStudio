@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01d01f1b4cb6b94693b2c2ea495c839, type: 3}
   m_Name: Yellow Flower
   m_EditorClassIdentifier: 
-  id: 3
+  id: 97
   itemName: Daffodil
-  lifetime: 2
   icon: {fileID: 21300000, guid: be5a7f6302199474498f743ed0820b37, type: 3}
   itemDescription: This is a yellow flower
-  itemType: 2

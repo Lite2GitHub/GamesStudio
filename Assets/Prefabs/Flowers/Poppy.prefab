@@ -53,6 +53,7 @@ MonoBehaviour:
   playerInteraction: {fileID: 0}
   flowerDialogue: 9,3,2
   flowerType: poppy
+  Item: {fileID: 11400000, guid: 77f930dae47d9a648abcd6ec4999f9cc, type: 2}
 --- !u!136 &2772118006056879801
 CapsuleCollider:
   m_ObjectHideFlags: 0

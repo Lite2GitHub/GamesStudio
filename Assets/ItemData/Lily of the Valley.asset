@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lily of the Valley
   m_EditorClassIdentifier: 
   id: 2
-  itemName: Lilly of the Valley
+  itemName: 'Lily '
   icon: {fileID: 21300000, guid: 7be587435ab264e40985f18d665e3561, type: 3}
   itemDescription: '"Return of Happiness."'
