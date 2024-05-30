@@ -8,7 +8,7 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
 
-    bool DisplayIsOn = false;
+    //bool DisplayIsOn = false;     // Unused
 
     public Button RemoveButton;
 
@@ -29,21 +29,22 @@ public class InventoryItemController : MonoBehaviour, IPointerClickHandler
         item = newItem;
     }
 
-    public void DisplayItem()   // On left click (default click on item in UI)
-    {
+    // CURRENTLY UNUSED - 2 BE ADDED IN FUTURE
+    //public void DisplayItem()   // On left click (default click on item in UI)
+    //{
 
-        if (!DisplayIsOn)
-        {
-            InventoryManager.Instance.SetDisplayItem(item);
-            DisplayIsOn = true;
-        }
+    //    if (!DisplayIsOn)
+    //    {
+    //        InventoryManager.Instance.SetDisplayItem(item);
+    //        DisplayIsOn = true;
+    //    }
 
-        if (DisplayIsOn)
-        {
-            InventoryManager.Instance.ClearDisplayItems();
-            DisplayIsOn = false;
-        }
-    }
+    //    if (DisplayIsOn)
+    //    {
+    //        InventoryManager.Instance.ClearDisplayItems();
+    //        DisplayIsOn = false;
+    //    }
+    //}                         
 
     public void Update()
     {

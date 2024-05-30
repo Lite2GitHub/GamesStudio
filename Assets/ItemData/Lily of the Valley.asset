@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d01d01f1b4cb6b94693b2c2ea495c839, type: 3}
-  m_Name: Yellow Flower
+  m_Name: Lily of the Valley
   m_EditorClassIdentifier: 
-  id: 97
-  itemName: Daffodil
-  icon: {fileID: 21300000, guid: be5a7f6302199474498f743ed0820b37, type: 3}
-  itemDescription: This is a yellow flower
+  id: 2
+  itemName: 'Lily '
+  icon: {fileID: 21300000, guid: 7be587435ab264e40985f18d665e3561, type: 3}
+  itemDescription: '"Return of Happiness."'

@@ -14,7 +14,7 @@ public class VaseInventory : MonoBehaviour
     public Toggle EnableRemove;   // Toggle for deleting item
 
     public GameObject vaseInventoryUI;
-    bool vaseInventoryUIVisible = false;
+    public bool vaseInventoryUIVisible = false;
     public bool inRange = false;
     public bool inVase;
 
@@ -47,12 +47,12 @@ public class VaseInventory : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider player)
     {
         inRange = true;
     }
 
-    public void OnTriggerExit(Collider other)   // Currently also closes the UI, can be changed
+    public void OnTriggerExit(Collider player)   // Currently also closes the UI, can be changed
     {
         Debug.Log("UI close, Out of Range");    // Extra stuff, can leave to close
         inRange = false;
