@@ -12,13 +12,13 @@ public class JournalManager : MonoBehaviour
     [Header("References")]
     [SerializeField] SceneController sceneController;
 
-    //bool vaseUIOpen = false;
+    bool vaseUIOpen = false;
 
     bool isPaused = false;
     private Vector2 origInventoryPos;
 
     private void Start()
-    { 
+    {
         origInventoryPos = inventory.transform.position;
     }
 
@@ -55,18 +55,26 @@ public class JournalManager : MonoBehaviour
             }
         }
 
-        // Vase inventory shifting inventory to right; !Numbers are very wack, ensure you're playing in Maximized.
+        isVaseUIOpen();
+    }
 
+    //  Shifting inventory on Vase open. !Numbers are very wack, ensure you're playing in Maximized. Values are calibrated
+
+    public void isVaseUIOpen()
+    {
         if (VaseInventory.Instance.vaseInventoryUIVisible == true)
         {
             inventory.transform.position = new Vector2(2200, 600);
-        }
+            vaseUIOpen = true;
+        }   
         else
         {
             inventory.transform.position = origInventoryPos;
+            vaseUIOpen = false;
         }
     }
 
+    //VaseInventory.Instance.vaseInventoryUIVisible == true
     public void ResumeGame()
     {
         isPaused = false;

@@ -55,6 +55,21 @@ public class InventoryManager : MonoBehaviour
                 ItemRemoveToggler();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Items.Count > 0)    // Redundancy 
+            {
+                Items.RemoveAt(0);
+                Debug.Log("First item in List Deleted");
+
+                ListItems();
+            }   
+            else
+            {
+                Debug.Log("No items; List empty");
+            }
+        }
     }
 
     public void Add(Item item) //adds items using Item (Scriptable) as the parameter

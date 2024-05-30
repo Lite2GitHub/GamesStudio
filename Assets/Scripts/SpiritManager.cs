@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+//using static UnityEditor.Progress;
 
 public class SpiritManager : MonoBehaviour, IInteractable
 {
@@ -31,6 +32,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
     bool alive = false;
 
     [SerializeField] List<string> requiredFlowersList = new List<string>();
+
+    public Item Items;      // Added by Angus
 
     void Start()
     {
