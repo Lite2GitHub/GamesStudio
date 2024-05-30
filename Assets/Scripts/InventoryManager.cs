@@ -17,11 +17,11 @@ public class InventoryManager : MonoBehaviour
 
     public Toggle EnableRemove;
 
-    public Transform DisplayArea; //the display slot
-    public GameObject ItemDisplay; //the display prefab
+    //public Transform DisplayArea; //the display slot          // Unused currently
+    //public GameObject ItemDisplay; //the display prefab       // Unused currently
 
-    public Transform HandheldArea; //the equipped slot
-    public GameObject EquippedItem; //the equipped prefab
+    //public Transform HandheldArea; //the equipped slot        // Unused currently
+    //public GameObject EquippedItem; //the equipped prefab     // Unused currently
 
     public InventoryItemController[] InventoryItems;
     /* 
@@ -151,27 +151,27 @@ public class InventoryManager : MonoBehaviour
     //}
 
 
-    public void SetDisplayItem(Item item) //used in the journal; currently broken
-    {
+    //public void SetDisplayItem(Item item) //used in the journal; currently broken
+    //{
 
-        GameObject obj = Instantiate(ItemDisplay, DisplayArea);
-        var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
-        var descriptiveText = obj.transform.Find("DescriptiveText").GetComponent<TMPro.TextMeshProUGUI>();
+    //    GameObject obj = Instantiate(ItemDisplay, DisplayArea);
+    //    var itemSprite = obj.transform.Find("ItemSprite").GetComponent<Image>();
+    //    var descriptiveText = obj.transform.Find("DescriptiveText").GetComponent<TMPro.TextMeshProUGUI>();
 
-        itemSprite.sprite = item.icon;
-        descriptiveText.text = item.itemDescription;
-    }
+    //    itemSprite.sprite = item.icon;
+    //    descriptiveText.text = item.itemDescription;
+    //}
 
-    public void ClearDisplayItems() //cleanser for display
-    {
-        if (DisplayArea != null)
-        {
-            foreach (Transform child in DisplayArea.transform)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-    }
+    //public void ClearDisplayItems() //cleanser for display
+    //{
+    //    if (DisplayArea != null)
+    //    {
+    //        foreach (Transform child in DisplayArea.transform)
+    //        {
+    //            Destroy(child.gameObject);
+    //        }
+    //    }
+    //}
 
     // Unused Code here; tried to make an equip slot
     //public void SetEquippedItem(Item item) //issue here item.icon obj ref not set to an instance

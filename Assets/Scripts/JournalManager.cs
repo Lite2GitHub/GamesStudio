@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JournalManager : MonoBehaviour
@@ -14,7 +12,15 @@ public class JournalManager : MonoBehaviour
     [Header("References")]
     [SerializeField] SceneController sceneController;
 
+    //bool vaseUIOpen = false;
+
     bool isPaused = false;
+    private Vector2 origInventoryPos;
+
+    private void Start()
+    { 
+        origInventoryPos = inventory.transform.position;
+    }
 
     void Update()
     {
@@ -49,7 +55,16 @@ public class JournalManager : MonoBehaviour
             }
         }
 
+        // Vase inventory shifting inventory to right; numbers are wack due to Unity but it is adjusted.
 
+        if (VaseInventory.Instance.vaseInventoryUIVisible == true)
+        {
+            inventory.transform.position = new Vector2(920, 270);
+        }
+        else
+        {
+            inventory.transform.position = origInventoryPos;
+        }
     }
 
     public void ResumeGame()
@@ -78,7 +93,7 @@ public class JournalManager : MonoBehaviour
     {
         inventory.SetActive(false);
         research.SetActive(false);
-        notes.SetActive(false); 
+        notes.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
     }
@@ -88,7 +103,7 @@ public class JournalManager : MonoBehaviour
 
         research.SetActive(false);
         notes.SetActive(false);
-        menu.SetActive(false);  
+        menu.SetActive(false);
         help.SetActive(false);
     }
 

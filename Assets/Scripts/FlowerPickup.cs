@@ -12,6 +12,8 @@ public class FlowerPickup : MonoBehaviour, IInteractable
     [SerializeField] string flowerDialogue;
     [SerializeField] string flowerType;
 
+    public Item Item;   //Added by Angus
+
     void Start()
     {
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
@@ -33,6 +35,10 @@ public class FlowerPickup : MonoBehaviour, IInteractable
     {
         print("collected flower");
         playerInteraction.heldItem = flowerType;
+
+        InventoryManager.Instance.Add(Item);    //Added by Angus
+        Debug.Log("Pickup success.");
+
         Destroy(gameObject);
     }
 
