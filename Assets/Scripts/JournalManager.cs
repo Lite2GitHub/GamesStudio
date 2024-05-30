@@ -19,7 +19,7 @@ public class JournalManager : MonoBehaviour
 
     private void Start()
     {
-        origInventoryPos = inventory.transform.position;
+        Vector2 origInventoryPos = inventory.transform.localPosition;
     }
 
     void Update()
@@ -64,12 +64,12 @@ public class JournalManager : MonoBehaviour
     {
         if (VaseInventory.Instance.vaseInventoryUIVisible == true)
         {
-            inventory.transform.position = new Vector2(2200, 600);
+            inventory.transform.localPosition = new Vector2(970, 0);
             vaseUIOpen = true;
         }   
         else
         {
-            inventory.transform.position = origInventoryPos;
+            inventory.transform.localPosition = origInventoryPos;
             vaseUIOpen = false;
         }
     }
