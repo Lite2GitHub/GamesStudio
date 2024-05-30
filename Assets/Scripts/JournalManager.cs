@@ -33,6 +33,22 @@ public class JournalManager : MonoBehaviour
                 DeactivateAll();
             }
         }
+        if (Input.GetKeyUp(KeyCode.Tab))    // Added by Angus
+        {
+            if (!isPaused)
+            {
+                isPaused = true;
+                Time.timeScale = 0;
+                SetInventoryActive();
+            }
+            else
+            {
+                isPaused = false;
+                Time.timeScale = 1;
+                DeactivateAll();
+            }
+        }
+
 
     }
 

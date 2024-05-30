@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
 
     public void StartGame()
     {
-        sceneController.StartNextScene("SafeLevel");
+        sceneController.StartNextScene("LevelTest");    // Angus changed this; WAS SafeLevel.
     }
 
     public void SettingsMenu()
