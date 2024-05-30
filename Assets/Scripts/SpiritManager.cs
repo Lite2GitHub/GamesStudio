@@ -28,6 +28,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
     bool timerActive;
     bool fadeText;
     bool ready = false;
+    bool alive = false;
+
     [SerializeField] List<string> requiredFlowersList = new List<string>();
 
     void Start()
