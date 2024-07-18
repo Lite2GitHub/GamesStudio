@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUp
   - PlayerInteraction
+  - UICanvas
   layers:
   - Default
   - TransparentFX

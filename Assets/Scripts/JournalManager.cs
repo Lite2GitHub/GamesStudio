@@ -54,27 +54,8 @@ public class JournalManager : MonoBehaviour
                 DeactivateAll();
             }
         }
-
-        isVaseUIOpen();
     }
 
-    //  Shifting inventory on Vase open. !Numbers are very wack, ensure you're playing in Maximized. Values are calibrated
-
-    public void isVaseUIOpen()
-    {
-        if (VaseInventory.Instance.vaseInventoryUIVisible == true)
-        {
-            inventory.transform.localPosition = new Vector2(970, 0);
-            vaseUIOpen = true;
-        }   
-        else
-        {
-            inventory.transform.localPosition = origInventoryPos;
-            vaseUIOpen = false;
-        }
-    }
-
-    //VaseInventory.Instance.vaseInventoryUIVisible == true
     public void ResumeGame()
     {
         isPaused = false;
