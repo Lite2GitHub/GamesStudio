@@ -47,7 +47,7 @@ public class FlowerPickup : MonoBehaviour, IInteractable
         Vector2 mousePosition = new Vector2(Input.mousePosition.x - (Screen.width / 2), Input.mousePosition.y - (Screen.height / 2)); //mouse origin is bottom left ui is center have to offset
 
         GameObject uigo = Instantiate(uiVersion);
-        uigo.transform.parent = uiCanvas.transform;
+        uigo.transform.SetParent(uiCanvas.transform);
         uigo.GetComponent<RectTransform>().anchoredPosition = mousePosition;
 
         sprite.enabled = false;
