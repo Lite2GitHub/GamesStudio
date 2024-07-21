@@ -3,73 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 using Cinemachine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Switch;
 
 public class CameraController : MonoBehaviour
 {
-    public bool isPanOut = false;
-    public bool isDefault = false;
-    public bool isSideCam = false;
+    [SerializeField]
+    private InputAction action;
 
-    public CinemachineVirtualCamera VirtCamPanOut;
-    public CinemachineVirtualCamera VirtCamDefault;
-    public CinemachineVirtualCamera VirtCamSide;
+    [SerializeField]
+    private CinemachineVirtualCamera vCam1; //DefaultCam
 
-    public void CameraCut()
+    [SerializeField]
+    private CinemachineVirtualCamera vCam2; //PanOutCam
+
+    private void OnEnable()
     {
-        if (isPanOut)  //Pan Out
-        {
-            VirtCamPanOut.gameObject.SetActive(true);
-            isPanOut = false;
-
-            VirtCamDefault.gameObject.SetActive(false);
-            VirtCamSide.gameObject.SetActive(false);
-        }
-
-        if (isDefault)    //Default Cam
-        {
-            VirtCamDefault.gameObject.SetActive(true);
-            isDefault = false;
-
-            VirtCamPanOut.gameObject.SetActive(false);
-            VirtCamSide.gameObject.SetActive(false);
-        }
-
-        if (isSideCam)    //Side Cam
-        {
-            VirtCamSide.gameObject.SetActive(true);
-            isSideCam = false;
-
-            VirtCamDefault.gameObject.SetActive(false);
-            VirtCamPanOut.gameObject.SetActive(false);
-        }
-
+        action.Enable();
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            isPanOut = true;
-
-            isSideCam = false;
-            isDefault = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            isDefault = true;
-
-            isSideCam = false;
-            isPanOut = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            isSideCam = true;
-
-            isPanOut = false;
-            isDefault = false;
-        }
+        action.Disable();
     }
+
+    private bool defaultCam = true;
+
+
+    private void Start()
+    {
+        action.performed += _ => SwitchPriority();  // "_" is to pass a parameter? this case there is nothing so...
+        //subscribing to action called SwitchPriority (aka this script will listen for input (= action.performed))
+    }
+
+    private void SwitchPriority()
+    {
+        if (defaultCam)
+        {
+            vCam1.Priority = 0;
+            vCam2.Priority = 1;
+        }   
+        else
+        {
+            vCam1.Priority = 1;
+            vCam2.Priority = 0;
+        }
+        defaultCam = !defaultCam;
+    }
+
+
 
 }
