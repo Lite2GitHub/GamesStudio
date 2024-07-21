@@ -7,14 +7,39 @@ using System.Xml.Serialization;
 public class CameraZoneSwitcher : MonoBehaviour
 {
     public string triggerTag;
+    public bool isPrimaryCam = true;
 
     public CinemachineVirtualCamera primaryCam;
+    public CinemachineVirtualCamera panOutCam;
 
     public CinemachineVirtualCamera[] virtualCameras;
+
+    
 
     private void Start()
     {
         SwitchToCamera(primaryCam);
+    }
+
+    private void Update()
+    {
+        PanFunction();
+    }
+
+    public void PanFunction()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (isPrimaryCam)
+            {
+                SwitchToCamera(panOutCam);
+            }
+            else
+            {
+                SwitchToCamera(primaryCam);
+            }
+            isPrimaryCam = !isPrimaryCam;
+        }
     }
 
     private void OnTriggerEnter(Collider player)
@@ -31,6 +56,7 @@ public class CameraZoneSwitcher : MonoBehaviour
         if (player.CompareTag(triggerTag))
         {
             SwitchToCamera(primaryCam);
+            isPrimaryCam = true;
         }
     }
 
