@@ -10,6 +10,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
         Debug.Log("flow dropped on sq2uare");
         if (eventData.pointerDrag != null)
         {
+            Debug.Log(eventData.pointerDrag);
+
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         }
     }

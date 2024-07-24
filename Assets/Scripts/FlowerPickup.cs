@@ -49,6 +49,7 @@ public class FlowerPickup : MonoBehaviour, IInteractable
         GameObject uigo = Instantiate(uiVersion);
         uigo.transform.SetParent(uiCanvas.transform);
         uigo.GetComponent<RectTransform>().anchoredPosition = mousePosition;
+        uigo.transform.localScale = Vector3.one;
 
         sprite.enabled = false;
     }
