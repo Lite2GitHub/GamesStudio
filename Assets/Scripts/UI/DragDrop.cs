@@ -16,11 +16,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<Canvas>();
     }
 
-    void Start()
-    {
-        
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.alpha = 0.6f;

@@ -8,17 +8,18 @@ public class SetParentOnClick : MonoBehaviour
 
     [SerializeField] List<GameObject> objectArray = new List<GameObject>(); //an array for all the objects to be parent managed
 
+    //other objects call this function with a referecne to themselves
     public void SetNewParent(GameObject newParent)
     {
-        gridParent = newParent;
+        removeParent(); //remove the parent GO and any hierachy
 
-        removeParent();
+        gridParent = newParent;
 
         foreach (GameObject child in objectArray)
         {
+            //add as child of the parent GO
             if (child != newParent)
             {
-                Debug.Log("reparented");
                 child.transform.SetParent(newParent.transform);
             }
         }
@@ -31,9 +32,18 @@ public class SetParentOnClick : MonoBehaviour
     //removes the respective managed parent, this object will still remain the main parent
     void removeParent()
     {
+        gridParent = null; //empty parent slot
+
+        //iterate through loop and make a child of this GO inorder to remove existing parent structure a reset basically
         foreach (GameObject child in objectArray)
         {
             child.transform.SetParent(transform);
         }
+    }
+
+    //Public function grid squares can call to stop any lingering references
+    public void EmptyParentSlot()
+    {
+        gridParent = null; //empty parent slot
     }
 }
