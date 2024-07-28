@@ -10,13 +10,13 @@ public class GridSquareClickReparent : MonoBehaviour, IPointerDownHandler, IPoin
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("press");
         parentManager.SetNewParent(gameObject); //adds it as the parent GO in the parent manager
+        parentManager.ToggleGrid(true); //turns placement grid on
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         parentManager.EmptyParentSlot(); //removes it as the parent GO from the parent manager after a click is done
-        Debug.Log("remove parent");
+        parentManager.ToggleGrid(false); //turns placement grid off
     }
 }
