@@ -289,6 +289,10 @@ MonoBehaviour:
   - {fileID: 9021198299358420964}
   - {fileID: 2201166634217595768}
   - {fileID: 5657539859675533702}
+  squareArray:
+  - {fileID: 116855468431131844}
+  - {fileID: 9021198299358420964}
+  - {fileID: 2201166634217595768}
 --- !u!114 &5296935896007613120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 62de81145a80d3548a1bca39499b9c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 170e8fc4ad09efc42a20c08de432678a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
