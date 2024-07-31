@@ -6367,7 +6367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5942688092340827464, guid: bffbb2b2ea185af46a0986184d6ac09f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.49
+      value: 10.45
       objectReference: {fileID: 0}
     - target: {fileID: 5942688092340827464, guid: bffbb2b2ea185af46a0986184d6ac09f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6375,7 +6375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5942688092340827464, guid: bffbb2b2ea185af46a0986184d6ac09f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.18
+      value: 38.21
       objectReference: {fileID: 0}
     - target: {fileID: 5942688092340827464, guid: bffbb2b2ea185af46a0986184d6ac09f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6449,7 +6449,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 0.001
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.001
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -6465,7 +6465,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!1001 &378608322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21258,8 +21258,8 @@ Camera:
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 2
-  m_FocusDistance: 10
-  m_FocalLength: 24
+  m_FocusDistance: 10.8
+  m_FocalLength: 15
   m_BladeCount: 6
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -21274,7 +21274,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 10
-  field of view: 56.126385
+  field of view: 80.92836
   orthographic: 0
   orthographic size: 1.6
   m_Depth: -1
@@ -21300,8 +21300,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34305376, y: -0.000000016162224, z: 0.000000005902714, w: 0.9393158}
-  m_LocalPosition: {x: 6.54, y: 1.7653874, z: 36.239998}
+  m_LocalRotation: {x: 0.42690173, y: 0.000000016631317, z: -0.0000000044112616, w: 0.90429807}
+  m_LocalPosition: {x: 6.54, y: 1.9653875, z: 36.239998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
