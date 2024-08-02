@@ -10,27 +10,38 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     public Transform[] patrolPoints;
-    public int targetPoints;
+    public int targetPoint;
     public float speed;
 
     void Start()
     {
-        targetPoints = 0;
+        targetPoint = 0;
     }
 
     void Update()
     {
-        if (transform.position == patrolPoints[0].position)
+        if (transform.position == patrolPoints[targetPoint].position)
         {
             increaseTargetInt();
         }
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[0].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
 
     }
 
     void increaseTargetInt()
     {
-        targetPoints++;
+        targetPoint++;
+        if (targetPoint >= patrolPoints.Length)
+        {
+            targetPoint = 0;
+        }
     }
+
+    void FlipX()
+    {
+        flipX = GetComponentInChildren<Sprite>();
+
+    }
+
 
 }
