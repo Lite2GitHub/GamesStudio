@@ -11,7 +11,9 @@ public class InteractionController : MonoBehaviour
     [Header("Ray Cast Variables")]
     [SerializeField] float maxDistance;
     [SerializeField] List<GameObject> interactableObjects = new List<GameObject>();
-    public string heldItem;
+
+    //information about the object being held
+    public string heldItem; //placeholder will eventually have a more robust link
 
     Ray ray;
     RaycastHit hit;
@@ -27,6 +29,7 @@ public class InteractionController : MonoBehaviour
         }
     }
 
+    //adds interactables to list when in range
     void OnTriggerEnter(Collider other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
@@ -36,6 +39,7 @@ public class InteractionController : MonoBehaviour
         }
     }
 
+    //removes interactables from list as they get too far
     void OnTriggerExit(Collider other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
@@ -46,6 +50,7 @@ public class InteractionController : MonoBehaviour
         }
     }
 
+    //checks if mouse is hovering over interactable item
     void CheckForHover()
     {
         if (interactableObjects.Count > 0)
