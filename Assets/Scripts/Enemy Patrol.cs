@@ -12,10 +12,11 @@ public class EnemyPatrol : MonoBehaviour
     public Transform[] patrolPoints;
     public int targetPoint;
     public float speed;
+    public float relativeX;
 
     void Start()
     {
-        targetPoint = 0;
+        targetPoint = 0;    //this is the next element in the array on play
     }
 
     void Update()
@@ -37,11 +38,24 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    void FlipX()
+    void flip()
     {
-        flipX = GetComponentInChildren<Sprite>();
-
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 
+    void findRelativeXPosOfArray()
+    {
+        if (transform.position != patrolPoints[targetPoint].position)
+        {
+            float relativeX = patrolPoints[targetPoint].position.x;
+            Debug.Log("Location?");
+        }
 
+        if (relativeX > transform.position.x)
+        {
+            flip();
+        }
+    }
 }
