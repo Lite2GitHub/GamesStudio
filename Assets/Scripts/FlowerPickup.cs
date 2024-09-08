@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlowerPickup : MonoBehaviour, IInteractable
 {
     [Header("References")]
+    [SerializeField] Canvas uiCanvas;
+
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Material standardMat;
     [SerializeField] Material outlineMat;
     [SerializeField] InteractionController playerInteraction; //temporrary
     [SerializeField] string flowerDialogue;
     [SerializeField] string flowerType;
+    [SerializeField] GameObject uiVersion; //UI gameobjkect veriosn of flower for UI drag and drop
 
-    public Item Item;   //Added by Angus
 
     void Start()
     {
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
+        uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<Canvas>();
     }
 
     public void hover(bool hovering)
@@ -36,10 +40,18 @@ public class FlowerPickup : MonoBehaviour, IInteractable
         print("collected flower");
         playerInteraction.heldItem = flowerType;
 
-        InventoryManager.Instance.Add(Item);    //Added by Angus
         Debug.Log("Pickup success.");
 
-        Destroy(gameObject);
+        //instatantiate ui version and remove from parent so it doesn't delete when destroyed
+        //The mouse position based on the canvas/screen's coordinate system:
+        Vector2 mousePosition = new Vector2(Input.mousePosition.x - (Screen.width / 2), Input.mousePosition.y - (Screen.height / 2)); //mouse origin is bottom left ui is center have to offset
+
+        GameObject uigo = Instantiate(uiVersion);
+        uigo.transform.SetParent(uiCanvas.transform);
+        uigo.GetComponent<RectTransform>().anchoredPosition = mousePosition;
+        uigo.transform.localScale = Vector3.one;
+
+        sprite.enabled = false;
     }
 
     public void LeftRange()
