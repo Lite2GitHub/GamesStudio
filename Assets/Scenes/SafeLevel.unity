@@ -15753,7 +15753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3719169, y: 0.00000002258796, z: -0.000000009050037, w: 0.92826605}
+  m_LocalRotation: {x: 0.3719169, y: -0.00000002258796, z: 0.000000009050037, w: 0.92826605}
   m_LocalPosition: {x: 6.54, y: 2.731, z: 35.711998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20879,7 +20879,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1398395675}
   - component: {fileID: 1398395674}
-  - component: {fileID: 1398395673}
   - component: {fileID: 1398395672}
   - component: {fileID: 1398395671}
   - component: {fileID: 1398395676}
@@ -20968,14 +20967,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1398395673
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398395670}
-  m_Enabled: 1
 --- !u!20 &1398395674
 Camera:
   m_ObjectHideFlags: 0
@@ -21035,7 +21026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3719169, y: 0.00000002258796, z: -0.000000009050037, w: 0.92826605}
+  m_LocalRotation: {x: 0.3719169, y: -0.00000002258796, z: 0.000000009050037, w: 0.92826605}
   m_LocalPosition: {x: 6.54, y: 2.731, z: 35.711998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -4,36 +4,39 @@ using UnityEngine;
 
 public class ManageGridSquares : MonoBehaviour
 {
+    //the grids are first bacthed into rows so make temp array for rows first
+    [SerializeField] List<Transform> rowArray = new List<Transform>();
     [SerializeField] List<GameObject> gridSqaureArray = new List<GameObject>(); //holds all of the grid squares to manage whats in the inventory
 
     void Start()
     {
-        //the grids are first bacthed into rows so make temp array for rows first
-        List<Transform> tempRowArray = new List<Transform>();
 
+        //the grids are first bacthed into rows so make temp array for rows first
         for (int i = 0; i < transform.childCount; i++)
         {
-            tempRowArray.Add(transform.GetChild(i).transform);
+            rowArray.Add(transform.GetChild(i).transform);
         }
 
         //then iterate through rows to make the grid square array
-        foreach (Transform row in tempRowArray)
+        for (int i = 0; i < rowArray.Count; i++)
         {
-            for (int i = 0; i < row.transform.childCount; i++)
+            for (int o = 0; o < rowArray[i].transform.childCount; o++)
             {
-                GameObject gridSquare = row.GetChild(i).gameObject;
+                GameObject gridSquare = rowArray[i].GetChild(o).gameObject;
                 gridSqaureArray.Add(gridSquare);
-                gridSquare.GetComponent<SnapOnDrop>().gridSquaresManager = this;
+
+                //get reference to the Snap on drop script in order to set row and coloumn and grid manager script ref
+                SnapOnDrop childSODRef = gridSquare.GetComponent<SnapOnDrop>();
+
+                childSODRef.gridSquaresManager = this;
+                childSODRef.row = i;
+                childSODRef.column = o;
             }
         }
     }
 
-    public void ItemDroppedOnGrid(GameObject flowerDropped)
+    public void FillGridSquare(int row, int column)
     {
-        print("flower dropped");
-        foreach (GameObject gridSqaure in gridSqaureArray)
-        {
-            gridSqaure.GetComponent<SnapOnDrop>().CheckForOverlap(flowerDropped);
-        }
+        rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().FillSquare();
     }
 }

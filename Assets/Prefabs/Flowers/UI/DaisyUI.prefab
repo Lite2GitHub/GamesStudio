@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4217613048297713925}
   - component: {fileID: 5134781827197252505}
   - component: {fileID: 7445851242375172057}
+  - component: {fileID: 9099136577545596463}
   m_Layer: 5
   m_Name: GridSquare (2)
   m_TagString: Untagged
@@ -115,6 +116,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentManager: {fileID: 9166326205931556767}
+--- !u!114 &9099136577545596463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116855468431131844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2c9375ffacae34d813e7190a714935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentAbove: 0
+  adjacentBelow: 2
+  adjacentLeft: 0
+  adjacentRight: 0
 --- !u!1 &2201166634217595768
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +146,7 @@ GameObject:
   - component: {fileID: 3665066088687747849}
   - component: {fileID: 1532330866369139613}
   - component: {fileID: 4446264263338154366}
+  - component: {fileID: 1403013285049265005}
   m_Layer: 5
   m_Name: GridSquare
   m_TagString: Untagged
@@ -230,6 +248,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentManager: {fileID: 9166326205931556767}
+--- !u!114 &1403013285049265005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201166634217595768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2c9375ffacae34d813e7190a714935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentAbove: 2
+  adjacentBelow: 0
+  adjacentLeft: 0
+  adjacentRight: 0
 --- !u!1 &5655429168245472872
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2736392895453330019}
   - component: {fileID: 9166326205931556767}
+  - component: {fileID: 4629718082670570130}
   - component: {fileID: 5296935896007613120}
   m_Layer: 5
   m_Name: DaisyUI
@@ -284,15 +319,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridParent: {fileID: 0}
+  squareArray:
+  - {fileID: 116855468431131844}
+  - {fileID: 9021198299358420964}
+  - {fileID: 2201166634217595768}
   objectArray:
   - {fileID: 116855468431131844}
   - {fileID: 9021198299358420964}
   - {fileID: 2201166634217595768}
   - {fileID: 5657539859675533702}
-  squareArray:
-  - {fileID: 116855468431131844}
-  - {fileID: 9021198299358420964}
-  - {fileID: 2201166634217595768}
+--- !u!114 &4629718082670570130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655429168245472872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def32b9ef78af4e4989e155018decbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSqaureArray: []
 --- !u!114 &5296935896007613120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +442,7 @@ GameObject:
   - component: {fileID: 2393552474859291502}
   - component: {fileID: 5617983153014597473}
   - component: {fileID: 2699460969072026640}
+  - component: {fileID: 796038345168527088}
   m_Layer: 5
   m_Name: GridSquare (1)
   m_TagString: Untagged
@@ -495,3 +544,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentManager: {fileID: 9166326205931556767}
+--- !u!114 &796038345168527088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021198299358420964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2c9375ffacae34d813e7190a714935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjacentAbove: 1
+  adjacentBelow: 1
+  adjacentLeft: 0
+  adjacentRight: 0
