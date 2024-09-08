@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ManageGridSquares : MonoBehaviour
 {
@@ -38,5 +39,10 @@ public class ManageGridSquares : MonoBehaviour
     public void FillGridSquare(int row, int column)
     {
         rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().FillSquare();
+    }
+
+    public void SetGridSqaure(int row, int column, GameObject targetSet)
+    {
+        rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().SetItemSquareActive(targetSet);
     }
 }

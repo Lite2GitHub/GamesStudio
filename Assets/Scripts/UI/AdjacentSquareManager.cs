@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class AdjacentSquareManager : MonoBehaviour
 {
-    public int adjacentAbove;
-    public int adjacentBelow;
-    public int adjacentLeft;
-    public int adjacentRight;
+    public List<GameObject> adjacentAbove = new List<GameObject>();
+    public List<GameObject> adjacentBelow = new List<GameObject>();
+    public List<GameObject> adjacentLeft = new List<GameObject>();
+    public List<GameObject> adjacentRight = new List<GameObject>();
 
     public void pieceRotationUpdate(bool isClockwise)
     {
