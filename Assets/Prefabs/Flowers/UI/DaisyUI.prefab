@@ -91,7 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c83439037f754c43afb25861549c60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedSquare: {fileID: 0}
+  occupiedSquare: {fileID: 0}
+  setParentOnClick: {fileID: 0}
+  gridItemInventoryChecker: {fileID: 0}
 --- !u!225 &5134781827197252505
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -226,7 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c83439037f754c43afb25861549c60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedSquare: {fileID: 0}
+  occupiedSquare: {fileID: 0}
+  setParentOnClick: {fileID: 0}
+  gridItemInventoryChecker: {fileID: 0}
 --- !u!225 &1532330866369139613
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -280,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2736392895453330019}
   - component: {fileID: 9166326205931556767}
+  - component: {fileID: 1003116577281020960}
   - component: {fileID: 5296935896007613120}
   m_Layer: 5
   m_Name: DaisyUI
@@ -333,6 +338,20 @@ MonoBehaviour:
   - {fileID: 9021198299358420964}
   - {fileID: 2201166634217595768}
   - {fileID: 5657539859675533702}
+--- !u!114 &1003116577281020960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655429168245472872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42b7262a0ebf634eb4c6c5b39182aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowerImage: {fileID: 2444860913497545265}
+  placedCorrectly: 0
 --- !u!114 &5296935896007613120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c83439037f754c43afb25861549c60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedSquare: {fileID: 0}
+  occupiedSquare: {fileID: 0}
+  setParentOnClick: {fileID: 0}
+  gridItemInventoryChecker: {fileID: 0}
 --- !u!225 &5617983153014597473
 CanvasGroup:
   m_ObjectHideFlags: 0

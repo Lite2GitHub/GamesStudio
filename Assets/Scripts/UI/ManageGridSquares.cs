@@ -5,12 +5,17 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ManageGridSquares : MonoBehaviour
 {
+    public int rowCount;
+    public int columnCount;
+
     //the grids are first bacthed into rows so make temp array for rows first
     [SerializeField] List<Transform> rowArray = new List<Transform>();
     [SerializeField] List<GameObject> gridSqaureArray = new List<GameObject>(); //holds all of the grid squares to manage whats in the inventory
 
     void Start()
     {
+        rowCount = transform.childCount;
+        columnCount = transform.GetChild(0).childCount;
 
         //the grids are first bacthed into rows so make temp array for rows first
         for (int i = 0; i < transform.childCount; i++)

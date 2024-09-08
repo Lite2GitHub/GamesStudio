@@ -43,8 +43,11 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetRow;
                 targetRow = row - (i + 1);
 
-                gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentAbove[i]);
-                gridSquaresManager.FillGridSquare(targetRow, column);
+                if (targetRow >= 0)
+                {
+                    gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentAbove[i]);
+                    gridSquaresManager.FillGridSquare(targetRow, column);
+                }
             }
         }
         
@@ -55,8 +58,11 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetRow;
                 targetRow = row + (i + 1);
 
-                gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentBelow[i]);
-                gridSquaresManager.FillGridSquare(targetRow, column);
+                if (targetRow <= gridSquaresManager.rowCount - 1)
+                {
+                    gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentBelow[i]);
+                    gridSquaresManager.FillGridSquare(targetRow, column);
+                }
             }
         }
         
@@ -67,8 +73,11 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetColumn;
                 targetColumn = column - (i + 1);
 
-                gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentLeft[i]);
-                gridSquaresManager.FillGridSquare(row, targetColumn);
+                if (targetColumn >= 0)
+                {
+                    gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentLeft[i]);
+                    gridSquaresManager.FillGridSquare(row, targetColumn);
+                }
             }
         }
         
@@ -79,8 +88,11 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetColumn;
                 targetColumn = column + (i + 1);
 
-                gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentRight[i]);
-                gridSquaresManager.FillGridSquare(row, targetColumn);
+                if (targetColumn <= gridSquaresManager.columnCount - 1)
+                {
+                    gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentRight[i]);
+                    gridSquaresManager.FillGridSquare(row, targetColumn);
+                }
             }
         }
     }
