@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 
@@ -10,23 +7,30 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     public Transform[] patrolPoints;
-    public int targetPoint;
+    public int targetPoint; //Indicates the array element npc is travelling to
     public float speed;
     public float relativeX;
 
+    public bool isTargetLeft; //default
+    public bool isFacingLeft; //default
+
     void Start()
     {
-        targetPoint = 0;    //this is the next element in the array on play
+        targetPoint = 0;
     }
 
     void Update()
     {
-        if (transform.position == patrolPoints[targetPoint].position)
+        findRelativeXPosOfArray();
+        facingDirection();
+        flip();
+
+        if (transform.position == patrolPoints[targetPoint].position)   //arrival on Target
         {
             increaseTargetInt();
         }
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
 
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
     }
 
     void increaseTargetInt()
@@ -38,24 +42,52 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    void flip()
+    void facingDirection()
     {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+        if (transform.localScale.x < 0)
+        {
+            isFacingLeft = false;
+        }
+
+        if (transform.localScale.x > 0)
+        {
+            isFacingLeft = true;
+        }
     }
 
     void findRelativeXPosOfArray()
     {
-        if (transform.position != patrolPoints[targetPoint].position)
+        if (transform.position.x != patrolPoints[targetPoint].position.x)
         {
-            float relativeX = patrolPoints[targetPoint].position.x;
-            Debug.Log("Location?");
+            relativeX = patrolPoints[targetPoint].position.x;
         }
 
-        if (relativeX > transform.position.x)
+        if (relativeX > transform.position.x)   //Target is to the right
         {
-            flip();
+            isTargetLeft = false;
+        }
+
+        if (relativeX < transform.position.x)   //Target is to the Left
+        {
+            isTargetLeft = true;
+        }
+
+    }
+
+    void flip()
+    {
+        if (!isFacingLeft && isTargetLeft)
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        } 
+
+        if (isFacingLeft && !isTargetLeft)
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
     }
 }
