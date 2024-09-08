@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42b7262a0ebf634eb4c6c5b39182aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flowerType: Daisy
   flowerImage: {fileID: 2444860913497545265}
   placedCorrectly: 0
 --- !u!114 &5296935896007613120

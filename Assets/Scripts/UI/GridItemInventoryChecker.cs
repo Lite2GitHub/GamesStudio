@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GridItemInventoryChecker : MonoBehaviour
 {
+    [SerializeField] string flowerType;
+
     [SerializeField] Image flowerImage;
 
     public bool placedCorrectly;
@@ -33,11 +35,15 @@ public class GridItemInventoryChecker : MonoBehaviour
         print("no null");
         placedCorrectly = true;
         flowerImage.color = Color.white;
+
+        setParentOnClick.squareArray[0].GetComponent<DragDrop>().AddToInventory(flowerType);
     }
 
     public void ResetOnPickup()
     {
         placedCorrectly = false;
         flowerImage.color = Color.white;
+
+        setParentOnClick.squareArray[0].GetComponent<DragDrop>().RemoveFromInventory(flowerType);
     }
 }

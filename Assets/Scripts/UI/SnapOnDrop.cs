@@ -10,6 +10,7 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     public bool filled = false;
     public GameObject flowerInSqaure;
     public ManageGridSquares gridSquaresManager;
+    public GridContentsManager gridContentsManager;
 
     public int row;
     public int column;
@@ -58,8 +59,10 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetRow;
                 targetRow = row + (i + 1);
 
+                print("grid square manager row count: " + gridSquaresManager.rowCount + "target row: " + targetRow);
                 if (targetRow <= gridSquaresManager.rowCount - 1)
                 {
+                    print("should be in func");
                     gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentBelow[i]);
                     gridSquaresManager.FillGridSquare(targetRow, column);
                 }
@@ -95,6 +98,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 }
             }
         }
+
+        gridSquaresManager.CheckForFullGrid();
     }
 
     public void FillSquare()
@@ -107,10 +112,21 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     {
         filled = false;
         GetComponent<Image>().color = Color.white;
+        gridSquaresManager.CheckForFullGrid();
     }
 
     public void SetItemSquareActive(GameObject itemHeld)
     {
         itemHeld.GetComponent<DragDrop>().SetOnSquare(gameObject);
+    }
+
+    public void AddItemToInventory(string itemName)
+    {
+        gridContentsManager.AddItemToContents(itemName);
+    }
+
+    public void RemoveFromInventory(string itemName)
+    {
+        gridContentsManager.RemoveFromContents(itemName);
     }
 }

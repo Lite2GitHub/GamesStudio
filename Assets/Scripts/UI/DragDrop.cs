@@ -76,4 +76,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             this.occupiedSquare = null;
         }
     }
+
+    public void AddToInventory(string itemName)
+    {
+        occupiedSquare.GetComponent<SnapOnDrop>().AddItemToInventory(itemName);
+    }
+
+    public void RemoveFromInventory(string itemName)
+    {
+        if (occupiedSquare != null)
+        {
+            occupiedSquare.GetComponent<SnapOnDrop>().RemoveFromInventory(itemName);
+        }
+    }
 }

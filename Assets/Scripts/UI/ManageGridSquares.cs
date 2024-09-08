@@ -12,16 +12,17 @@ public class ManageGridSquares : MonoBehaviour
     [SerializeField] List<Transform> rowArray = new List<Transform>();
     [SerializeField] List<GameObject> gridSqaureArray = new List<GameObject>(); //holds all of the grid squares to manage whats in the inventory
 
+    [SerializeField] bool gridFull;
+    [SerializeField] int squaresFilledCount = 0;
+
+    GridContentsManager gridContentsManager;
+
     void Start()
     {
-        rowCount = transform.childCount;
-        columnCount = transform.GetChild(0).childCount;
+        gridContentsManager = GetComponent<GridContentsManager>();
 
-        //the grids are first bacthed into rows so make temp array for rows first
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            rowArray.Add(transform.GetChild(i).transform);
-        }
+        rowCount = rowArray.Count;
+        columnCount = transform.GetChild(0).childCount;
 
         //then iterate through rows to make the grid square array
         for (int i = 0; i < rowArray.Count; i++)
@@ -35,6 +36,7 @@ public class ManageGridSquares : MonoBehaviour
                 SnapOnDrop childSODRef = gridSquare.GetComponent<SnapOnDrop>();
 
                 childSODRef.gridSquaresManager = this;
+                childSODRef.gridContentsManager = gridContentsManager;
                 childSODRef.row = i;
                 childSODRef.column = o;
             }
@@ -49,5 +51,26 @@ public class ManageGridSquares : MonoBehaviour
     public void SetGridSqaure(int row, int column, GameObject targetSet)
     {
         rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().SetItemSquareActive(targetSet);
+    }
+
+    public void CheckForFullGrid()
+    {
+        squaresFilledCount = 0;
+        foreach (GameObject square in gridSqaureArray)
+        {
+            if (square.GetComponent<SnapOnDrop>().filled)
+            {
+                squaresFilledCount++;
+            }
+        }
+
+        if (squaresFilledCount >= gridSqaureArray.Count)
+        {
+            gridFull = true;
+        }
+        else
+        {
+            gridFull = false;
+        }
     }
 }
