@@ -8,8 +8,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public GameObject occupiedSquare;
 
     [SerializeField] SetParentOnClick setParentOnClick; //I need this to access all of the grids in the flower, really  bad way to do it but
-    [SerializeField] GridItemInventoryChecker gridItemInventoryChecker; 
+    [SerializeField] GridItemInventoryChecker gridItemInventoryChecker;
 
+    [SerializeField] Transform parentTransform;
     RectTransform rectTransform;
     Canvas uiCanvas;
     CanvasGroup canvasGroup;
@@ -19,7 +20,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<Canvas>();
-        
+
+        parentTransform = GetComponentInParent<Transform>();
+
         setParentOnClick = GetComponentInParent<SetParentOnClick>();
         gridItemInventoryChecker = GetComponentInParent<GridItemInventoryChecker>();
     }
@@ -66,6 +69,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         print("on square");
         occupiedSquare = squareBeingOccupied;
+        parentTransform.parent = squareBeingOccupied.transform;
     }
 
     public void ClearSquare()
