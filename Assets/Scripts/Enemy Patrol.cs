@@ -11,8 +11,8 @@ public class EnemyPatrol : MonoBehaviour
     public float speed;
     public float relativeX;
 
-    public bool isTargetLeft; //default
-    public bool isFacingLeft; //default
+    public bool isTargetLeft; 
+    public bool isFacingLeft; //default sprite is facing left
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    void facingDirection()
+    void facingDirection()  //default sprite is facing left
     {
         if (transform.localScale.x < 0)
         {
@@ -55,7 +55,7 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    void findRelativeXPosOfArray()
+    void findRelativeXPosOfArray()  //Find xPos of the next array point
     {
         if (transform.position.x != patrolPoints[targetPoint].position.x)
         {
@@ -74,7 +74,7 @@ public class EnemyPatrol : MonoBehaviour
 
     }
 
-    void flip()
+    void flip() //Flip logic = When do I flip?; could be made cleaner i think
     {
         if (!isFacingLeft && isTargetLeft)
         {
