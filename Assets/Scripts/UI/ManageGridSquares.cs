@@ -1,39 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ManageGridSquares : MonoBehaviour
 {
+    public int rowCount;
+    public int columnCount;
+
+    //the grids are first bacthed into rows so make temp array for rows first
+    [SerializeField] List<Transform> rowArray = new List<Transform>();
     [SerializeField] List<GameObject> gridSqaureArray = new List<GameObject>(); //holds all of the grid squares to manage whats in the inventory
+
+    [SerializeField] bool gridFull;
+    [SerializeField] int squaresFilledCount = 0;
+
+    GridContentsManager gridContentsManager;
 
     void Start()
     {
-        //the grids are first bacthed into rows so make temp array for rows first
-        List<Transform> tempRowArray = new List<Transform>();
+        gridContentsManager = GetComponent<GridContentsManager>();
 
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            tempRowArray.Add(transform.GetChild(i).transform);
-        }
+        rowCount = rowArray.Count;
+        columnCount = transform.GetChild(0).childCount;
 
         //then iterate through rows to make the grid square array
-        foreach (Transform row in tempRowArray)
+        for (int i = 0; i < rowArray.Count; i++)
         {
-            for (int i = 0; i < row.transform.childCount; i++)
+            for (int o = 0; o < rowArray[i].transform.childCount; o++)
             {
-                GameObject gridSquare = row.GetChild(i).gameObject;
+                GameObject gridSquare = rowArray[i].GetChild(o).gameObject;
                 gridSqaureArray.Add(gridSquare);
-                gridSquare.GetComponent<SnapOnDrop>().gridSquaresManager = this;
+
+                //get reference to the Snap on drop script in order to set row and coloumn and grid manager script ref
+                SnapOnDrop childSODRef = gridSquare.GetComponent<SnapOnDrop>();
+
+                childSODRef.gridSquaresManager = this;
+                childSODRef.gridContentsManager = gridContentsManager;
+                childSODRef.row = i;
+                childSODRef.column = o;
             }
         }
     }
 
-    public void ItemDroppedOnGrid(GameObject flowerDropped)
+    public void FillGridSquare(int row, int column)
     {
-        print("flower dropped");
-        foreach (GameObject gridSqaure in gridSqaureArray)
+        rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().FillSquare();
+    }
+
+    public void SetGridSqaure(int row, int column, GameObject targetSet)
+    {
+        rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().SetItemSquareActive(targetSet);
+    }
+
+    public void CheckForFullGrid()
+    {
+        squaresFilledCount = 0;
+        foreach (GameObject square in gridSqaureArray)
         {
-            gridSqaure.GetComponent<SnapOnDrop>().CheckForOverlap(flowerDropped);
+            if (square.GetComponent<SnapOnDrop>().filled)
+            {
+                squaresFilledCount++;
+            }
+        }
+
+        if (squaresFilledCount >= gridSqaureArray.Count)
+        {
+            gridFull = true;
+        }
+        else
+        {
+            gridFull = false;
         }
     }
 }

@@ -21,6 +21,11 @@ public class RotatePiece : MonoBehaviour
                 angle -= 90; //move 90 deg clock-wise
 
                 setParentOnClick.gridParent.GetComponent<RectTransform>().localEulerAngles = new Vector3(0,0,angle); 
+
+                foreach (GameObject grid in setParentOnClick.squareArray)
+                {
+                    grid.GetComponent<AdjacentSquareManager>().pieceRotationUpdate(true); //true is clock-wise
+                }
             }
         }
         else if (Input.GetKeyDown(KeyCode.Q))
@@ -31,6 +36,11 @@ public class RotatePiece : MonoBehaviour
                 angle += 90; //move 90 deg anti clock-wise
 
                 setParentOnClick.gridParent.GetComponent<RectTransform>().localEulerAngles = new Vector3(0, 0, angle);
+
+                foreach (GameObject grid in setParentOnClick.squareArray)
+                {
+                    grid.GetComponent<AdjacentSquareManager>().pieceRotationUpdate(false); //true is counter clock-wise
+                }
             }
         }
     }
