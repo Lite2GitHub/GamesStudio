@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class SetParentOnClick : MonoBehaviour
 {
     public GameObject gridParent;
+    public List<GameObject> squareArray = new List<GameObject>(); //not ideal but an array for the squares to control the grid
 
     [SerializeField] List<GameObject> objectArray = new List<GameObject>(); //an array for all the objects to be parent managed
-    [SerializeField] List<GameObject> squareArray = new List<GameObject>(); //not ideal but an array for the squares to control the grid
+    [SerializeField] Sprite regularGrid;
 
     bool showGrid = false; //turns off grid based on whether the piece is held currently
 
@@ -58,6 +59,7 @@ public class SetParentOnClick : MonoBehaviour
             foreach (GameObject child in squareArray)
             {
                 Image tempImage = child.GetComponent<Image>();
+                tempImage.sprite = regularGrid;
                 var tempColor = tempImage.color;
                 tempColor.a = 1f;
                 tempImage.color = tempColor;
