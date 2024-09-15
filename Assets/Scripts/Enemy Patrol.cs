@@ -21,16 +21,19 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
-        findRelativeXPosOfArray();
-        facingDirection();
-        flip();
-
-        if (transform.position == patrolPoints[targetPoint].position)   //arrival on Target
+        if (patrolPoints.Length > 0) 
         {
-            increaseTargetInt();
-        }
+            findRelativeXPosOfArray();
+            facingDirection();
+            flip();
 
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
+            if (transform.position == patrolPoints[targetPoint].position)   //arrival on Target
+            {
+                increaseTargetInt();
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
+        }
     }
 
     void increaseTargetInt()

@@ -5,8 +5,10 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ManageGridSquares : MonoBehaviour
 {
+    [SerializeField] bool spiritGrid; //hacky way to get the grid to talk to spirit when full, obviously dont want the players grid to do that
     public int rowCount;
     public int columnCount;
+    public bool gridFull;
 
     //the grids are first bacthed into rows so make temp array for rows first
     [SerializeField] List<Transform> rowArray = new List<Transform>();
@@ -15,15 +17,18 @@ public class ManageGridSquares : MonoBehaviour
     [SerializeField] Transform itemDraggingHolder;
     [SerializeField] Transform itemHolder;
 
-    [SerializeField] bool gridFull;
+    [SerializeField] GameObject journalPage;
+
     [SerializeField] int numberOfActiveSqaures; //serilized for debugging
     [SerializeField] int squaresFilledCount = 0;
 
     GridContentsManager gridContentsManager;
+    SpiritManager spiritManager;
 
     void Start()
     {
         gridContentsManager = GetComponent<GridContentsManager>();
+        spiritManager = GameObject.FindGameObjectWithTag("Spirit").GetComponent<SpiritManager>();
 
         rowCount = rowArray.Count;
         columnCount = rowArray[0].childCount;
@@ -44,6 +49,7 @@ public class ManageGridSquares : MonoBehaviour
                 childSODRef.row = i;
                 childSODRef.column = o;
                 childSODRef.itemHolder = itemHolder;
+                childSODRef.journalPage = journalPage.GetComponent<RectTransform>();
 
                 if (childSODRef.active)
                 {
@@ -93,6 +99,11 @@ public class ManageGridSquares : MonoBehaviour
         if (squaresFilledCount >= numberOfActiveSqaures)
         {
             gridFull = true;
+            if (spiritGrid)
+            {
+                print("sent maybe?");
+                spiritManager.CheckIfFilledCorrectly(gridContentsManager.contents);
+            }
         }
         else
         {

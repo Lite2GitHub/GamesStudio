@@ -69,7 +69,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (!ready)
         {
-            journalManager.SetFlowerArrangeActive(0);
             if (context != "")
             {
                 if (context == requiredFlowersList[dialogueIndex] || requiredFlowersList[dialogueIndex] == "final")
@@ -104,6 +103,11 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 timerActive = true;
             }
         }
+    }
+
+    public void OpenJournal()
+    {
+        journalManager.SetFlowerArrangeActive(dialogueIndex);
     }
 
     public void LeftRange()
@@ -141,5 +145,18 @@ public class SpiritManager : MonoBehaviour, IInteractable
         }
 
         requiredFlowersList.Add("final");
+    }
+    
+    public void CheckIfFilledCorrectly(List<string> contents)
+    {
+        foreach (string item in contents)
+        {
+            if (item != requiredFlowersList[dialogueIndex])
+            {
+                print("contents are incorrect");
+                return;
+            }
+        }
+        print("contents correct");
     }
 }

@@ -18,8 +18,11 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     public int row;
     public int column;
 
-    [SerializeField] RectTransform gridParent;
-    [SerializeField] RectTransform rowParent;
+    public RectTransform journalPage; 
+
+
+    [SerializeField] RectTransform gridParent; //these are set in editor incase of strange grid setups
+    [SerializeField] RectTransform rowParent; //these are set in editor incase of strange grid setups
 
     Image image;
 
@@ -44,7 +47,7 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
             if (eventData.pointerDrag != null)
             {
                 //snap the item to this grids position
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition;
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition + journalPage.anchoredPosition;
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition -= eventData.pointerDrag.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
 
 
@@ -81,55 +84,6 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
             gridSquaresManager.SetGridSqaure(targetRow, targetColumn, gridASMRef.neigbouringSquares[i]);
             gridSquaresManager.FillGridSquare(targetRow, targetColumn);
         }
-
-        //if (gridASMRef.adjacentAbove.Count > 0)
-        //{
-        //    for (int i = 0; i < gridASMRef.adjacentAbove.Count; i++)
-        //    {
-        //        int targetRow;
-        //        targetRow = row - (i + 1);
-
-        //        gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentAbove[i]);
-        //        gridSquaresManager.FillGridSquare(targetRow, column);
-        //    }
-        //}
-
-        //if(gridASMRef.adjacentBelow.Count > 0)
-        //{
-        //    for (int i = 0; i < gridASMRef.adjacentBelow.Count; i++)
-        //    {
-        //        int targetRow;
-        //        targetRow = row + (i + 1);
-
-        //        gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentBelow[i]);
-        //        gridSquaresManager.FillGridSquare(targetRow, column);
-        //    }
-        //}
-
-        //if (gridASMRef.adjacentLeft.Count > 0)
-        //{
-        //    for (int i = 0; i < gridASMRef.adjacentLeft.Count; i++)
-        //    {
-        //        int targetColumn;
-        //        targetColumn = column - (i + 1);
-
-        //        gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentLeft[i]);
-        //        gridSquaresManager.FillGridSquare(row, targetColumn);
-
-        //    }
-        //}
-
-        //if (gridASMRef.adjacentRight.Count > 0)
-        //{
-        //    for (int i = 0; i < gridASMRef.adjacentRight.Count; i++)
-        //    {
-        //        int targetColumn;
-        //        targetColumn = column + (i + 1);
-
-        //        gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentRight[i]);
-        //        gridSquaresManager.FillGridSquare(row, targetColumn);
-        //    }
-        //}
 
         gridSquaresManager.CheckForFullGrid();
     }

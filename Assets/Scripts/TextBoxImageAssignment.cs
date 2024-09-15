@@ -9,6 +9,7 @@ public class TextBoxImageAssignment : MonoBehaviour
     [SerializeField] List<SpriteRenderer> symbolHolders = new List<SpriteRenderer>();
     [SerializeField] List<Sprite> symbol = new List<Sprite>();
     [SerializeField] GameObject dialogueBox;
+    [SerializeField] SpiritManager spiritManager;
 
     string tempIndex;
     string currentLetter;
@@ -40,6 +41,7 @@ public class TextBoxImageAssignment : MonoBehaviour
                 }
                 else 
                 {
+                    spiritManager.OpenJournal();
                     startFadeIn = false;
                     symbolsOn = true;
                 }

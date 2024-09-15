@@ -7,7 +7,7 @@ public class GridContentsManager : MonoBehaviour
     [SerializeField] bool isPlayerInventory;
     [SerializeField] PlayerInventorySO playerInventory;
 
-    [SerializeField] List<string> contents = new List<string>();
+    public List<string> contents = new List<string>();
 
     public void AddItemToContents(string itemName)
     {

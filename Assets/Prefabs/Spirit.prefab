@@ -121,8 +121,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  targetPoints: 0
+  targetPoint: 0
   speed: 2
+  relativeX: 0
+  isTargetLeft: 0
+  isFacingLeft: 0
 --- !u!1 &6560650295604550161
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,13 +151,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6560650295604550161}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0.28, z: 0}
   m_LocalScale: {x: 0.4999999, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5942688092340827464}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!212 &3792815744113632099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -291,6 +294,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6834081511671104263, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: spiritManager
+      value: 
+      objectReference: {fileID: 4177111548274898494}
     - target: {fileID: 8377247506890850008, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
