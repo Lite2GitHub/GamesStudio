@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class JournalManager : MonoBehaviour
@@ -9,17 +10,29 @@ public class JournalManager : MonoBehaviour
     [SerializeField] GameObject menu;
     [SerializeField] GameObject help;
 
+    //Page animators
+    Animator inventoryPageAnimator;
+
+    [Header("Hackey Spirit Flower Arrangements")]
+    [SerializeField] List<GameObject> spiritGrids = new List<GameObject>();
+
     [Header("References")]
     [SerializeField] SceneController sceneController;
+    [SerializeField] GameObject backgroundFade;
 
     bool vaseUIOpen = false;
 
     bool isPaused = false;
     private Vector2 origInventoryPos;
 
+    bool inventoryOpen = false;
+    bool flowerArrangeOpen = false;
+
     private void Start()
     {
         Vector2 origInventoryPos = inventory.transform.localPosition;
+
+        inventoryPageAnimator = inventory.GetComponent<Animator>();
     }
 
     void Update()
@@ -41,17 +54,14 @@ public class JournalManager : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Tab))    // Added by Angus
         {
-            if (!isPaused)
+            if (!inventoryOpen)
             {
-                isPaused = true;
-                Time.timeScale = 0;
                 SetInventoryActive();
             }
             else
             {
-                isPaused = false;
-                Time.timeScale = 1;
                 DeactivateAll();
+                inventoryOpen = false;
             }
         }
     }
@@ -80,6 +90,7 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
+        backgroundFade.SetActive(false);
         inventory.SetActive(false);
         research.SetActive(false);
         notes.SetActive(false);
@@ -88,6 +99,14 @@ public class JournalManager : MonoBehaviour
     }
     public void SetInventoryActive()
     {
+        inventoryOpen = true;
+        //if(!isPaused)
+        //{
+        //    isPaused = true;
+        //    Time.timeScale = 0;
+        //}
+        backgroundFade.SetActive(true);
+
         inventory.SetActive(true);
 
         research.SetActive(false);
@@ -96,8 +115,20 @@ public class JournalManager : MonoBehaviour
         help.SetActive(false);
     }
 
+    public void SetFlowerArrangeActive(int stage)
+    {
+        inventoryPageAnimator.SetTrigger("Reset");
+        flowerArrangeOpen = true;
+        print("is the animation going?");
+        SetInventoryActive();
+        inventoryPageAnimator.SetBool("GridEnter", true);
+        //spiritGrids[stage].SetActive(true);
+    }
+
     public void SetResearchActive()
     {
+        backgroundFade.SetActive(true);
+
         research.SetActive(true);
 
         inventory.SetActive(false);
@@ -108,6 +139,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetNotesActive()
     {
+        backgroundFade.SetActive(true);
+
         notes.SetActive(true);
 
         inventory.SetActive(false);
@@ -118,6 +151,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetMenuActive()
     {
+        backgroundFade.SetActive(true);
+
         menu.SetActive(true);
 
         inventory.SetActive(false);
@@ -128,6 +163,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetHelpActive()
     {
+        backgroundFade.SetActive(true);
+
         help.SetActive(true);
 
         inventory.SetActive(false);

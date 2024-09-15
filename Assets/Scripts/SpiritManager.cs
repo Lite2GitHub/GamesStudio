@@ -31,15 +31,18 @@ public class SpiritManager : MonoBehaviour, IInteractable
     bool ready = false;
     bool alive = false;
 
-    [SerializeField] List<string> requiredFlowersList = new List<string>();
+    public List<string> requiredFlowersList = new List<string>();
 
     public Item Items;      // Added by Angus
 
+    JournalManager journalManager;
+
     void Start()
     {
-        GenerateFlowerList();
+        //GenerateFlowerList();
 
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
+        journalManager = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>();
     }
 
     void Update()
@@ -66,6 +69,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (!ready)
         {
+            journalManager.SetFlowerArrangeActive(0);
             if (context != "")
             {
                 if (context == requiredFlowersList[dialogueIndex] || requiredFlowersList[dialogueIndex] == "final")

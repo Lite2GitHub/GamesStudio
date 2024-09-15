@@ -8,6 +8,9 @@ TagManager:
   - PlayerInteraction
   - UICanvas
   - UIItemHolder
+  - CameraZone
+  - Journal
+  - Spirit
   layers:
   - Default
   - TransparentFX

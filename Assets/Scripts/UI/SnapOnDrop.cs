@@ -18,6 +18,9 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     public int row;
     public int column;
 
+    [SerializeField] RectTransform gridParent;
+    [SerializeField] RectTransform rowParent;
+
     Image image;
 
     void Start()
@@ -41,7 +44,7 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
             if (eventData.pointerDrag != null)
             {
                 //snap the item to this grids position
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition;
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition -= eventData.pointerDrag.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
 
 

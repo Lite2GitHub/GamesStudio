@@ -11132,6 +11132,7 @@ MonoBehaviour:
   itemDraggingHolder: {fileID: 0}
   itemHolder: {fileID: 96523964}
   gridFull: 0
+  numberOfActiveSqaures: 0
   squaresFilledCount: 0
 --- !u!1001 &751139430
 PrefabInstance:
@@ -12000,7 +12001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &827754591
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16078,6 +16079,7 @@ MonoBehaviour:
   itemDraggingHolder: {fileID: 0}
   itemHolder: {fileID: 1913840577}
   gridFull: 0
+  numberOfActiveSqaures: 0
   squaresFilledCount: 0
 --- !u!114 &1075946321
 MonoBehaviour:
