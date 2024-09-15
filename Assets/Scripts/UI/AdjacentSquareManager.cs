@@ -5,36 +5,41 @@ using UnityEngine;
 
 public class AdjacentSquareManager : MonoBehaviour
 {
-    public List<GameObject> adjacentAbove = new List<GameObject>();
-    public List<GameObject> adjacentBelow = new List<GameObject>();
-    public List<GameObject> adjacentLeft = new List<GameObject>();
-    public List<GameObject> adjacentRight = new List<GameObject>();
+    public List<GameObject> neigbouringSquares = new List<GameObject>();
+    public List<string> neigbouringCoords = new List<string>();
 
     public void pieceRotationUpdate(bool isClockwise)
     {
-        if (isClockwise)
+        if (neigbouringSquares.Count > 0)
         {
-            var tempAbove = adjacentAbove;
-            var tempBelow = adjacentBelow;
-            var tempLeft = adjacentLeft;
-            var tempRight = adjacentRight;
+            if (isClockwise)
+            {
+                for (int i = 0; i < neigbouringSquares.Count; i++)
+                {
+                    var rowColumnCoords = neigbouringCoords[i].Split(',');
+                    int row = int.Parse(rowColumnCoords[0]);
+                    int column = int.Parse(rowColumnCoords[1]);
 
-            adjacentAbove = tempLeft;
-            adjacentBelow = tempRight;
-            adjacentLeft= tempBelow;    
-            adjacentRight= tempAbove;
-        }
-        else
-        {
-            var tempAbove = adjacentAbove;
-            var tempBelow = adjacentBelow;
-            var tempLeft = adjacentLeft;
-            var tempRight = adjacentRight;
+                    int newRow = -column;
+                    int newColumn = row;
 
-            adjacentAbove = tempRight;
-            adjacentBelow = tempLeft;
-            adjacentLeft = tempAbove;
-            adjacentRight = tempBelow;
+                    neigbouringCoords[i] = newRow.ToString() + "," + newColumn.ToString();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < neigbouringSquares.Count; i++)
+                {
+                    var rowColumnCoords = neigbouringCoords[i].Split(',');
+                    int row = int.Parse(rowColumnCoords[0]);
+                    int column = int.Parse(rowColumnCoords[1]);
+
+                    int newRow = column;
+                    int newColumn = -row;
+
+                    neigbouringCoords[i] = newRow.ToString() + "," + newColumn.ToString();
+                }
+            }
         }
     }
 }
