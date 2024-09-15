@@ -29,13 +29,31 @@ public class PlayerMovement : MonoBehaviour
 
         CheckFlipSprite();
 
-        if (movement.x > 0.1 || movement.z > 0.1 || movement.x < -0.1 || movement.z < -0.1)
+        if (movement.x > 0.1 ||  movement.x < -0.1 )    //Walking Sideways axis, 1 Sprite sheet
         {
-            playerAnimator.SetBool("Walking", true);
+            playerAnimator.SetBool("WalkingSide", true);
         }
         else
         {
-            playerAnimator.SetBool("Walking", false);
+            playerAnimator.SetBool("WalkingSide", false);
+        }
+
+        if (movement.z > 0.1)   //Walking Up direction, individual Sprite sheet 
+        {
+            playerAnimator.SetBool("WalkingUp", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("WalkingUp", false);
+        }
+
+        if (movement.z < -0.1)  //Walking Down direction, individual Sprite sheet
+        {
+            playerAnimator.SetBool("WalkingDown", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("WalkingDown", false);
         }
     }
 
