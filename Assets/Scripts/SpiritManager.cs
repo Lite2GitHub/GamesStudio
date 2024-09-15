@@ -37,6 +37,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
     JournalManager journalManager;
 
+
     void Start()
     {
         //GenerateFlowerList();
@@ -69,44 +70,47 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (!ready)
         {
-            if (context != "")
-            {
-                if (context == requiredFlowersList[dialogueIndex] || requiredFlowersList[dialogueIndex] == "final")
-                {
-                    dialogueIndex++;
-                    if (dialogueIndex > flowersRequired)
-                    {
-                        ready = true;
-                        Destroy(gameObject);
-                    }
-                    else
-                    {
-                        //add tear stuff
-                        dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
+            dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
 
-                        timerTracker = 0;
-                        timerActive = true;
-                        playerInteraction.heldItem = "";
-                    }
-                }
-                else
-                {
-                    playerInteraction.heldItem = "";
-                }
-            }
-            else
-            {
-                //dialogueBox.FadeTextBox(1, false);
-                dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
+            timerTracker = 0;
+            timerActive = true;
 
-                timerTracker = 0;
-                timerActive = true;
-            }
+            //if (context != "")
+            //{
+            //    if (context == requiredFlowersList[dialogueIndex] || requiredFlowersList[dialogueIndex] == "final")
+            //    {
+            //        dialogueIndex++;
+            //        if (dialogueIndex > flowersRequired)
+            //        {
+            //            ready = true;
+            //            Destroy(gameObject);
+            //        }
+            //        else
+            //        {
+            //            //add tear stuff
+            //            dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
+
+            //            timerTracker = 0;
+            //            timerActive = true;
+            //            playerInteraction.heldItem = "";
+            //        }
+            //    }
+            //    else
+            //    {
+            //        playerInteraction.heldItem = "";
+            //    }
+            //}
+            //else
+            //{
+            //    //dialogueBox.FadeTextBox(1, false);
+
+            //}
         }
     }
 
     public void OpenJournal()
     {
+        //dialogueBox.FadeOut(); 
         journalManager.SetFlowerArrangeActive(dialogueIndex);
     }
 
@@ -134,29 +138,58 @@ public class SpiritManager : MonoBehaviour, IInteractable
         }
     }
 
-    void GenerateFlowerList()
-    {
-        var tempList = flowerNames;
-        for (int i = 0; i < flowersRequired; i++)
-        {
-            var randIndex = tempList[Random.Range(0, tempList.Count)];
-            requiredFlowersList.Add(randIndex);
-            tempList.Remove(randIndex);
-        }
+    //void GenerateFlowerList()
+    //{
+    //    var tempList = flowerNames;
+    //    for (int i = 0; i < flowersRequired; i++)
+    //    {
+    //        var randIndex = tempList[Random.Range(0, tempList.Count)];
+    //        requiredFlowersList.Add(randIndex);
+    //        tempList.Remove(randIndex);
+    //    }
 
-        requiredFlowersList.Add("final");
-    }
+    //    requiredFlowersList.Add("final");
+    //}
     
     public void CheckIfFilledCorrectly(List<string> contents)
     {
-        foreach (string item in contents)
+        if (dialogueIndex == requiredFlowersList.Count - 1)
         {
-            if (item != requiredFlowersList[dialogueIndex])
+            foreach (string item in contents)
             {
-                print("contents are incorrect");
-                return;
+                bool flowerMatches = false;
+                foreach (string flower in requiredFlowersList)
+                {
+                    if (item == flower || item == "stone")
+                    {
+                        flowerMatches = true;
+                    }
+                }
+                if (!flowerMatches)
+                {
+                    print("bouquet contents are incorrect");
+                    journalManager.CloseFlowerArrange(dialogueIndex);
+                    dialogueBox.SetSymbolImages("11,11,11");
+                    return;
+                }
             }
+            journalManager.CloseFlowerArrange(dialogueIndex);
+            Destroy(gameObject);
+            print("bouquet is correct");
         }
-        print("contents correct");
+        else
+        {
+            foreach (string item in contents)
+            {
+                if (item != requiredFlowersList[dialogueIndex])
+                {
+                    print("contents are incorrect");
+                    return;
+                }
+            }
+            print("contents correct");
+            journalManager.CloseFlowerArrange(dialogueIndex);
+            dialogueIndex++;
+        }
     }
 }

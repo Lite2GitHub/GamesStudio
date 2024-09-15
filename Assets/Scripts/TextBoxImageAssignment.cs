@@ -23,6 +23,7 @@ public class TextBoxImageAssignment : MonoBehaviour
 
     bool symbolsOn;
     bool fadeSymbols;
+    bool fadingOut;
     private void Start()
     {
         dialogueBox.SetActive(true);
@@ -42,16 +43,19 @@ public class TextBoxImageAssignment : MonoBehaviour
                 else 
                 {
                     spiritManager.OpenJournal();
+                    if(!fadeSymbols && symbolsOn)
+                    {
+                        FadeOut();
+                    }
                     startFadeIn = false;
-                    symbolsOn = true;
+                    //symbolsOn = true;
                 }
             }
         }
     }
     public void SetSymbolImages(string inputSymbols)
     {
-        currentLetter = "";
-        inputSymbolsTrueLen.Clear();
+        ClearSymbols();
 
         for (int i = 0; i < inputSymbols.Length; i++)
         {
@@ -95,9 +99,20 @@ public class TextBoxImageAssignment : MonoBehaviour
         symbolsOn = true;
     }
 
+    public void ClearSymbols()
+    {
+        currentLetter = "";
+        inputSymbolsTrueLen.Clear();
+
+        foreach (SpriteRenderer spriteRender in symbolHolders)
+        {
+            spriteRender.sprite = null;
+        }
+    }
+
     public void FadeOut()
     {
-        if (symbolsOn)
+        if (symbolsOn && !fadeSymbols)
         {
             foreach (var symbol in symbolHolders)
             {

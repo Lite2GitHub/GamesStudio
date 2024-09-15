@@ -25,10 +25,13 @@ public class ManageGridSquares : MonoBehaviour
     GridContentsManager gridContentsManager;
     SpiritManager spiritManager;
 
+    JournalManager journalManager;
+
     void Start()
     {
         gridContentsManager = GetComponent<GridContentsManager>();
         spiritManager = GameObject.FindGameObjectWithTag("Spirit").GetComponent<SpiritManager>();
+        journalManager = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>();
 
         rowCount = rowArray.Count;
         columnCount = rowArray[0].childCount;
@@ -109,5 +112,24 @@ public class ManageGridSquares : MonoBehaviour
         {
             gridFull = false;
         }
+    }
+
+    public void ClearInventory()
+    {
+        journalManager.DeactivateAll();
+        //print("InventoryCleared");
+        //gridContentsManager.ClearContents();
+        //for (int i = 0; i < itemHolder.childCount; i++)
+        //{
+        //    Destroy(itemHolder.GetChild(i).gameObject); 
+        //}
+
+        //foreach (GameObject sqr in gridSqaureArray)
+        //{
+        //    sqr.GetComponent<SnapOnDrop>().filled = false;
+        //}
+
+        //gridFull = false;
+        //squaresFilledCount = 0;
     }
 }

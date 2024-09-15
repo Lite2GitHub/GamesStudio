@@ -59,6 +59,11 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 {
                     findAllSquaresToFill(gridASMRef);
                 }
+                else
+                {
+                    FillSquare();
+                    gridSquaresManager.CheckForFullGrid();
+                }
             }
         }
     }

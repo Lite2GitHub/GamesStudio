@@ -96,6 +96,11 @@ public class JournalManager : MonoBehaviour
         notes.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
+
+        foreach (GameObject spiritGrid in spiritGrids)
+        {
+            spiritGrid.SetActive(false);
+        }
     }
     public void SetInventoryActive()
     {
@@ -117,12 +122,19 @@ public class JournalManager : MonoBehaviour
 
     public void SetFlowerArrangeActive(int stage)
     {
+        spiritGrids[stage].SetActive(true);
         inventoryPageAnimator.SetTrigger("Reset");
         flowerArrangeOpen = true;
         print("is the animation going?");
         SetInventoryActive();
         inventoryPageAnimator.SetBool("GridEnter", true);
-        //spiritGrids[stage].SetActive(true);
+    }
+    public void CloseFlowerArrange(int stage)
+    {
+        spiritGrids[stage].GetComponent<Animator>().SetTrigger("Close");
+        flowerArrangeOpen = false;
+        print("is the animation going?");
+        inventoryPageAnimator.SetBool("GridEnter", false);
     }
 
     public void SetResearchActive()

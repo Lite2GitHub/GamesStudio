@@ -27,4 +27,9 @@ public class GridContentsManager : MonoBehaviour
         }
         contents.Remove(itemName);
     }
+
+    public void ClearContents()
+    {
+        contents.Clear();
+    }
 }

@@ -52,6 +52,8 @@ public class FlowerPickup : MonoBehaviour, IInteractable
         uigo.transform.localScale = Vector3.one;
 
         sprite.enabled = false;
+
+        Destroy(gameObject);
     }
 
     public void LeftRange()

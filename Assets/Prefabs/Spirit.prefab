@@ -298,6 +298,14 @@ PrefabInstance:
       propertyPath: spiritManager
       value: 
       objectReference: {fileID: 4177111548274898494}
+    - target: {fileID: 6834081511671104263, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: symbol.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834081511671104263, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
+      propertyPath: symbol.Array.data[12]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e722eaaf9239a049bcd1297c7571d61, type: 3}
     - target: {fileID: 8377247506890850008, guid: bdd96fda1a4683248b8be99a6ca52413, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
