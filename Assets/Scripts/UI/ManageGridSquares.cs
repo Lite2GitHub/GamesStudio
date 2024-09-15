@@ -12,7 +12,11 @@ public class ManageGridSquares : MonoBehaviour
     [SerializeField] List<Transform> rowArray = new List<Transform>();
     [SerializeField] List<GameObject> gridSqaureArray = new List<GameObject>(); //holds all of the grid squares to manage whats in the inventory
 
+    [SerializeField] Transform itemDraggingHolder;
+    [SerializeField] Transform itemHolder;
+
     [SerializeField] bool gridFull;
+    [SerializeField] int numberOfActiveSqaures; //serilized for debugging
     [SerializeField] int squaresFilledCount = 0;
 
     GridContentsManager gridContentsManager;
@@ -22,7 +26,7 @@ public class ManageGridSquares : MonoBehaviour
         gridContentsManager = GetComponent<GridContentsManager>();
 
         rowCount = rowArray.Count;
-        columnCount = transform.GetChild(0).childCount;
+        columnCount = rowArray[0].childCount;
 
         //then iterate through rows to make the grid square array
         for (int i = 0; i < rowArray.Count; i++)
@@ -39,18 +43,40 @@ public class ManageGridSquares : MonoBehaviour
                 childSODRef.gridContentsManager = gridContentsManager;
                 childSODRef.row = i;
                 childSODRef.column = o;
+                childSODRef.itemHolder = itemHolder;
+
+                if (childSODRef.active)
+                {
+                    numberOfActiveSqaures++;
+                }
             }
         }
     }
 
     public void FillGridSquare(int row, int column)
     {
-        rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().FillSquare();
+        if (row >= 0 & row < rowCount && column >= 0 && column < columnCount)
+        {
+            SnapOnDrop gridSqaureToCheck = rowArray[row].GetChild(column).GetComponent<SnapOnDrop>();
+
+            if (gridSqaureToCheck.active && !gridSqaureToCheck.filled)
+            {
+                gridSqaureToCheck.FillSquare();
+            }
+        }
     }
 
     public void SetGridSqaure(int row, int column, GameObject targetSet)
     {
-        rowArray[row].GetChild(column).GetComponent<SnapOnDrop>().SetItemSquareActive(targetSet);
+        if (row >= 0 & row < rowCount && column >= 0 && column < columnCount)
+        {
+            SnapOnDrop gridSqaureToCheck = rowArray[row].GetChild(column).GetComponent<SnapOnDrop>();
+
+            if (gridSqaureToCheck.active && !gridSqaureToCheck.filled)
+            {
+                gridSqaureToCheck.SetItemSquareActive(targetSet);
+            }
+        }
     }
 
     public void CheckForFullGrid()
@@ -64,7 +90,7 @@ public class ManageGridSquares : MonoBehaviour
             }
         }
 
-        if (squaresFilledCount >= gridSqaureArray.Count)
+        if (squaresFilledCount >= numberOfActiveSqaures)
         {
             gridFull = true;
         }

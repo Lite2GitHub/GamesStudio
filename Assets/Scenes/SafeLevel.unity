@@ -243,10 +243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &8619532
@@ -655,10 +657,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &45147365
@@ -1143,10 +1147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &59189941
@@ -1156,7 +1162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59189938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1237,10 +1243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &62066223
@@ -1764,10 +1772,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &86725110
@@ -1942,6 +1952,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93087838}
   m_CullTransparentMesh: 1
+--- !u!1 &96523963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96523964}
+  m_Layer: 5
+  m_Name: InventoryItemsHolder
+  m_TagString: UIItemHolder
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &96523964
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96523963}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 827754591}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &97157803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2599,10 +2644,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &145019994
@@ -2693,10 +2740,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &147715181
@@ -3977,10 +4026,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &212823616
@@ -4679,10 +4730,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &268223317
@@ -5854,10 +5907,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &335548325
@@ -6271,10 +6326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &368232327
@@ -6500,10 +6557,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &380893715
@@ -6891,10 +6950,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &410901834
@@ -6990,10 +7051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &418027900
@@ -7146,10 +7209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &426840415
@@ -7240,10 +7305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &430698142
@@ -7463,10 +7530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &455586570
@@ -9227,10 +9296,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &587674217
@@ -9515,10 +9586,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &636168375
@@ -10617,10 +10690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &722074564
@@ -10935,10 +11010,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &748047733
@@ -11052,6 +11129,8 @@ MonoBehaviour:
   - {fileID: 966354266}
   - {fileID: 999406965}
   gridSqaureArray: []
+  itemDraggingHolder: {fileID: 0}
+  itemHolder: {fileID: 96523964}
   gridFull: 0
   squaresFilledCount: 0
 --- !u!1001 &751139430
@@ -11272,10 +11351,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &758072623
@@ -11919,7 +12000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &827754591
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11940,6 +12021,7 @@ RectTransform:
   - {fileID: 462113637}
   - {fileID: 1075946319}
   - {fileID: 749644282}
+  - {fileID: 96523964}
   m_Father: {fileID: 1555603766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12159,10 +12241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &834274176
@@ -12453,10 +12537,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &855351876
@@ -15174,10 +15260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1040286237
@@ -15464,10 +15552,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1055190554
@@ -15809,10 +15899,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1071684640
@@ -15945,7 +16037,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1913840577}
   - {fileID: 1513344698}
   - {fileID: 1994582648}
   - {fileID: 113894595}
@@ -15953,6 +16044,7 @@ RectTransform:
   - {fileID: 2097303350}
   - {fileID: 1876751344}
   - {fileID: 1940026124}
+  - {fileID: 1913840577}
   m_Father: {fileID: 827754591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -15983,6 +16075,8 @@ MonoBehaviour:
   - {fileID: 1876751344}
   - {fileID: 1940026124}
   gridSqaureArray: []
+  itemDraggingHolder: {fileID: 0}
+  itemHolder: {fileID: 1913840577}
   gridFull: 0
   squaresFilledCount: 0
 --- !u!114 &1075946321
@@ -16444,10 +16538,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1124673177
@@ -18008,10 +18104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1257937740
@@ -19596,10 +19694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1358174006
@@ -19752,10 +19852,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1364968833
@@ -20430,10 +20532,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1410522404
@@ -20803,10 +20907,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1427208541
@@ -22171,10 +22277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1474275452
@@ -23769,10 +23877,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1535672078
@@ -23863,10 +23973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1539610336
@@ -23942,6 +24054,7 @@ RectTransform:
   - {fileID: 233847284}
   - {fileID: 1812060317}
   - {fileID: 649048714}
+  - {fileID: 1622123113}
   m_Father: {fileID: 169094388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -24079,10 +24192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1566227359
@@ -24372,10 +24487,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1578150055
@@ -24466,10 +24583,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1579523197
@@ -24892,10 +25011,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1604766129
@@ -25003,6 +25124,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53552e529cf642541bba9a223ae42501, type: 3}
   m_PrefabInstance: {fileID: 1608102967}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1622123112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1622123113}
+  m_Layer: 5
+  m_Name: ItemDraggingParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1622123113
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622123112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1555603766}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1622875800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25361,10 +25517,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1657637781
@@ -25884,10 +26042,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1708070793
@@ -26350,10 +26510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1741405051
@@ -26734,10 +26896,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1800026710
@@ -26907,10 +27071,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1815343153
@@ -27001,10 +27167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1824410027
@@ -27014,7 +27182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824410024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -27281,10 +27449,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1851282479
@@ -27445,10 +27615,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1869559262
@@ -28504,10 +28676,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &1921618033
@@ -29585,10 +29759,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &2003452397
@@ -29870,10 +30046,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &2029723278
@@ -29964,10 +30142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &2032702709
@@ -30058,10 +30238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &2041250645
@@ -30593,10 +30775,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &2071066792
@@ -31210,10 +31394,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
   gridContentsManager: {fileID: 0}
+  itemHolder: {fileID: 0}
   row: 0
   column: 0
 --- !u!114 &2125915324

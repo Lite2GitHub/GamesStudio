@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
@@ -11,25 +12,37 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     [SerializeField] GridItemInventoryChecker gridItemInventoryChecker;
 
     [SerializeField] Transform parentTransform;
+
+    [SerializeField] Sprite regularGrid;
+    [SerializeField] Sprite incorrectlyPlacedGrid;
+
+    Transform universalItemHolder;
     RectTransform rectTransform;
     Canvas uiCanvas;
     CanvasGroup canvasGroup;
+    Image image;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         uiCanvas = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<Canvas>();
+        universalItemHolder = GameObject.FindGameObjectWithTag("UIItemHolder").GetComponent<Transform>();
+        image = GetComponent<Image>();
 
-        parentTransform = GetComponentInParent<Transform>();
+        //parentTransform = GetComponentInParent<Transform>().GetComponentInParent<Transform>(); //due to the reparenting with the flower grid it needs to grab the parent of the parent
+        //print("the parent is: " + parentTransform);
 
         setParentOnClick = GetComponentInParent<SetParentOnClick>();
         gridItemInventoryChecker = GetComponentInParent<GridItemInventoryChecker>();
+
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 0.6f;
+        parentTransform.SetParent(universalItemHolder);
+        //canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
 
         gridItemInventoryChecker.ResetOnPickup();
@@ -54,7 +67,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1f;
+        //canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
         gridItemInventoryChecker.CheckIfPlacedCorrectly();
@@ -69,7 +82,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         print("on square");
         occupiedSquare = squareBeingOccupied;
-        parentTransform.parent = squareBeingOccupied.transform;
+        SnapOnDrop squareSOD = occupiedSquare.GetComponent<SnapOnDrop>();
+        parentTransform.SetParent(squareSOD.itemHolder);
     }
 
     public void ClearSquare()
@@ -91,6 +105,25 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (occupiedSquare != null)
         {
             occupiedSquare.GetComponent<SnapOnDrop>().RemoveFromInventory(itemName);
+        }
+    }
+
+    //call this function from grid item manager script when placed to change if place incorrectly
+    public void PlacedStateIndicatorChange(bool placedCorrectly)
+    {
+        if (placedCorrectly)
+        {
+            var tempColor = image.color;
+            tempColor.a = 0f;
+            image.color = tempColor;
+            image.sprite = regularGrid;
+        }
+        else
+        {
+            var tempColor = image.color;
+            tempColor.a = 1f;
+            image.color = tempColor;
+            image.sprite = incorrectlyPlacedGrid;
         }
     }
 }

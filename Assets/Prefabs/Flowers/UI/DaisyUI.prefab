@@ -94,6 +94,9 @@ MonoBehaviour:
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 0}
   gridItemInventoryChecker: {fileID: 0}
+  parentTransform: {fileID: 2736392895453330019}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
 --- !u!225 &5134781827197252505
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -231,6 +234,9 @@ MonoBehaviour:
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 0}
   gridItemInventoryChecker: {fileID: 0}
+  parentTransform: {fileID: 2736392895453330019}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
 --- !u!225 &1532330866369139613
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -338,6 +344,7 @@ MonoBehaviour:
   - {fileID: 9021198299358420964}
   - {fileID: 2201166634217595768}
   - {fileID: 5657539859675533702}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
 --- !u!114 &1003116577281020960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,14 +399,14 @@ RectTransform:
   m_GameObject: {fileID: 5657539859675533702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2736392895453330019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -95.3, y: 0}
   m_SizeDelta: {x: 510, y: 510}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2790870454224929364
@@ -430,7 +437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 170e8fc4ad09efc42a20c08de432678a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5f72d5859b35b94d89c38ea7e1e31f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -534,6 +541,9 @@ MonoBehaviour:
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 0}
   gridItemInventoryChecker: {fileID: 0}
+  parentTransform: {fileID: 2736392895453330019}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
 --- !u!225 &5617983153014597473
 CanvasGroup:
   m_ObjectHideFlags: 0

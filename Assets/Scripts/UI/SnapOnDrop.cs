@@ -7,25 +7,47 @@ using UnityEngine.UI;
 
 public class SnapOnDrop : MonoBehaviour, IDropHandler
 {
+    public bool active = true;
+
     public bool filled = false;
     public GameObject flowerInSqaure;
     public ManageGridSquares gridSquaresManager;
     public GridContentsManager gridContentsManager;
+    public Transform itemHolder;
 
     public int row;
     public int column;
 
+    Image image;
+
+    void Start()
+    {
+        image = GetComponent<Image>();
+
+        if (!active)
+        {
+            image.enabled = false;
+        }
+        else
+        {
+            image.enabled = true;
+        }
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null)
+        if (active || !filled)
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition -= eventData.pointerDrag.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
+            if (eventData.pointerDrag != null)
+            {
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition -= eventData.pointerDrag.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
 
-            SetItemSquareActive(eventData.pointerDrag);
+                SetItemSquareActive(eventData.pointerDrag);
 
-            AdjacentSquareManager gridASMRef = eventData.pointerDrag.GetComponent<AdjacentSquareManager>();
-            findAllSquaresToFill(gridASMRef);
+                AdjacentSquareManager gridASMRef = eventData.pointerDrag.GetComponent<AdjacentSquareManager>();
+                findAllSquaresToFill(gridASMRef);
+            }
         }
     }
 
@@ -44,11 +66,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetRow;
                 targetRow = row - (i + 1);
 
-                if (targetRow >= 0)
-                {
-                    gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentAbove[i]);
-                    gridSquaresManager.FillGridSquare(targetRow, column);
-                }
+                gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentAbove[i]);
+                gridSquaresManager.FillGridSquare(targetRow, column);
             }
         }
         
@@ -59,13 +78,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetRow;
                 targetRow = row + (i + 1);
 
-                print("grid square manager row count: " + gridSquaresManager.rowCount + "target row: " + targetRow);
-                if (targetRow <= gridSquaresManager.rowCount - 1)
-                {
-                    print("should be in func");
-                    gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentBelow[i]);
-                    gridSquaresManager.FillGridSquare(targetRow, column);
-                }
+                gridSquaresManager.SetGridSqaure(targetRow, column, gridASMRef.adjacentBelow[i]);
+                gridSquaresManager.FillGridSquare(targetRow, column);
             }
         }
         
@@ -76,11 +90,9 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetColumn;
                 targetColumn = column - (i + 1);
 
-                if (targetColumn >= 0)
-                {
-                    gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentLeft[i]);
-                    gridSquaresManager.FillGridSquare(row, targetColumn);
-                }
+                gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentLeft[i]);
+                gridSquaresManager.FillGridSquare(row, targetColumn);
+
             }
         }
         
@@ -91,11 +103,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
                 int targetColumn;
                 targetColumn = column + (i + 1);
 
-                if (targetColumn <= gridSquaresManager.columnCount - 1)
-                {
-                    gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentRight[i]);
-                    gridSquaresManager.FillGridSquare(row, targetColumn);
-                }
+                gridSquaresManager.SetGridSqaure(row, targetColumn, gridASMRef.adjacentRight[i]);
+                gridSquaresManager.FillGridSquare(row, targetColumn);
             }
         }
 
@@ -105,7 +114,7 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     public void FillSquare()
     {
         filled = true;
-        GetComponent<Image>().color = Color.black;
+        //GetComponent<Image>().color = Color.black;
     }
 
     public void EmptySqaure()

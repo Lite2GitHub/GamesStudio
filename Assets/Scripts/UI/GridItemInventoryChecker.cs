@@ -27,14 +27,33 @@ public class GridItemInventoryChecker : MonoBehaviour
             if (sqaure.GetComponent<DragDrop>().occupiedSquare == null)
             {
                 print("a null");
-                flowerImage.color = Color.red;
+
+                var temppColor = flowerImage.color; //there was an error mesahe about the name of the variable idk was too lazy to fix so just named it temppColor instead
+                temppColor.a = 0.5f;
+                flowerImage.color = temppColor;
+
+                foreach (GameObject square in sqaureRefs)
+                {
+                    DragDrop dragDrop = square.GetComponent<DragDrop>();
+                    if (dragDrop.occupiedSquare != null)
+                    {
+                        dragDrop.PlacedStateIndicatorChange(true);
+                    }
+                    else
+                    {
+                        dragDrop.PlacedStateIndicatorChange(false);
+                    }
+                }
+
                 placedCorrectly = false; 
                 return;
             }
         }
         print("no null");
         placedCorrectly = true;
-        flowerImage.color = Color.white;
+        var tempColor = flowerImage.color;
+        tempColor.a = 1f;
+        flowerImage.color = tempColor;
 
         setParentOnClick.squareArray[0].GetComponent<DragDrop>().AddToInventory(flowerType);
     }
@@ -42,7 +61,10 @@ public class GridItemInventoryChecker : MonoBehaviour
     public void ResetOnPickup()
     {
         placedCorrectly = false;
-        flowerImage.color = Color.white;
+
+        var tempColor = flowerImage.color;
+        tempColor.a = 1f;
+        flowerImage.color = tempColor;
 
         setParentOnClick.squareArray[0].GetComponent<DragDrop>().RemoveFromInventory(flowerType);
     }
