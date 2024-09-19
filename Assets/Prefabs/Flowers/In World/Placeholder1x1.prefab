@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3570772074247591062}
   m_Father: {fileID: 0}
@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 0}
   sprite: {fileID: 5546916497216653669}
-  standardMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  outlineMat: {fileID: 2100000, guid: 37f149cf4d8e6c24bb58a21ca9d51d57, type: 2}
+  standardMat: {fileID: 2100000, guid: e65b1d28bc14c0b4ba4e3186f45d7078, type: 2}
+  outlineMat: {fileID: 2100000, guid: 8e921e45e884dfa47ac792ed1623abab, type: 2}
   playerInteraction: {fileID: 0}
   flowerDialogue: 9,3,2
   flowerType: 
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e65b1d28bc14c0b4ba4e3186f45d7078, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,12 +164,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e327f265f0720341a17d73d6f90ef9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0377ac9b99ac8434992eaf52a8676a35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.5, y: 11.5}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

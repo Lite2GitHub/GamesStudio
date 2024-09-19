@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 0}
   sprite: {fileID: 5546916497216653669}
-  standardMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  outlineMat: {fileID: 2100000, guid: 37f149cf4d8e6c24bb58a21ca9d51d57, type: 2}
+  standardMat: {fileID: 2100000, guid: 47086d904deb788458788b782c9b9fbe, type: 2}
+  outlineMat: {fileID: 2100000, guid: 883f62692ad24b14d885b9880b7ec20f, type: 2}
   playerInteraction: {fileID: 0}
   flowerDialogue: 9,3,2
   flowerType: 
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 47086d904deb788458788b782c9b9fbe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
