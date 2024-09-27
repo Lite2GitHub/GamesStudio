@@ -105,6 +105,8 @@ public class JournalManager : MonoBehaviour
         {
             spiritGrid.SetActive(false);
         }
+
+        inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
     }
     public void SetInventoryActive()
     {

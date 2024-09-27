@@ -10,4 +10,16 @@ public class IHateMyselfSO : ScriptableObject
     public float value = 0;
 
     public bool inventoryOpen = false;
+
+    public bool openInventoryHoverBook = false;
+
+
+    private void OnEnable()
+    {
+        value = 0;
+
+        inventoryOpen = false;
+
+        openInventoryHoverBook = false;
+    }
 }

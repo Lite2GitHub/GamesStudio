@@ -11,6 +11,7 @@ TagManager:
   - CameraZone
   - Journal
   - Spirit
+  - Terrain
   layers:
   - Default
   - TransparentFX

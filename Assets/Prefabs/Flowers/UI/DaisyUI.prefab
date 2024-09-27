@@ -365,6 +365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42b7262a0ebf634eb4c6c5b39182aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kickParticle: {fileID: 5179207240585030, guid: 96a9966365de2604e8a1d1d319190634, type: 3}
+  kickMaterial: {fileID: 2100000, guid: 57e0086df217d824b809bde4263be0c4, type: 2}
+  inWorldFlowerGO: {fileID: 4130825949333845281, guid: 39462cab580c02d479b9259e10d1625a, type: 3}
   flowerType: daisy
   flowerImage: {fileID: 2444860913497545265}
   placedCorrectly: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerUpHandler
 {
     //variables given by the parent
     public IHateMyselfSO hackData;
@@ -77,6 +77,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 hackForSpawn = false;
                 canvasGroup.blocksRaycasts = true;
                 RaySpawnFlowerOnGround();
+                hackData.openInventoryHoverBook = false;
             }
         }
     }
@@ -132,7 +133,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         print("pointer down");
-        
+
+        hackData.openInventoryHoverBook = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        hackData.openInventoryHoverBook = false;
     }
 
     public void SetOnSquare(GameObject squareBeingOccupied)
@@ -219,6 +226,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         if (spawnedPickUp && hackForSpawn)
         {
+            hackData.openInventoryHoverBook = true;
             hackData.hackyEventDataItem = gameObject;
             print("this gameobject: " + gameObject);
             passData = eventData;
@@ -259,4 +267,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         gridItemInventoryChecker.CheckIfPlacedCorrectly();
     }
+
+
 }

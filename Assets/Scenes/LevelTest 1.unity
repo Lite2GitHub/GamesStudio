@@ -1899,7 +1899,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69865752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11405,6 +11405,7 @@ GameObject:
   - component: {fileID: 383661833}
   - component: {fileID: 383661832}
   - component: {fileID: 383661835}
+  - component: {fileID: 383661836}
   m_Layer: 5
   m_Name: JournalInventory
   m_TagString: Untagged
@@ -11500,6 +11501,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &383661836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383661831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fca7df7cfcf52e49b0e7d875b881b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grids:
+  - {fileID: 615720203}
+  - {fileID: 839524892}
+  - {fileID: 2000491181}
+  - {fileID: 2002100401}
+  unplacedItemsGO: {fileID: 69865752}
 --- !u!1001 &383745024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24434,6 +24453,7 @@ GameObject:
   - component: {fileID: 856209439}
   - component: {fileID: 856209438}
   - component: {fileID: 856209437}
+  - component: {fileID: 856209440}
   m_Layer: 5
   m_Name: OpenInventoryOnDrag
   m_TagString: Untagged
@@ -24457,7 +24477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -445}
+  m_AnchoredPosition: {x: 0, y: -636.07495}
   m_SizeDelta: {x: 320, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856209437
@@ -24512,6 +24532,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856209435}
   m_CullTransparentMesh: 1
+--- !u!95 &856209440
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856209435}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92adab3415af4d249b81e0ee9e5888b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &860365807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31590,7 +31631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3634804, y: -0.000000016029496, z: 0.0000000062541816, w: 0.9316019}
+  m_LocalRotation: {x: 0.3634804, y: -0.000000016029496, z: 0.0000000062541825, w: 0.9316019}
   m_LocalPosition: {x: 22.5, y: 2.2053876, z: 39.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40309,7 +40350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3634804, y: -0.000000016029496, z: 0.0000000062541816, w: 0.9316019}
+  m_LocalRotation: {x: 0.3634804, y: -0.000000016029496, z: 0.0000000062541825, w: 0.9316019}
   m_LocalPosition: {x: 22.5, y: 2.2053876, z: 39.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50136,8 +50177,8 @@ RectTransform:
   - {fileID: 979833115}
   - {fileID: 348548156}
   - {fileID: 119077383}
-  - {fileID: 705570770}
   - {fileID: 69865753}
+  - {fileID: 705570770}
   m_Father: {fileID: 1194535621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -50666,7 +50707,7 @@ GameObject:
   - component: {fileID: 1785988369}
   m_Layer: 6
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127

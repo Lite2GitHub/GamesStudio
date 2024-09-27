@@ -135,4 +135,17 @@ public class ManageGridSquares : MonoBehaviour
         //gridFull = false;
         //squaresFilledCount = 0;
     }
+
+    public void KickFromInventory()
+    {
+        GridItemInventoryChecker[] flowers = itemHolder.GetComponentsInChildren<GridItemInventoryChecker>();
+
+        foreach (GridItemInventoryChecker flower in flowers)
+        {
+            if (!flower.placedCorrectly)
+            {
+                flower.KickFromInventory();
+            }
+        }
+    }
 }

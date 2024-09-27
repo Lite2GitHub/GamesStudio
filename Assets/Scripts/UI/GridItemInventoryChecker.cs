@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class GridItemInventoryChecker : MonoBehaviour
 {
+    [SerializeField] GameObject kickParticle;
+    [SerializeField] Material kickMaterial;
+    [SerializeField] GameObject inWorldFlowerGO;
+
     [SerializeField] string flowerType;
 
     [SerializeField] Image flowerImage;
@@ -67,5 +71,27 @@ public class GridItemInventoryChecker : MonoBehaviour
         flowerImage.color = tempColor;
 
         setParentOnClick.squareArray[0].GetComponent<DragDrop>().RemoveFromInventory(flowerType);
+    }
+
+    public void KickFromInventory()
+    {
+        print("kicked from inventory");
+
+        var particle = Instantiate(kickParticle, GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position, Quaternion.identity);
+        DropItemParticle dropItemParticle = particle.GetComponent<DropItemParticle>();
+
+        dropItemParticle.dropMaterial = kickMaterial;
+        dropItemParticle.flowerToSpawn = inWorldFlowerGO;
+
+        dropItemParticle.Initiate();
+        dropItemParticle.Play();
+
+        foreach (GameObject grid in setParentOnClick.squareArray)
+        {
+            print("loops throug");
+            grid.GetComponent<DragDrop>().ClearSquare();
+        }
+
+        Destroy(gameObject);
     }
 }

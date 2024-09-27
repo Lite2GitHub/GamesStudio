@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackData: {fileID: 0}
+  inWorldFlower: {fileID: 0}
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 9166326205931556767}
   gridItemInventoryChecker: {fileID: 0}
@@ -236,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackData: {fileID: 0}
+  inWorldFlower: {fileID: 0}
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 9166326205931556767}
   gridItemInventoryChecker: {fileID: 0}
@@ -380,6 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackData: {fileID: 0}
+  inWorldFlower: {fileID: 0}
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 9166326205931556767}
   gridItemInventoryChecker: {fileID: 0}
@@ -501,6 +504,7 @@ MonoBehaviour:
   - {fileID: 5657539859675533702}
   regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
+  inWorldFlower: {fileID: 4130825949333845281, guid: 526ec61513015ee4da17dfc298294ad6, type: 3}
 --- !u!114 &7881200923846492923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42b7262a0ebf634eb4c6c5b39182aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kickParticle: {fileID: 5179207240585030, guid: 96a9966365de2604e8a1d1d319190634, type: 3}
+  kickMaterial: {fileID: 2100000, guid: 9a66edd2f67ee354aa9a66f3e9504778, type: 2}
+  inWorldFlowerGO: {fileID: 4130825949333845281, guid: 526ec61513015ee4da17dfc298294ad6, type: 3}
   flowerType: magnolia
   flowerImage: {fileID: 2444860913497545265}
   placedCorrectly: 0
@@ -695,6 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackData: {fileID: 0}
+  inWorldFlower: {fileID: 0}
   occupiedSquare: {fileID: 0}
   setParentOnClick: {fileID: 9166326205931556767}
   gridItemInventoryChecker: {fileID: 0}
