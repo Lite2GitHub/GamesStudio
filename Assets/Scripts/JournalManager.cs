@@ -20,6 +20,8 @@ public class JournalManager : MonoBehaviour
     [SerializeField] SceneController sceneController;
     [SerializeField] GameObject backgroundFade;
 
+    [SerializeField] IHateMyselfSO hackyData;
+
     bool vaseUIOpen = false;
 
     bool isPaused = false;
@@ -90,6 +92,8 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
+        hackyData.inventoryOpen = false;
+
         backgroundFade.SetActive(false);
         inventory.SetActive(false);
         research.SetActive(false);
@@ -104,6 +108,7 @@ public class JournalManager : MonoBehaviour
     }
     public void SetInventoryActive()
     {
+        hackyData.inventoryOpen = true;
         inventoryOpen = true;
         //if(!isPaused)
         //{
@@ -163,6 +168,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetMenuActive()
     {
+        hackyData.inventoryOpen = true;
+
         backgroundFade.SetActive(true);
 
         menu.SetActive(true);

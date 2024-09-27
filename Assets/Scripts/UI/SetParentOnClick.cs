@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,22 @@ public class SetParentOnClick : MonoBehaviour
     [SerializeField] Sprite regularGrid;
 
     bool showGrid = false; //turns off grid based on whether the piece is held currently
+
+
+    [SerializeField] IHateMyselfSO hackData;
+    [SerializeField] GameObject inWorldFlower;
+
+    //loop through the grid sqaures to hand down references (wish I did this with more things and sooner but too late now)
+    private void Awake()
+    {
+        foreach (GameObject grid in squareArray)
+        {
+            var gridDragDrop = grid.GetComponent<DragDrop>();
+
+            gridDragDrop.hackData = hackData;
+            gridDragDrop.inWorldFlower = inWorldFlower;
+        }
+    }
 
     //other objects call this function with a referecne to themselves
     public void SetNewParent(GameObject newParent)

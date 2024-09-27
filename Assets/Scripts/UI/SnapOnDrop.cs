@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SnapOnDrop : MonoBehaviour, IDropHandler
+public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public bool active = true;
 
@@ -19,6 +19,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     public int column;
 
     public RectTransform journalPage; 
+    
+    public IHateMyselfSO hackyData;
 
 
     [SerializeField] RectTransform gridParent; //these are set in editor incase of strange grid setups
@@ -119,5 +121,56 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler
     public void RemoveFromInventory(string itemName)
     {
         gridContentsManager.RemoveFromContents(itemName);
+    }
+
+
+    //this bit doesn't exist 
+    bool checkForMouseUp = false;
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (hackyData.hackyEventDataItem != null)
+        {
+            checkForMouseUp = true;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        checkForMouseUp = false;
+    }
+
+    bool doOnceHack = false;
+    void Update()
+    {
+        if (checkForMouseUp)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                GameObject itemPlacing = hackyData.hackyEventDataItem;
+                hackyData.hackyEventDataItem = null;
+
+                print("accepted the hack data as not empty: " + itemPlacing);
+                //snap the item to this grids position
+                itemPlacing.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition + journalPage.anchoredPosition;
+                itemPlacing.GetComponent<RectTransform>().anchoredPosition -= itemPlacing.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
+
+
+                SetItemSquareActive(itemPlacing);
+
+                AdjacentSquareManager gridASMRef = itemPlacing.GetComponent<AdjacentSquareManager>();
+
+                if (gridASMRef.neigbouringSquares.Count > 0)
+                {
+                    findAllSquaresToFill(gridASMRef);
+                }
+                else
+                {
+                    FillSquare();
+                    gridSquaresManager.CheckForFullGrid();
+                }
+
+                itemPlacing.GetComponent<DragDrop>().CheckIfPlaced();
+            }
+        }
     }
 }

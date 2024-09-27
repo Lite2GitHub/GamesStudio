@@ -27,6 +27,8 @@ public class ManageGridSquares : MonoBehaviour
 
     JournalManager journalManager;
 
+    [SerializeField] IHateMyselfSO hackData;
+
     void Start()
     {
         gridContentsManager = GetComponent<GridContentsManager>();
@@ -53,6 +55,7 @@ public class ManageGridSquares : MonoBehaviour
                 childSODRef.column = o;
                 childSODRef.itemHolder = itemHolder;
                 childSODRef.journalPage = journalPage.GetComponent<RectTransform>();
+                childSODRef.hackyData = hackData;
 
                 if (childSODRef.active)
                 {
