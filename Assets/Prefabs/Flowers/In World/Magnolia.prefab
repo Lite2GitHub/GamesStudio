@@ -55,6 +55,7 @@ MonoBehaviour:
   flowerDialogue: 4,1
   flowerType: 
   uiVersion: {fileID: 5655429168245472872, guid: 685dda36763778347bda4768466c4011, type: 3}
+  cursorData: {fileID: 11400000, guid: b9a4cd1e548c7864184508aefdb04c0f, type: 2}
 --- !u!136 &6663569518664358804
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: efbe9e66501dfca4896aeeca79dc64ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfac41e39df64ec47b0a4f1fef7cacc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

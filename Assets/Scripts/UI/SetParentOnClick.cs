@@ -18,6 +18,8 @@ public class SetParentOnClick : MonoBehaviour
     [SerializeField] IHateMyselfSO hackData;
     [SerializeField] GameObject inWorldFlower;
 
+    [SerializeField] CursorSO cursorData;
+
     //loop through the grid sqaures to hand down references (wish I did this with more things and sooner but too late now)
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class SetParentOnClick : MonoBehaviour
 
             gridDragDrop.hackData = hackData;
             gridDragDrop.inWorldFlower = inWorldFlower;
+            gridDragDrop.cursorData = cursorData;
         }
     }
 

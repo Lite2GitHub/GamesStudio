@@ -16,6 +16,8 @@ public class FlowerPickup : MonoBehaviour, IInteractable
     [SerializeField] string flowerType;
     [SerializeField] GameObject uiVersion; //UI gameobjkect veriosn of flower for UI drag and drop
 
+    [SerializeField] CursorSO cursorData;
+
 
     void Start()
     {
@@ -31,10 +33,13 @@ public class FlowerPickup : MonoBehaviour, IInteractable
         if (hovering)
         {
             sprite.material = outlineMat;
+
+            Cursor.SetCursor(cursorData.pickUpHover, cursorData.universalHotspot, CursorMode.Auto);
         }
         else
         {
             sprite.material = standardMat;
+            Cursor.SetCursor(cursorData.defaultCursor, cursorData.universalHotspot, CursorMode.Auto);
         }
     }
 

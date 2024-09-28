@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerUpHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerUpHandler, IPointerExitHandler
 {
     //variables given by the parent
     public IHateMyselfSO hackData;
     public GameObject inWorldFlower;
-
+    public CursorSO cursorData;
 
     public GameObject occupiedSquare;
 
@@ -34,6 +34,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     Vector2 mouseOffset;
 
     PointerEventData passData;
+
+    bool dragging = false; //just to check for the cursor when its dragging but has existed aread otehrwise too quick movement clears cursor
 
     private void Awake()
     {
@@ -78,6 +80,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 canvasGroup.blocksRaycasts = true;
                 RaySpawnFlowerOnGround();
                 hackData.openInventoryHoverBook = false;
+
+                Cursor.SetCursor(cursorData.defaultCursor, cursorData.universalHotspot, CursorMode.Auto);
             }
         }
     }
@@ -128,6 +132,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         gridItemInventoryChecker.CheckIfPlacedCorrectly();
 
         RaySpawnFlowerOnGround();
+
+        Cursor.SetCursor(cursorData.defaultCursor, cursorData.universalHotspot, CursorMode.Auto);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -135,6 +141,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         print("pointer down");
 
         hackData.openInventoryHoverBook = true;
+        Cursor.SetCursor(cursorData.pickUpGrab, cursorData.universalHotspot, CursorMode.Auto);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -224,6 +231,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     //Pretend this awful mess doesn't exist its my hack to get around spawning the tiles and the click even not gettting to register 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Cursor.SetCursor(cursorData.pickUpHover, cursorData.universalHotspot, CursorMode.Auto);
+
         if (spawnedPickUp && hackForSpawn)
         {
             hackData.openInventoryHoverBook = true;
@@ -252,6 +261,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
             mouseOffset = new Vector2(Input.mousePosition.x - (Screen.width / 2), Input.mousePosition.y - (Screen.height / 2)); //mouse origin is bottom left ui is center have to offset
             mouseOffset = mouseOffset / uiCanvas.scaleFactor; //have to then divide by scale factor of cnavas to support any screen resolution
+
+            Cursor.SetCursor(cursorData.pickUpGrab, cursorData.universalHotspot, CursorMode.Auto);
         }
     }
 
@@ -268,5 +279,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         gridItemInventoryChecker.CheckIfPlacedCorrectly();
     }
 
-
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!hackData.openInventoryHoverBook)
+        {
+            Cursor.SetCursor(cursorData.defaultCursor, cursorData.universalHotspot, CursorMode.Auto);
+        }
+    }
 }

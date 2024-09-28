@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5670b71e3647c4d939862680e9778e, type: 3}
+  m_Name: CursorData
+  m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 2800000, guid: 418f2e3bf02617340b2b8ea0a8d2972f, type: 3}
+  pickUpHover: {fileID: 2800000, guid: 793c29f6a6054264bbf278d0bd287431, type: 3}
+  pickUpGrab: {fileID: 2800000, guid: b4a6b9ffea0909f40b6c76492d8f92c9, type: 3}
+  dialogue: {fileID: 0}
+  universalHotspot: {x: 300, y: 150}

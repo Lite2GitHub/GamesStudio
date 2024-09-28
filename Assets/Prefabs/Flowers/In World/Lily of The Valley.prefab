@@ -55,6 +55,7 @@ MonoBehaviour:
   flowerDialogue: 9,10
   flowerType: 
   uiVersion: {fileID: 5655429168245472872, guid: b4a96b8094e25d14986cc2a1381b41bd, type: 3}
+  cursorData: {fileID: 11400000, guid: b9a4cd1e548c7864184508aefdb04c0f, type: 2}
 --- !u!136 &4191203106149265282
 CapsuleCollider:
   m_ObjectHideFlags: 0
