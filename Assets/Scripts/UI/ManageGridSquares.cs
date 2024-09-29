@@ -29,6 +29,8 @@ public class ManageGridSquares : MonoBehaviour
 
     [SerializeField] IHateMyselfSO hackData;
 
+    private FMOD.Studio.EventInstance instance;
+
     void Start()
     {
         gridContentsManager = GetComponent<GridContentsManager>();
@@ -145,7 +147,15 @@ public class ManageGridSquares : MonoBehaviour
             if (!flower.placedCorrectly)
             {
                 flower.KickFromInventory();
+                FlowerDrop();
             }
         }
+    }
+
+    void FlowerDrop()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/FlowerFail");
+        instance.start();
+        instance.release();
     }
 }

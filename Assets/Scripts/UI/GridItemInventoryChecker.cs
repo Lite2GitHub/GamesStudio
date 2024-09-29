@@ -18,6 +18,8 @@ public class GridItemInventoryChecker : MonoBehaviour
     SetParentOnClick setParentOnClick; //just to get all sqaure references, I should fix this
     List<GameObject> sqaureRefs = new List<GameObject>();
 
+    private FMOD.Studio.EventInstance instance;
+
     void Start()
     {
         setParentOnClick = GetComponent<SetParentOnClick>();
@@ -48,11 +50,13 @@ public class GridItemInventoryChecker : MonoBehaviour
                     }
                 }
 
-                placedCorrectly = false; 
+                placedCorrectly = false;
+                PlaceFail();
                 return;
             }
         }
         placedCorrectly = true;
+        PlaceSuccess();
         var tempColor = flowerImage.color;
         tempColor.a = 1f;
         flowerImage.color = tempColor;
@@ -91,5 +95,19 @@ public class GridItemInventoryChecker : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    void PlaceSuccess()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/FlowerSuccess");
+        instance.start();
+        instance.release();
+    }
+
+    void PlaceFail()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/FlowerFail");
+        instance.start();
+        instance.release();
     }
 }
