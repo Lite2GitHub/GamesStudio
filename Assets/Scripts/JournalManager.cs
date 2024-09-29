@@ -30,6 +30,8 @@ public class JournalManager : MonoBehaviour
     bool inventoryOpen = false;
     bool flowerArrangeOpen = false;
 
+    private FMOD.Studio.EventInstance instance;
+
     private void Start()
     {
         Vector2 origInventoryPos = inventory.transform.localPosition;
@@ -46,12 +48,14 @@ public class JournalManager : MonoBehaviour
                 isPaused = true;
                 Time.timeScale = 0;
                 SetMenuActive();
+                TurnPage();
             }
             else
             {
                 isPaused = false;
                 Time.timeScale = 1;
                 DeactivateAll();
+                CloseBook();
             }
         }
         if (Input.GetKeyUp(KeyCode.Tab))    // Added by Angus
@@ -107,6 +111,7 @@ public class JournalManager : MonoBehaviour
         }
 
         inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
+        CloseBook();
     }
     public void SetInventoryActive()
     {
@@ -125,6 +130,7 @@ public class JournalManager : MonoBehaviour
         notes.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
+        BookOpened();
     }
 
     public void SetFlowerArrangeActive(int stage)
@@ -135,6 +141,7 @@ public class JournalManager : MonoBehaviour
         print("is the animation going?");
         SetInventoryActive();
         inventoryPageAnimator.SetBool("GridEnter", true);
+        TurnPage();
     }
     public void CloseFlowerArrange(int stage)
     {
@@ -154,6 +161,7 @@ public class JournalManager : MonoBehaviour
         notes.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
+        TurnPage();
     }
 
     public void SetNotesActive()
@@ -166,6 +174,7 @@ public class JournalManager : MonoBehaviour
         research.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
+        TurnPage();
     }
 
     public void SetMenuActive()
@@ -180,6 +189,7 @@ public class JournalManager : MonoBehaviour
         research.SetActive(false);
         notes.SetActive(false);
         help.SetActive(false);
+        TurnPage();
     }
 
     public void SetHelpActive()
@@ -192,5 +202,27 @@ public class JournalManager : MonoBehaviour
         research.SetActive(false);
         notes.SetActive(false);
         menu.SetActive(false);
+        TurnPage();
+    }
+
+    void CloseBook()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookClosed");
+        instance.start();
+        instance.release();
+    }
+
+    void TurnPage()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookPageTurn");
+        instance.start();
+        instance.release();
+    }
+
+    void BookOpened()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookOpened");
+        instance.start();
+        instance.release();
     }
 }

@@ -14,6 +14,9 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
     [SerializeField] bool open = false;
     [SerializeField] bool close = false;
 
+    private FMOD.Studio.EventInstance instance;
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -45,5 +48,12 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
         {
             journalManager.SetInventoryActive();
         }
+    }
+
+    void BookOpened()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookOpened");
+        instance.start();
+        instance.release();
     }
 }
