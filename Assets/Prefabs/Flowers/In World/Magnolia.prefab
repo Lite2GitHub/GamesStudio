@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d448aeef69683c9478129860338a7330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   uiCanvas: {fileID: 0}
   sprite: {fileID: 5546916497216653669}
   standardMat: {fileID: 2100000, guid: 9a66edd2f67ee354aa9a66f3e9504778, type: 2}
