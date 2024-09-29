@@ -53,7 +53,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 2804376711430125641}
   playerInteraction: {fileID: 0}
   standardMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  outlineMat: {fileID: 2100000, guid: 37f149cf4d8e6c24bb58a21ca9d51d57, type: 2}
+  outlineMat: {fileID: 2100000, guid: c37b6fa29d29e2c4cb523fcf686a7468, type: 2}
   flowersRequired: 2
   requiredFlowersList: []
   Items: {fileID: 0}
@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 731616023919005084}
   - component: {fileID: 3792815744113632099}
+  - component: {fileID: 9046174647772219766}
   m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
@@ -149,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 6560650295604550161}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 0.28, z: 0}
-  m_LocalScale: {x: 0.4999999, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.32, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5942688092340827464}
@@ -196,9 +197,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c213ed38503f8f40bd8d94babfdf471, type: 3}
+  m_Sprite: {fileID: 1361363407, guid: 43ada8db9483b024294296cac4891d33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.5355, y: 1.7716643}
@@ -207,6 +208,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &9046174647772219766
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560650295604550161}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb57582e32fc44a4889826fa92155d9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8663990204288416590
 PrefabInstance:
   m_ObjectHideFlags: 0

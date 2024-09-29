@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
     [Header ("General")]
     [SerializeField] IHateMyselfSO hackyData; //ignore this
     [SerializeField] TutorialTasksManager tutorialTasksManager;
+    [SerializeField] SceneController sceneController;
 
 
     public int tutorialStage;
@@ -78,8 +79,16 @@ public class TutorialManager : MonoBehaviour
                         Instantiate(spirit, moundTransform.position, Quaternion.identity);
                         stage1t1DoOnce = false;
                     }
+
                     //var spiritInst = Instantiate(spirit, moundTransform.position, Quaternion.identity);
                     
+                }
+                else
+                {
+                    if(!stage1t1DoOnce)
+                    {
+                        sceneController.StartNextScene("LevelTest 1");
+                    }
                 }
                 return;
         }

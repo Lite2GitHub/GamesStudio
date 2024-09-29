@@ -122,7 +122,7 @@ public class JournalManager : MonoBehaviour
         else
         {
             journalOpenClose.SetTrigger("Close");
-            inventoryPageAnimator.SetBool("CloseOpen", true);
+            journalOpenClose.SetBool("CloseOpen", true);
         }
         pageOpening = "inventory";
 
@@ -151,8 +151,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetResearchActive()
     {
-        inventoryPageAnimator.SetTrigger("Close");
-        inventoryPageAnimator.SetBool("CloseOpen", true);
+        journalOpenClose.SetTrigger("Close");
+        journalOpenClose.SetBool("CloseOpen", true);
         pageOpening = "research";
 
         backgroundFade.SetActive(true);
@@ -165,8 +165,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetNotesActive()
     {
-        inventoryPageAnimator.SetTrigger("Close");
-        inventoryPageAnimator.SetBool("CloseOpen", true);
+        journalOpenClose.SetTrigger("Close");
+        journalOpenClose.SetBool("CloseOpen", true);
 
         pageOpening = "notes";
 
@@ -187,7 +187,7 @@ public class JournalManager : MonoBehaviour
         else
         {
             journalOpenClose.SetTrigger("Close");
-            inventoryPageAnimator.SetBool("CloseOpen", true);
+            journalOpenClose.SetBool("CloseOpen", true);
         }
 
         pageOpening = "notes";
@@ -206,8 +206,8 @@ public class JournalManager : MonoBehaviour
 
     public void SetHelpActive()
     {
-        inventoryPageAnimator.SetTrigger("Close");
-        inventoryPageAnimator.SetBool("CloseOpen", true);
+        journalOpenClose.SetTrigger("Close");
+        journalOpenClose.SetBool("CloseOpen", true);
 
         backgroundFade.SetActive(true);
 
