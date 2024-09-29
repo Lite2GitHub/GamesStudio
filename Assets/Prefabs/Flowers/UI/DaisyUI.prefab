@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -98,8 +98,8 @@ MonoBehaviour:
   setParentOnClick: {fileID: 0}
   gridItemInventoryChecker: {fileID: 0}
   parentTransform: {fileID: 2736392895453330019}
-  regularGrid: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
-  incorrectlyPlacedGrid: {fileID: 21300000, guid: 3ea0f158a195d4e4bb79a4d4a929c70f, type: 3}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
   hackForSpawn: 1
 --- !u!225 &5134781827197252505
 CanvasGroup:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -242,8 +242,8 @@ MonoBehaviour:
   setParentOnClick: {fileID: 0}
   gridItemInventoryChecker: {fileID: 0}
   parentTransform: {fileID: 2736392895453330019}
-  regularGrid: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
-  incorrectlyPlacedGrid: {fileID: 21300000, guid: 3ea0f158a195d4e4bb79a4d4a929c70f, type: 3}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
   hackForSpawn: 1
 --- !u!225 &1532330866369139613
 CanvasGroup:
@@ -352,7 +352,7 @@ MonoBehaviour:
   - {fileID: 9021198299358420964}
   - {fileID: 2201166634217595768}
   - {fileID: 5657539859675533702}
-  regularGrid: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   inWorldFlower: {fileID: 4130825949333845281, guid: 39462cab580c02d479b9259e10d1625a, type: 3}
   cursorData: {fileID: 11400000, guid: b9a4cd1e548c7864184508aefdb04c0f, type: 2}
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -559,8 +559,8 @@ MonoBehaviour:
   setParentOnClick: {fileID: 0}
   gridItemInventoryChecker: {fileID: 0}
   parentTransform: {fileID: 2736392895453330019}
-  regularGrid: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
-  incorrectlyPlacedGrid: {fileID: 21300000, guid: 3ea0f158a195d4e4bb79a4d4a929c70f, type: 3}
+  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
   hackForSpawn: 1
 --- !u!225 &5617983153014597473
 CanvasGroup:

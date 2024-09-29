@@ -19,7 +19,6 @@ public class JournalManager : MonoBehaviour
     [Header("References")]
     [SerializeField] SceneController sceneController;
     [SerializeField] GameObject backgroundFade;
-    [SerializeField] Animator journalOpenClose;
 
     [SerializeField] IHateMyselfSO hackyData;
 
@@ -30,11 +29,6 @@ public class JournalManager : MonoBehaviour
 
     bool inventoryOpen = false;
     bool flowerArrangeOpen = false;
-
-    bool tabbedIn = false;
-    bool escapedIn = false;
-
-    string pageOpening; //this stores the desired page so the animation can finsih transitioning
 
     private void Start()
     {
@@ -50,12 +44,13 @@ public class JournalManager : MonoBehaviour
             if (!isPaused)
             {
                 isPaused = true;
-                escapedIn = true;
+                Time.timeScale = 0;
                 SetMenuActive();
             }
             else
             {
                 isPaused = false;
+                Time.timeScale = 1;
                 DeactivateAll();
             }
         }
@@ -63,7 +58,6 @@ public class JournalManager : MonoBehaviour
         {
             if (!inventoryOpen)
             {
-                tabbedIn = true;
                 SetInventoryActive();
             }
             else
@@ -77,11 +71,13 @@ public class JournalManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        Time.timeScale = 1;
         DeactivateAll();
     }
 
     public void BackToMainMenu()
     {
+        Time.timeScale = 1;
         isPaused = false;
         DeactivateAll();
         sceneController.StartNextScene("MainMenu");
@@ -96,7 +92,6 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
-        journalOpenClose.SetTrigger("Close");
         hackyData.inventoryOpen = false;
 
         backgroundFade.SetActive(false);
@@ -115,16 +110,16 @@ public class JournalManager : MonoBehaviour
     }
     public void SetInventoryActive()
     {
-        if (tabbedIn)
-        {
-            journalOpenClose.SetTrigger("Open");
-        }
-        else
-        {
-            journalOpenClose.SetTrigger("Close");
-            inventoryPageAnimator.SetBool("CloseOpen", true);
-        }
-        pageOpening = "inventory";
+        hackyData.inventoryOpen = true;
+        inventoryOpen = true;
+        //if(!isPaused)
+        //{
+        //    isPaused = true;
+        //    Time.timeScale = 0;
+        //}
+        backgroundFade.SetActive(true);
+
+        inventory.SetActive(true);
 
         research.SetActive(false);
         notes.SetActive(false);
@@ -151,11 +146,9 @@ public class JournalManager : MonoBehaviour
 
     public void SetResearchActive()
     {
-        inventoryPageAnimator.SetTrigger("Close");
-        inventoryPageAnimator.SetBool("CloseOpen", true);
-        pageOpening = "research";
-
         backgroundFade.SetActive(true);
+
+        research.SetActive(true);
 
         inventory.SetActive(false);
         notes.SetActive(false);
@@ -165,12 +158,9 @@ public class JournalManager : MonoBehaviour
 
     public void SetNotesActive()
     {
-        inventoryPageAnimator.SetTrigger("Close");
-        inventoryPageAnimator.SetBool("CloseOpen", true);
-
-        pageOpening = "notes";
-
         backgroundFade.SetActive(true);
+
+        notes.SetActive(true);
 
         inventory.SetActive(false);
         research.SetActive(false);
@@ -180,23 +170,11 @@ public class JournalManager : MonoBehaviour
 
     public void SetMenuActive()
     {
-        if (escapedIn)
-        {
-            journalOpenClose.SetTrigger("Open");
-        }
-        else
-        {
-            journalOpenClose.SetTrigger("Close");
-            inventoryPageAnimator.SetBool("CloseOpen", true);
-        }
-
-        pageOpening = "notes";
-
-
         hackyData.inventoryOpen = true;
 
         backgroundFade.SetActive(true);
 
+        menu.SetActive(true);
 
         inventory.SetActive(false);
         research.SetActive(false);
@@ -206,40 +184,13 @@ public class JournalManager : MonoBehaviour
 
     public void SetHelpActive()
     {
-        inventoryPageAnimator.SetTrigger("Close");
-        inventoryPageAnimator.SetBool("CloseOpen", true);
-
         backgroundFade.SetActive(true);
 
+        help.SetActive(true);
 
         inventory.SetActive(false);
         research.SetActive(false);
         notes.SetActive(false);
         menu.SetActive(false);
-    }
-
-    public void PageOpenFinished()
-    {
-        switch (pageOpening)
-        {
-            case "inventory":
-                hackyData.inventoryOpen = true;
-                inventoryOpen = true;
-                backgroundFade.SetActive(true);
-                inventory.SetActive(true);
-                return;
-            case "research":
-                research.SetActive(true);
-                return;
-            case "notes":
-                notes.SetActive(true);
-                return;
-            case "menu":
-                menu.SetActive(true);
-                return;
-            case "help":
-                help.SetActive(true);
-                return;
-        }
     }
 }
