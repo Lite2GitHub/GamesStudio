@@ -59,7 +59,7 @@ public class JournalManager : MonoBehaviour
                 DeactivateAll();
             }
         }
-        if (Input.GetKeyUp(KeyCode.Tab))    // Added by Angus
+        if (Input.GetKeyUp(KeyCode.Tab))
         {
             if (!inventoryOpen)
             {
