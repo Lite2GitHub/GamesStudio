@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 884922878974756450}
   m_Layer: 7
   m_Name: Spirit
-  m_TagString: Untagged
+  m_TagString: Spirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,10 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4192428b9ec8444f8b049bf89aba93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolPoints: []
   targetPoint: 0
   speed: 2
   relativeX: 0

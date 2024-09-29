@@ -169,9 +169,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 3
-      minScalar: 2.75
+      minMaxState: 3
+      scalar: 3.5
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -666,7 +666,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 15
+    angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0.2
@@ -4905,3 +4905,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropMaterial: {fileID: 0}
   flowerToSpawn: {fileID: 0}
+  releaseAngle: 10

@@ -12,6 +12,7 @@ TagManager:
   - Journal
   - Spirit
   - Terrain
+  - Tutorial
   layers:
   - Default
   - TransparentFX

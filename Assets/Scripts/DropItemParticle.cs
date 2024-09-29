@@ -6,6 +6,7 @@ public class DropItemParticle : MonoBehaviour
 {
     public Material dropMaterial;
     public GameObject flowerToSpawn;
+    public float releaseAngle = 10;
 
     ParticleSystem particle;
     ParticleSystem.Particle[] particles;
@@ -16,6 +17,9 @@ public class DropItemParticle : MonoBehaviour
         particles = new ParticleSystem.Particle[particle.main.maxParticles];
 
         particle.GetComponent<ParticleSystemRenderer>().material = dropMaterial;
+
+        var shape = particle.shape;
+        shape.angle = releaseAngle;
 
         //TerrainCollider terrainCollider = GameObject.FindGameObjectWithTag("Terrain").GetComponent<TerrainCollider>();
 
