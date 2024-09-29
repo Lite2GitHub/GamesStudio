@@ -74,10 +74,12 @@ public class TutorialManager : MonoBehaviour
                     if (stage1t1DoOnce)
                     {
                         tutorialTasksManager.RevealNextTask();
+
+                        Instantiate(spirit, moundTransform.position, Quaternion.identity);
                         stage1t1DoOnce = false;
                     }
                     //var spiritInst = Instantiate(spirit, moundTransform.position, Quaternion.identity);
-                    Instantiate(spirit, moundTransform.position, Quaternion.identity);
+                    
                 }
                 return;
         }

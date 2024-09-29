@@ -19,6 +19,7 @@ public class JournalManager : MonoBehaviour
     [Header("References")]
     [SerializeField] SceneController sceneController;
     [SerializeField] GameObject backgroundFade;
+    [SerializeField] Animator journalOpenClose;
 
     [SerializeField] IHateMyselfSO hackyData;
 
@@ -30,7 +31,10 @@ public class JournalManager : MonoBehaviour
     bool inventoryOpen = false;
     bool flowerArrangeOpen = false;
 
-    private FMOD.Studio.EventInstance instance;
+    bool tabbedIn = false;
+    bool escapedIn = false;
+
+    string pageOpening; //this stores the desired page so the animation can finsih transitioning
 
     private void Start()
     {
@@ -46,22 +50,20 @@ public class JournalManager : MonoBehaviour
             if (!isPaused)
             {
                 isPaused = true;
-                Time.timeScale = 0;
+                escapedIn = true;
                 SetMenuActive();
-                TurnPage();
             }
             else
             {
                 isPaused = false;
-                Time.timeScale = 1;
                 DeactivateAll();
-                CloseBook();
             }
         }
         if (Input.GetKeyUp(KeyCode.Tab))    // Added by Angus
         {
             if (!inventoryOpen)
             {
+                tabbedIn = true;
                 SetInventoryActive();
             }
             else
@@ -75,13 +77,11 @@ public class JournalManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
-        Time.timeScale = 1;
         DeactivateAll();
     }
 
     public void BackToMainMenu()
     {
-        Time.timeScale = 1;
         isPaused = false;
         DeactivateAll();
         sceneController.StartNextScene("MainMenu");
@@ -96,6 +96,7 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
+        journalOpenClose.SetTrigger("Close");
         hackyData.inventoryOpen = false;
 
         backgroundFade.SetActive(false);
@@ -111,26 +112,24 @@ public class JournalManager : MonoBehaviour
         }
 
         inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
-        CloseBook();
     }
     public void SetInventoryActive()
     {
-        hackyData.inventoryOpen = true;
-        inventoryOpen = true;
-        //if(!isPaused)
-        //{
-        //    isPaused = true;
-        //    Time.timeScale = 0;
-        //}
-        backgroundFade.SetActive(true);
-
-        inventory.SetActive(true);
+        if (tabbedIn)
+        {
+            journalOpenClose.SetTrigger("Open");
+        }
+        else
+        {
+            journalOpenClose.SetTrigger("Close");
+            inventoryPageAnimator.SetBool("CloseOpen", true);
+        }
+        pageOpening = "inventory";
 
         research.SetActive(false);
         notes.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
-        BookOpened();
     }
 
     public void SetFlowerArrangeActive(int stage)
@@ -141,7 +140,6 @@ public class JournalManager : MonoBehaviour
         print("is the animation going?");
         SetInventoryActive();
         inventoryPageAnimator.SetBool("GridEnter", true);
-        TurnPage();
     }
     public void CloseFlowerArrange(int stage)
     {
@@ -153,76 +151,95 @@ public class JournalManager : MonoBehaviour
 
     public void SetResearchActive()
     {
-        backgroundFade.SetActive(true);
+        inventoryPageAnimator.SetTrigger("Close");
+        inventoryPageAnimator.SetBool("CloseOpen", true);
+        pageOpening = "research";
 
-        research.SetActive(true);
+        backgroundFade.SetActive(true);
 
         inventory.SetActive(false);
         notes.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
-        TurnPage();
     }
 
     public void SetNotesActive()
     {
-        backgroundFade.SetActive(true);
+        inventoryPageAnimator.SetTrigger("Close");
+        inventoryPageAnimator.SetBool("CloseOpen", true);
 
-        notes.SetActive(true);
+        pageOpening = "notes";
+
+        backgroundFade.SetActive(true);
 
         inventory.SetActive(false);
         research.SetActive(false);
         menu.SetActive(false);
         help.SetActive(false);
-        TurnPage();
     }
 
     public void SetMenuActive()
     {
+        if (escapedIn)
+        {
+            journalOpenClose.SetTrigger("Open");
+        }
+        else
+        {
+            journalOpenClose.SetTrigger("Close");
+            inventoryPageAnimator.SetBool("CloseOpen", true);
+        }
+
+        pageOpening = "notes";
+
+
         hackyData.inventoryOpen = true;
 
         backgroundFade.SetActive(true);
 
-        menu.SetActive(true);
 
         inventory.SetActive(false);
         research.SetActive(false);
         notes.SetActive(false);
         help.SetActive(false);
-        TurnPage();
     }
 
     public void SetHelpActive()
     {
+        inventoryPageAnimator.SetTrigger("Close");
+        inventoryPageAnimator.SetBool("CloseOpen", true);
+
         backgroundFade.SetActive(true);
 
-        help.SetActive(true);
 
         inventory.SetActive(false);
         research.SetActive(false);
         notes.SetActive(false);
         menu.SetActive(false);
-        TurnPage();
     }
 
-    void CloseBook()
+    public void PageOpenFinished()
     {
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookClosed");
-        instance.start();
-        instance.release();
-    }
-
-    void TurnPage()
-    {
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookPageTurn");
-        instance.start();
-        instance.release();
-    }
-
-    void BookOpened()
-    {
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookOpened");
-        instance.start();
-        instance.release();
+        switch (pageOpening)
+        {
+            case "inventory":
+                hackyData.inventoryOpen = true;
+                inventoryOpen = true;
+                backgroundFade.SetActive(true);
+                inventory.SetActive(true);
+                return;
+            case "research":
+                research.SetActive(true);
+                return;
+            case "notes":
+                notes.SetActive(true);
+                return;
+            case "menu":
+                menu.SetActive(true);
+                return;
+            case "help":
+                help.SetActive(true);
+                return;
+        }
     }
 }
