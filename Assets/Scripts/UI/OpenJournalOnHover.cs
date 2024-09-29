@@ -29,7 +29,6 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
         }
         else if (!hackData.openInventoryHoverBook && !close && open || hackData.inventoryOpen && !close && open)
         {
-            print("waht hashappedhere");
             animator.SetTrigger("Close");
             close = true;
             open = false;

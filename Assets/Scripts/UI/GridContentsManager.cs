@@ -20,7 +20,6 @@ public class GridContentsManager : MonoBehaviour
 
     public void RemoveFromContents(string itemName)
     {
-        print("remove called");
         if (isPlayerInventory)
         {
             playerInventory.playerInventory.Remove(itemName);

@@ -88,7 +88,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        print("begin drag");
         parentTransform.SetParent(universalItemHolder);
         //canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
@@ -102,7 +101,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             //clear sqaure for all grids
             foreach (GameObject grid in setParentOnClick.squareArray)
             {
-                print("loops throug");
                 grid.GetComponent<DragDrop>().ClearSquare();
             }
         }
@@ -112,9 +110,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
         Vector2 rectPosition = new Vector2(rectTransform.position.x - (Screen.width / 2), rectTransform.position.y - (Screen.height / 2));
         rectPosition = rectPosition / uiCanvas.scaleFactor;
-
-        print("mouse position: " + mousePosition);
-        print("rect trans pos: " + rectPosition);
 
         rectTransform.anchoredPosition = mousePosition - (rectPosition - rectTransform.anchoredPosition);
     }
@@ -126,6 +121,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        hackData.openInventoryHoverBook = false;
+
         //canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
@@ -138,15 +135,47 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        print("pointer down");
+        //hackData.openInventoryHoverBook = true;
+        //Cursor.SetCursor(cursorData.pickUpGrab, cursorData.universalHotspot, CursorMode.Auto);
 
-        hackData.openInventoryHoverBook = true;
-        Cursor.SetCursor(cursorData.pickUpGrab, cursorData.universalHotspot, CursorMode.Auto);
+        //parentTransform.SetParent(universalItemHolder);
+        ////canvasGroup.alpha = 0.6f;
+        //canvasGroup.blocksRaycasts = false;
+
+        //gridItemInventoryChecker.ResetOnPickup();
+
+        //if (occupiedSquare != null)
+        //{
+        //    //ClearSquare();
+
+        //    //clear sqaure for all grids
+        //    foreach (GameObject grid in setParentOnClick.squareArray)
+        //    {
+        //        grid.GetComponent<DragDrop>().ClearSquare();
+        //    }
+        //}
+
+        //Vector2 mousePosition = new Vector2(Input.mousePosition.x - (Screen.width / 2), Input.mousePosition.y - (Screen.height / 2)); //mouse origin is bottom left ui is center have to offset
+        //mousePosition = mousePosition / uiCanvas.scaleFactor; //have to then divide by scale factor of cnavas to support any screen resolution
+
+        //Vector2 rectPosition = new Vector2(rectTransform.position.x - (Screen.width / 2), rectTransform.position.y - (Screen.height / 2));
+        //rectPosition = rectPosition / uiCanvas.scaleFactor;
+
+        //rectTransform.anchoredPosition = mousePosition - (rectPosition - rectTransform.anchoredPosition);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         hackData.openInventoryHoverBook = false;
+
+        //canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+
+        gridItemInventoryChecker.CheckIfPlacedCorrectly();
+
+        RaySpawnFlowerOnGround();
+
+        Cursor.SetCursor(cursorData.defaultCursor, cursorData.universalHotspot, CursorMode.Auto);
     }
 
     public void SetOnSquare(GameObject squareBeingOccupied)
@@ -237,7 +266,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         {
             hackData.openInventoryHoverBook = true;
             hackData.hackyEventDataItem = gameObject;
-            print("this gameobject: " + gameObject);
             passData = eventData;
             gridSquareClickReparent.ParentOnSelect();
 

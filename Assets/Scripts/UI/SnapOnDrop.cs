@@ -149,7 +149,6 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
                 GameObject itemPlacing = hackyData.hackyEventDataItem;
                 hackyData.hackyEventDataItem = null;
 
-                print("accepted the hack data as not empty: " + itemPlacing);
                 //snap the item to this grids position
                 itemPlacing.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition + journalPage.anchoredPosition;
                 itemPlacing.GetComponent<RectTransform>().anchoredPosition -= itemPlacing.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;

@@ -30,7 +30,6 @@ public class GridItemInventoryChecker : MonoBehaviour
         {
             if (sqaure.GetComponent<DragDrop>().occupiedSquare == null)
             {
-                print("a null");
 
                 var temppColor = flowerImage.color; //there was an error mesahe about the name of the variable idk was too lazy to fix so just named it temppColor instead
                 temppColor.a = 0.5f;
@@ -53,7 +52,6 @@ public class GridItemInventoryChecker : MonoBehaviour
                 return;
             }
         }
-        print("no null");
         placedCorrectly = true;
         var tempColor = flowerImage.color;
         tempColor.a = 1f;

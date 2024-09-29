@@ -45,10 +45,8 @@ public class FlowerPickup : MonoBehaviour, IInteractable
 
     public void interact(string context)
     {
-        print("collected flower");
         playerInteraction.heldItem = flowerType;
 
-        Debug.Log("Pickup success.");
 
         //instatantiate ui version and remove from parent so it doesn't delete when destroyed
         //The mouse position based on the canvas/screen's coordinate system:

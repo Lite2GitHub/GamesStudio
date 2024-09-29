@@ -50,8 +50,6 @@ public class SetParentOnClick : MonoBehaviour
         }
 
         //transform.SetParent(newParent.transform);
-
-        Debug.Log("reparented");
     }
 
     //removes the respective managed parent, this object will still remain the main parent
