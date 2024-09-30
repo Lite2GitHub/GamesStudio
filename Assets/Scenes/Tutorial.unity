@@ -15016,7 +15016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36348018, y: 0.000000016029505, z: -0.00000000625418, w: 0.93160194}
+  m_LocalRotation: {x: 0.36348018, y: -0.000000016029492, z: 0.000000006254176, w: 0.93160194}
   m_LocalPosition: {x: 10.6, y: 2.2053876, z: 1.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24423,7 +24423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36348018, y: 0.000000016029505, z: -0.00000000625418, w: 0.93160194}
+  m_LocalRotation: {x: 0.36348018, y: -0.000000016029492, z: 0.000000006254176, w: 0.93160194}
   m_LocalPosition: {x: 10.6, y: 2.2053876, z: 1.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29290,7 +29290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grids:
   - {fileID: 1134659800}
-  unplacedItemsGO: {fileID: 1271331495}
+  unplacedItemsGO: {fileID: 1271331496}
   journalManager: {fileID: 1794263905}
 --- !u!95 &1884392976
 Animator:
