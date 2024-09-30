@@ -183,6 +183,7 @@ public class JournalManager : MonoBehaviour
         if (escapedIn)
         {
             journalOpenClose.SetTrigger("Open");
+            escapedIn = false;
         }
         else
         {
@@ -190,7 +191,7 @@ public class JournalManager : MonoBehaviour
             journalOpenClose.SetBool("CloseOpen", true);
         }
 
-        pageOpening = "notes";
+        pageOpening = "menu";
 
 
         hackyData.inventoryOpen = true;
@@ -211,6 +212,7 @@ public class JournalManager : MonoBehaviour
 
         backgroundFade.SetActive(true);
 
+        pageOpening = "help";
 
         inventory.SetActive(false);
         research.SetActive(false);
@@ -227,6 +229,14 @@ public class JournalManager : MonoBehaviour
                 inventoryOpen = true;
                 backgroundFade.SetActive(true);
                 inventory.SetActive(true);
+                if (!tabbedIn)
+                {
+                    inventoryPageAnimator.SetBool("GridEnter", true);
+                }
+                else
+                {
+                    tabbedIn = false;
+                }
                 return;
             case "research":
                 research.SetActive(true);
