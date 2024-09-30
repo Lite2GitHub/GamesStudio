@@ -36,6 +36,8 @@ public class JournalManager : MonoBehaviour
 
     string pageOpening; //this stores the desired page so the animation can finsih transitioning
 
+    private FMOD.Studio.EventInstance instance;
+
     private void Start()
     {
         Vector2 origInventoryPos = inventory.transform.localPosition;

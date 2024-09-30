@@ -8,6 +8,8 @@ public class JournalOpenCloseAnim : MonoBehaviour
 
     Animator animator;
 
+    private FMOD.Studio.EventInstance instance;
+
     void Start()
     {
         animator = GetComponent<Animator>();    
@@ -17,5 +19,19 @@ public class JournalOpenCloseAnim : MonoBehaviour
     {
         journalManager.PageOpenFinished();
         animator.SetBool("CloseOpen", false);
+    }
+
+    void BookOpen()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookOpened");
+        instance.start();
+        instance.release();
+    }
+
+    void BookClose()
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookClosed");
+        instance.start();
+        instance.release();
     }
 }
