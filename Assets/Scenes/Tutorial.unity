@@ -14583,7 +14583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36348018, y: -0.000000016029492, z: 0.000000006254176, w: 0.93160194}
+  m_LocalRotation: {x: 0.36348018, y: 0.000000016029505, z: -0.00000000625418, w: 0.93160194}
   m_LocalPosition: {x: 10.6, y: 2.2053876, z: 1.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23530,7 +23530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36348018, y: -0.000000016029492, z: 0.000000006254176, w: 0.93160194}
+  m_LocalRotation: {x: 0.36348018, y: 0.000000016029505, z: -0.00000000625418, w: 0.93160194}
   m_LocalPosition: {x: 10.6, y: 2.2053876, z: 1.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25857,12 +25857,15 @@ MonoBehaviour:
   tutorialStage: 0
   moundTransform: {fileID: 177740693}
   gridContentsManager: {fileID: 1134659801}
-  flowerDorpParticleEffect: {fileID: 5179207240585030, guid: 96a9966365de2604e8a1d1d319190634, type: 3}
-  flowerDropAmount: 20
-  flowerDropMaterial: {fileID: 2100000, guid: 47086d904deb788458788b782c9b9fbe, type: 2}
-  flowerToSpawn: {fileID: 4130825949333845281, guid: 37b74138e48cd3f488df1adec3c4e32a, type: 3}
-  particleSpawnTransform: {fileID: 1263124967}
-  spirit: {fileID: 5927702136802772362, guid: bffbb2b2ea185af46a0986184d6ac09f, type: 3}
+  flowerDorpParticleEffect0: {fileID: 5179207240585030, guid: 96a9966365de2604e8a1d1d319190634, type: 3}
+  flowerDropAmount0: 5
+  flowerDropMaterial0: {fileID: 2100000, guid: 47086d904deb788458788b782c9b9fbe, type: 2}
+  flowerToSpawn0: {fileID: 4130825949333845281, guid: 37b74138e48cd3f488df1adec3c4e32a, type: 3}
+  spirit: {fileID: 5927702136802772362, guid: a719d67f82034e946a160813845f14ef, type: 3}
+  flowerDorpParticleEffect1: {fileID: 5179207240585030, guid: 96a9966365de2604e8a1d1d319190634, type: 3}
+  flowerDropAmount1: 5
+  flowerDropMaterial1: {fileID: 2100000, guid: 57e0086df217d824b809bde4263be0c4, type: 2}
+  flowerToSpawn1: {fileID: 4130825949333845281, guid: 39462cab580c02d479b9259e10d1625a, type: 3}
 --- !u!4 &1673094714
 Transform:
   m_ObjectHideFlags: 0
@@ -26667,7 +26670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Give the lily to the spirit
+  m_text: Give a daisy to the spirit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 999d509a639b2094e9c67379c997b52a, type: 2}
   m_sharedMaterial: {fileID: 244681772579307734, guid: 999d509a639b2094e9c67379c997b52a, type: 2}
@@ -29488,7 +29491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pick-up a lily
+  m_text: Give the spirit the poppy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 999d509a639b2094e9c67379c997b52a, type: 2}
   m_sharedMaterial: {fileID: 244681772579307734, guid: 999d509a639b2094e9c67379c997b52a, type: 2}

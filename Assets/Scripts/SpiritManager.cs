@@ -26,9 +26,9 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
     List<string> flowerNames = new List<string> {"poppy", "daisy", "lily", "magnolia" };
 
-    int dialogueIndex = 0;
+    public int dialogueIndex = 0;
     float timerTracker;
-    bool timerActive;
+    public bool timerActive;
     bool fadeText;
     bool ready = false;
     bool alive = false;
@@ -156,7 +156,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 }
             }
             journalManager.CloseFlowerArrange(dialogueIndex);
-            Destroy(gameObject);
+            dialogueIndex++;
+            //Destroy(gameObject);
             print("bouquet is correct");
             //journalManager.ClearSpiritGrid();
         }
@@ -172,8 +173,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
             }
             print("contents correct");
             //journalManager.ClearSpiritGrid();
-            journalManager.CloseFlowerArrange(dialogueIndex);
             dialogueIndex++;
+            journalManager.CloseFlowerArrange(dialogueIndex);
         }
     }
 }
