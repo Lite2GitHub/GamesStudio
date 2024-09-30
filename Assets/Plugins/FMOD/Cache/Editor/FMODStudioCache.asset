@@ -134,7 +134,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1204
+  Length: 740
 --- !u!114 &-2208844777401237175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,12 +286,14 @@ MonoBehaviour:
   - {fileID: 1851269027424223575}
   - {fileID: 1062434960993354298}
   - {fileID: -2066087977556112126}
+  - {fileID: 2097846386304614523}
+  - {fileID: 1537509395517945123}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5891331804392554082}
   StringsBanks:
   - {fileID: 2733132562522155434}
-  cacheTime: 638632554806195889
+  cacheTime: 638633130305350141
   cacheVersion: 131619
 --- !u!114 &662629188430875544
 MonoBehaviour:
@@ -347,6 +349,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 400
+--- !u!114 &1537509395517945123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CinematicMusic
+  m_EditorClassIdentifier: 
+  Path: event:/CinematicMusic
+  Guid:
+    Data1: 1729670355
+    Data2: 1216803614
+    Data3: -979283071
+    Data4: -242138833
+  Banks:
+  - {fileID: 5891331804392554082}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 70697
 --- !u!114 &1851269027424223575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +423,33 @@ MonoBehaviour:
   - Name: 
     Value: 1112
   Exists: 1
+--- !u!114 &2097846386304614523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MenuMusic
+  m_EditorClassIdentifier: 
+  Path: event:/MenuMusic
+  Guid:
+    Data1: -2050572791
+    Data2: 1180844739
+    Data3: -1138808406
+    Data4: -576034753
+  Banks:
+  - {fileID: 5891331804392554082}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 93962
 --- !u!114 &2496619853911627218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,10 +492,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638632554806195889
+  lastModified: 638633130305350141
   FileSizes:
   - Name: 
-    Value: 1112
+    Value: 1208
   Exists: 1
 --- !u!114 &4842465987846256814
 MonoBehaviour:
@@ -483,7 +539,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638632554806185888
+  lastModified: 638633130305330180
   FileSizes: []
   Exists: 1
 --- !u!114 &5972408107468330937
