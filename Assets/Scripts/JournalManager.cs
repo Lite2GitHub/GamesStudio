@@ -97,7 +97,7 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
-        if (spiritGridParent.GetChild(0) != null)
+        if (spiritGridParent.childCount > 0)
         {
             print("close grid");
             Destroy(spiritGridParent.GetChild(0).gameObject);

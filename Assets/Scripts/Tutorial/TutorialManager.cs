@@ -83,13 +83,6 @@ public class TutorialManager : MonoBehaviour
                     //var spiritInst = Instantiate(spirit, moundTransform.position, Quaternion.identity);
                     
                 }
-                else
-                {
-                    if(!stage1t1DoOnce)
-                    {
-                        sceneController.StartNextScene("LevelTest 1");
-                    }
-                }
                 return;
         }
     }
