@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JournalManager : MonoBehaviour
@@ -67,10 +69,15 @@ public class JournalManager : MonoBehaviour
                 if (!inventoryOpen)
                 {
                     tabbedIn = true;
-                    SetInventoryActive();
+                    SetInventoryActive(tabbedIn);
+
                 }
                 else
                 {
+                    if (flowerArrangeOpen)
+                    {
+                        CloseFlowerArrange(false);
+                    }
                     DeactivateAll();
                     inventoryOpen = false;
                 }
@@ -119,9 +126,9 @@ public class JournalManager : MonoBehaviour
 
         inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
     }
-    public void SetInventoryActive()
+    public void SetInventoryActive(bool openDirect)
     {
-        if (tabbedIn)
+        if (openDirect)
         {
             journalOpenClose.SetTrigger("Open");
         }
@@ -144,11 +151,22 @@ public class JournalManager : MonoBehaviour
         inventoryPageAnimator.SetTrigger("Reset");
         flowerArrangeOpen = true;
         print("is the animation going?");
-        SetInventoryActive();
+        SetInventoryActive(true);
         inventoryPageAnimator.SetBool("GridEnter", true);
     }
-    public void CloseFlowerArrange(int stage)
+    public void CloseFlowerArrange(bool success)
     {
+        print("close flower arramge");
+
+        if (success)
+        {
+
+        }
+        else
+        {
+            spiritGridParent.GetChild(0).gameObject.GetComponent<ManageGridSquares>().ForceKickAll();
+        }
+        
         spiritGridParent.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("Close");
 
         flowerArrangeOpen = false;
@@ -240,7 +258,10 @@ public class JournalManager : MonoBehaviour
                 inventory.SetActive(true);
                 if (!tabbedIn)
                 {
-                    inventoryPageAnimator.SetBool("GridEnter", true);
+                    if (flowerArrangeOpen)
+                    {
+                        inventoryPageAnimator.SetBool("GridEnter", true);
+                    }
                 }
                 else
                 {
@@ -270,4 +291,5 @@ public class JournalManager : MonoBehaviour
         }
         
     }
+    
 }

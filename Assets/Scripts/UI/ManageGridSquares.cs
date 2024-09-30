@@ -88,7 +88,19 @@ public class ManageGridSquares : MonoBehaviour
 
             if (gridSqaureToCheck.active && !gridSqaureToCheck.filled)
             {
-                gridSqaureToCheck.SetItemSquareActive(targetSet);
+                if (gridSqaureToCheck.isTearLocked)
+                {
+                    if (targetSet.GetComponent<DragDrop>().flowerType == "Tear")
+                    {
+                        gridSqaureToCheck.SetItemSquareActive(targetSet);
+                        FillGridSquare(row, column);
+                    }
+                }
+                else
+                {
+                    gridSqaureToCheck.SetItemSquareActive(targetSet);
+                    FillGridSquare(row, column);
+                }
             }
         }
     }
@@ -149,6 +161,18 @@ public class ManageGridSquares : MonoBehaviour
                 flower.KickFromInventory();
                 FlowerDrop();
             }
+        }
+    }
+
+    public void ForceKickAll()
+    {
+        GridItemInventoryChecker[] flowers = itemHolder.GetComponentsInChildren<GridItemInventoryChecker>();
+
+        foreach (GridItemInventoryChecker flower in flowers)
+        {
+
+            flower.KickFromInventory();
+            FlowerDrop();
         }
     }
 

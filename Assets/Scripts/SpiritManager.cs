@@ -6,7 +6,10 @@ using UnityEngine;
 
 public class SpiritManager : MonoBehaviour, IInteractable
 {
+    [SerializeField] bool isTotem;
+
     [Header("References")]
+    [SerializeField] CursorSO cursorData;
     [SerializeField] IHateMyselfSO hackyData;
     [SerializeField] SpiritManagerSO spiritManagerSO;
     [SerializeField] SpriteRenderer sprite;
@@ -14,6 +17,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
     [SerializeField] public InteractionController playerInteraction;
     [SerializeField] Material standardMat;
     [SerializeField] Material outlineMat;
+    [SerializeField] Animator nod;
+    [SerializeField] Animator headShake;
 
     [Header("Dialogue Variables")]
     [SerializeField] List<GameObject> gridList = new List<GameObject>();
@@ -40,9 +45,20 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
     JournalManager journalManager;
 
+    SceneController sceneController;
+
+
+    [Header("Tear giving references")]
+    [SerializeField] GameObject kickParticle;
+    [SerializeField] Material kickMaterial;
+    [SerializeField] GameObject inWorldFlowerGO;
+    [SerializeField] GameObject stonePrefab;
+    [SerializeField] Transform tearLocation;
+
 
     void Start()
     {
+        sceneController = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneController>();
         //GenerateFlowerList();
 
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
@@ -63,10 +79,12 @@ public class SpiritManager : MonoBehaviour, IInteractable
         {
             if (hovering)
             {
+                Cursor.SetCursor(cursorData.pickUpHover, cursorData.universalHotspot, CursorMode.Auto);
                 sprite.material = outlineMat;
             }
             else
             {
+                Cursor.SetCursor(cursorData.defaultCursor, cursorData.universalHotspot, CursorMode.Auto);
                 sprite.material = standardMat;
             }
         }
@@ -147,23 +165,58 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 bool flowerMatches = false;
                 foreach (string flower in requiredFlowersList)
                 {
-                    if (item == flower || item == "leaf")
+                    if (item == flower || item == "leaf" || item == "tear")
                     {
                         flowerMatches = true;
                     }
                 }
                 if (!flowerMatches)
                 {
-                    print("bouquet contents are incorrect");
-                    journalManager.CloseFlowerArrange(dialogueIndex);
-                    dialogueBox.SetSymbolImages("11,11,11");
+                    if (dialogueBox != null)
+                    {
+                        print("bouquet contents are incorrect");
+                        headShake.SetTrigger("On");
+                        journalManager.CloseFlowerArrange(false);
+                        dialogueBox.SetSymbolImages("11,11,11");
+                    }
                     return;
                 }
             }
-            journalManager.CloseFlowerArrange(dialogueIndex);
+
+            journalManager.CloseFlowerArrange(true);
             dialogueIndex++;
-            //Destroy(gameObject);
-            print("bouquet is correct");
+
+            if (isTotem)
+            {
+                sceneController.StartNextScene("GameEnd");
+            }
+            else
+            {
+                //var particle = Instantiate(kickParticle);
+                //DropItemParticle dropItemParticle = particle.GetComponent<DropItemParticle>();
+
+                //dropItemParticle.dropMaterial = kickMaterial;
+                //dropItemParticle.flowerToSpawn = inWorldFlowerGO;
+
+                //dropItemParticle.Initiate();
+                //dropItemParticle.Play();
+
+                if (tearLocation != null)
+                {
+                    var tearInst = Instantiate(inWorldFlowerGO, tearLocation);
+
+
+                    var stoneInst = Instantiate(stonePrefab);
+                    stoneInst.transform.parent = null;
+                    stoneInst.transform.position = transform.position;
+                }
+              
+                Destroy(gameObject);
+                print("bouquet is correct");
+                nod.SetTrigger("On");
+            }
+
+            
             //journalManager.ClearSpiritGrid();
         }
         else
@@ -173,13 +226,16 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 if (item != requiredFlowersList[dialogueIndex])
                 {
                     print("contents are incorrect");
+                    headShake.SetTrigger("On");
+                    journalManager.CloseFlowerArrange(false);
                     return;
                 }
             }
             print("contents correct");
+            nod.SetTrigger("On");
             //journalManager.ClearSpiritGrid();
             dialogueIndex++;
-            journalManager.CloseFlowerArrange(dialogueIndex);
+            journalManager.CloseFlowerArrange(true);
         }
     }
 }

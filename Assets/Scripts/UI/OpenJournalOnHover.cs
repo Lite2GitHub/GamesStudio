@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
+public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("References")]
     [SerializeField] JournalManager journalManager;
@@ -16,6 +16,7 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
 
     private FMOD.Studio.EventInstance instance;
 
+    bool inventoryOpened = false;
 
     void Start()
     {
@@ -35,19 +36,31 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
             animator.SetTrigger("Close");
             close = true;
             open = false;
+            inventoryOpened = false;
         }
     }
-
+    bool hoverOnce = false;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (eventData.dragging)
+        if (!hoverOnce)
         {
-            journalManager.SetInventoryActive();
+            if (!inventoryOpened)
+            {
+                if (eventData.dragging)
+                {
+                    journalManager.SetInventoryActive(true);
+                    inventoryOpened = true;
+                    hoverOnce = true;
+                }
+                else if (hackData.hackyEventDataItem != null)
+                {
+                    journalManager.SetInventoryActive(true);
+                    inventoryOpened = true;
+                    hoverOnce = true;
+                }
+            }
         }
-        else if (hackData.hackyEventDataItem != null)
-        {
-            journalManager.SetInventoryActive();
-        }
+
     }
 
     void BookOpened()
@@ -55,5 +68,10 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
         instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookOpened");
         instance.start();
         instance.release();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        hoverOnce = false;
     }
 }

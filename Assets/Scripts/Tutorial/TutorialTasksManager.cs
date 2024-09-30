@@ -10,6 +10,8 @@ public class TutorialTasksManager : MonoBehaviour
     int taskRevealTracker;
     int taskCompleteTracker;
 
+    private FMOD.Studio.EventInstance instance;
+
     void Start()
     {
         RevealNextTask();
@@ -26,6 +28,10 @@ public class TutorialTasksManager : MonoBehaviour
     
     public void CompleteNextTask()
     {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/BookOpened");
+        instance.start();
+        instance.release();
+
         tasks[taskCompleteTracker].GetComponent<ToggleTask>().CompleteTask();
 
         taskCompleteTracker++;
