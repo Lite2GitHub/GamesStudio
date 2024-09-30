@@ -31,7 +31,7 @@ public class FlowerPickup : MonoBehaviour, IInteractable
 
     public void hover(bool hovering)
     {
-        if (!hackyData.inventoryOpen)
+        if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
         {
             if (hovering)
             {
@@ -49,7 +49,7 @@ public class FlowerPickup : MonoBehaviour, IInteractable
 
     public void interact(string context)
     {
-        if (!hackyData.inventoryOpen)
+        if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
         {
             playerInteraction.heldItem = flowerType;
 

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d167287c582aa04f82ff47f2451e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   symbolHolders:
   - {fileID: 6429539053674858105}
   - {fileID: 6065090178680037640}
@@ -63,6 +64,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ff00a0bf81b43114e9fcdd2deeb8c7d7, type: 3}
   - {fileID: 21300000, guid: 3e722eaaf9239a049bcd1297c7571d61, type: 3}
   dialogueBox: {fileID: 1888220009912708921}
+  spiritManager: {fileID: 0}
   inputSymbolsTrueLen: []
 --- !u!1 &1056399406865590354
 GameObject:

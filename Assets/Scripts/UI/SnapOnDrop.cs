@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    public bool isTearLocked;
     public bool active = true;
 
     public bool filled = false;
@@ -40,6 +41,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         {
             image.enabled = true;
         }
+
+        //journalPage = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>().inventory.GetComponent<RectTransform>();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -48,23 +51,53 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         {
             if (eventData.pointerDrag != null)
             {
-                //snap the item to this grids position
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition + journalPage.anchoredPosition;
+
+               
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition -= eventData.pointerDrag.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
 
 
-                SetItemSquareActive(eventData.pointerDrag);
-
                 AdjacentSquareManager gridASMRef = eventData.pointerDrag.GetComponent<AdjacentSquareManager>();
+                DragDrop gridDD = eventData.pointerDrag.GetComponent<DragDrop>();
 
                 if (gridASMRef.neigbouringSquares.Count > 0) 
                 {
+                    if (isTearLocked)
+                    {
+                        if (gridDD.flowerType == "tear")
+                        {
+                            SetItemSquareActive(eventData.pointerDrag);
+                            FillSquare();
+                            gridSquaresManager.CheckForFullGrid();
+                        }
+                    }
+                    else
+                    {
+                        SetItemSquareActive(eventData.pointerDrag);
+                        FillSquare();
+                        gridSquaresManager.CheckForFullGrid();
+                    }
+
                     findAllSquaresToFill(gridASMRef);
                 }
                 else
                 {
-                    FillSquare();
-                    gridSquaresManager.CheckForFullGrid();
+
+                    if (isTearLocked)
+                    {
+                        if (gridDD.flowerType == "tear")
+                        {
+                            SetItemSquareActive(eventData.pointerDrag);
+                            FillSquare();
+                            gridSquaresManager.CheckForFullGrid();
+                        }
+                    }
+                    else
+                    {
+                        SetItemSquareActive(eventData.pointerDrag);
+                        FillSquare();
+                        gridSquaresManager.CheckForFullGrid();
+                    }
                 }
             }
         }
@@ -89,7 +122,7 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
             int targetColumn = column + columnOffset;
 
             gridSquaresManager.SetGridSqaure(targetRow, targetColumn, gridASMRef.neigbouringSquares[i]);
-            gridSquaresManager.FillGridSquare(targetRow, targetColumn);
+            //gridSquaresManager.FillGridSquare(targetRow, targetColumn);
         }
 
         gridSquaresManager.CheckForFullGrid();

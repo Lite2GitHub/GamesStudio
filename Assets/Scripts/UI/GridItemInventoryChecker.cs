@@ -9,7 +9,7 @@ public class GridItemInventoryChecker : MonoBehaviour
     [SerializeField] Material kickMaterial;
     [SerializeField] GameObject inWorldFlowerGO;
 
-    [SerializeField] string flowerType;
+    public string flowerType;
 
     [SerializeField] Image flowerImage;
 

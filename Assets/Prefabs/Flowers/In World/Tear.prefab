@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4787464625720680947}
   - component: {fileID: 6964357924362830387}
   m_Layer: 7
-  m_Name: Placeholder1x1
+  m_Name: Tear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,12 +51,12 @@ MonoBehaviour:
   hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   uiCanvas: {fileID: 0}
   sprite: {fileID: 5546916497216653669}
-  standardMat: {fileID: 2100000, guid: e65b1d28bc14c0b4ba4e3186f45d7078, type: 2}
-  outlineMat: {fileID: 2100000, guid: 8e921e45e884dfa47ac792ed1623abab, type: 2}
+  standardMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  outlineMat: {fileID: 2100000, guid: 37f149cf4d8e6c24bb58a21ca9d51d57, type: 2}
   playerInteraction: {fileID: 0}
   flowerDialogue: 9,3,2
   flowerType: 
-  uiVersion: {fileID: 5655429168245472872, guid: a3e316e8fe3320d4ca01b31a0d1559ff, type: 3}
+  uiVersion: {fileID: 5655429168245472872, guid: ca669e69a1a191045b2c8eec22b9dd0c, type: 3}
   cursorData: {fileID: 11400000, guid: b9a4cd1e548c7864184508aefdb04c0f, type: 2}
 --- !u!136 &2772118006056879801
 CapsuleCollider:
@@ -77,10 +77,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06
-  m_Height: 0.25
+  m_Radius: 0.12
+  m_Height: 0.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Center: {x: 0, y: 0.14, z: 0}
 --- !u!114 &4787464625720680947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +151,8 @@ Transform:
   m_GameObject: {fileID: 8933920667719511467}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0.112, z: 0}
-  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
+  m_LocalPosition: {x: -0.053, y: 0.308, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 146631527932343965}
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e65b1d28bc14c0b4ba4e3186f45d7078, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0377ac9b99ac8434992eaf52a8676a35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e71af458fa557df46be4533c23e36b0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

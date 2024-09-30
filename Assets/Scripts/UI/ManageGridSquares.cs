@@ -17,15 +17,16 @@ public class ManageGridSquares : MonoBehaviour
     [SerializeField] Transform itemDraggingHolder;
     [SerializeField] Transform itemHolder;
 
-    [SerializeField] GameObject journalPage;
+    GameObject journalPage;
 
     [SerializeField] int numberOfActiveSqaures; //serilized for debugging
     [SerializeField] int squaresFilledCount = 0;
 
     GridContentsManager gridContentsManager;
-    SpiritManager spiritManager;
 
     JournalManager journalManager;
+
+    public SpiritManager spiritManager; // this gets set whne the grid is instantiated
 
     [SerializeField] IHateMyselfSO hackData;
 
@@ -34,7 +35,6 @@ public class ManageGridSquares : MonoBehaviour
     void Start()
     {
         gridContentsManager = GetComponent<GridContentsManager>();
-        spiritManager = GameObject.FindGameObjectWithTag("Spirit").GetComponent<SpiritManager>();
         journalManager = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>();
 
         rowCount = rowArray.Count;
@@ -56,7 +56,7 @@ public class ManageGridSquares : MonoBehaviour
                 childSODRef.row = i;
                 childSODRef.column = o;
                 childSODRef.itemHolder = itemHolder;
-                childSODRef.journalPage = journalPage.GetComponent<RectTransform>();
+                childSODRef.journalPage = journalManager.inventory.GetComponent<RectTransform>();
                 childSODRef.hackyData = hackData;
 
                 if (childSODRef.active)
@@ -88,7 +88,19 @@ public class ManageGridSquares : MonoBehaviour
 
             if (gridSqaureToCheck.active && !gridSqaureToCheck.filled)
             {
-                gridSqaureToCheck.SetItemSquareActive(targetSet);
+                if (gridSqaureToCheck.isTearLocked)
+                {
+                    if (targetSet.GetComponent<DragDrop>().flowerType == "Tear")
+                    {
+                        gridSqaureToCheck.SetItemSquareActive(targetSet);
+                        FillGridSquare(row, column);
+                    }
+                }
+                else
+                {
+                    gridSqaureToCheck.SetItemSquareActive(targetSet);
+                    FillGridSquare(row, column);
+                }
             }
         }
     }
@@ -149,6 +161,18 @@ public class ManageGridSquares : MonoBehaviour
                 flower.KickFromInventory();
                 FlowerDrop();
             }
+        }
+    }
+
+    public void ForceKickAll()
+    {
+        GridItemInventoryChecker[] flowers = itemHolder.GetComponentsInChildren<GridItemInventoryChecker>();
+
+        foreach (GridItemInventoryChecker flower in flowers)
+        {
+
+            flower.KickFromInventory();
+            FlowerDrop();
         }
     }
 

@@ -1,10 +1,12 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JournalManager : MonoBehaviour
 {
     [Header("Page References")]
-    [SerializeField] GameObject inventory;
+    public GameObject inventory;
     [SerializeField] GameObject research;
     [SerializeField] GameObject notes;
     [SerializeField] GameObject menu;
@@ -13,17 +15,16 @@ public class JournalManager : MonoBehaviour
     //Page animators
     Animator inventoryPageAnimator;
 
-    [Header("Hackey Spirit Flower Arrangements")]
-    [SerializeField] List<GameObject> spiritGrids = new List<GameObject>();
-
     [Header("References")]
+    [SerializeField] SpiritManagerSO spiritManager;
     [SerializeField] SceneController sceneController;
     [SerializeField] GameObject backgroundFade;
     [SerializeField] Animator journalOpenClose;
+    public Transform spiritGridParent; //this is just to store the ref so other objects can find as book is pretty much also dissabled
 
     [SerializeField] IHateMyselfSO hackyData;
 
-    bool vaseUIOpen = false;
+    bool vaseUIOpen = false;    
 
     bool isPaused = false;
     private Vector2 origInventoryPos;
@@ -47,31 +48,39 @@ public class JournalManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (!hackyData.spiritTalking)
         {
-            if (!isPaused)
+            if (Input.GetKeyUp(KeyCode.Escape))
             {
-                isPaused = true;
-                escapedIn = true;
-                SetMenuActive();
+                if (!isPaused)
+                {
+                    isPaused = true;
+                    escapedIn = true;
+                    SetMenuActive();
+                }
+                else
+                {
+                    isPaused = false;
+                    DeactivateAll();
+                }
             }
-            else
+            if (Input.GetKeyUp(KeyCode.Tab))
             {
-                isPaused = false;
-                DeactivateAll();
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            if (!inventoryOpen)
-            {
-                tabbedIn = true;
-                SetInventoryActive();
-            }
-            else
-            {
-                DeactivateAll();
-                inventoryOpen = false;
+                if (!inventoryOpen)
+                {
+                    tabbedIn = true;
+                    SetInventoryActive(tabbedIn);
+
+                }
+                else
+                {
+                    if (flowerArrangeOpen)
+                    {
+                        CloseFlowerArrange(false);
+                    }
+                    DeactivateAll();
+                    inventoryOpen = false;
+                }
             }
         }
     }
@@ -98,6 +107,11 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
+        if (spiritGridParent.childCount > 0)
+        {
+            print("close grid");
+            Destroy(spiritGridParent.GetChild(0).gameObject);
+        }
         journalOpenClose.SetTrigger("Close");
         hackyData.inventoryOpen = false;
 
@@ -108,16 +122,13 @@ public class JournalManager : MonoBehaviour
         menu.SetActive(false);
         help.SetActive(false);
 
-        foreach (GameObject spiritGrid in spiritGrids)
-        {
-            spiritGrid.SetActive(false);
-        }
+        //ClearSpiritGrid();
 
         inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
     }
-    public void SetInventoryActive()
+    public void SetInventoryActive(bool openDirect)
     {
-        if (tabbedIn)
+        if (openDirect)
         {
             journalOpenClose.SetTrigger("Open");
         }
@@ -136,18 +147,32 @@ public class JournalManager : MonoBehaviour
 
     public void SetFlowerArrangeActive(int stage)
     {
-        spiritGrids[stage].SetActive(true);
+        spiritGridParent.GetChild(0).gameObject.SetActive(true);
         inventoryPageAnimator.SetTrigger("Reset");
         flowerArrangeOpen = true;
         print("is the animation going?");
-        SetInventoryActive();
+        SetInventoryActive(true);
         inventoryPageAnimator.SetBool("GridEnter", true);
     }
-    public void CloseFlowerArrange(int stage)
+    public void CloseFlowerArrange(bool success)
     {
-        spiritGrids[stage].GetComponent<Animator>().SetTrigger("Close");
+        print("close flower arramge");
+
+        if (success)
+        {
+
+        }
+        else
+        {
+            spiritGridParent.GetChild(0).gameObject.GetComponent<ManageGridSquares>().ForceKickAll();
+        }
+        
+        spiritGridParent.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("Close");
+
         flowerArrangeOpen = false;
         print("is the animation going?");
+        
+        
         inventoryPageAnimator.SetBool("GridEnter", false);
     }
 
@@ -233,7 +258,10 @@ public class JournalManager : MonoBehaviour
                 inventory.SetActive(true);
                 if (!tabbedIn)
                 {
-                    inventoryPageAnimator.SetBool("GridEnter", true);
+                    if (flowerArrangeOpen)
+                    {
+                        inventoryPageAnimator.SetBool("GridEnter", true);
+                    }
                 }
                 else
                 {
@@ -254,4 +282,14 @@ public class JournalManager : MonoBehaviour
                 return;
         }
     }
+
+    public void ClearSpiritGrid()
+    {
+        for (int i = 0; i < spiritGridParent.childCount; i++)
+        {
+            Destroy(spiritGridParent.GetChild(i).gameObject);
+        }
+        
+    }
+    
 }

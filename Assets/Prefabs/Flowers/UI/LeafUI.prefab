@@ -98,8 +98,8 @@ MonoBehaviour:
   setParentOnClick: {fileID: 9166326205931556767}
   gridItemInventoryChecker: {fileID: 6965009480299444185}
   parentTransform: {fileID: 2736392895453330019}
-  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
-  incorrectlyPlacedGrid: {fileID: 21300000, guid: f668dc66ae58e2f4c86d8828f2270eb6, type: 3}
+  regularGrid: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
+  incorrectlyPlacedGrid: {fileID: 21300000, guid: 3ea0f158a195d4e4bb79a4d4a929c70f, type: 3}
   hackForSpawn: 1
 --- !u!225 &5041422294785044272
 CanvasGroup:
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 3757689209479099658}
   - component: {fileID: 6965009480299444185}
   m_Layer: 5
-  m_Name: TearDropletUI
+  m_Name: LeafUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,9 +198,9 @@ MonoBehaviour:
   objectArray:
   - {fileID: 2166905818404276972}
   - {fileID: 5657539859675533702}
-  regularGrid: {fileID: 21300000, guid: 2bf3b7e9721aa954cb6b4de55fbd19e2, type: 3}
+  regularGrid: {fileID: 21300000, guid: 7b6d2aacbbc812b478ca8ba7133be124, type: 3}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
-  inWorldFlower: {fileID: 0}
+  inWorldFlower: {fileID: 4130825949333845281, guid: 57708614064a5614db5b5e471e5c8859, type: 3}
   cursorData: {fileID: 11400000, guid: b9a4cd1e548c7864184508aefdb04c0f, type: 2}
 --- !u!114 &3757689209479099658
 MonoBehaviour:
@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42b7262a0ebf634eb4c6c5b39182aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kickParticle: {fileID: 0}
-  kickMaterial: {fileID: 0}
-  inWorldFlowerGO: {fileID: 0}
-  flowerType: stone
+  kickParticle: {fileID: 5179207240585030, guid: 96a9966365de2604e8a1d1d319190634, type: 3}
+  kickMaterial: {fileID: 2100000, guid: 62641cf51dfa9364fa826e2c597a842e, type: 2}
+  inWorldFlowerGO: {fileID: 4130825949333845281, guid: 57708614064a5614db5b5e471e5c8859, type: 3}
+  flowerType: leaf
   flowerImage: {fileID: 2444860913497545265}
   placedCorrectly: 0
 --- !u!1 &5657539859675533702
