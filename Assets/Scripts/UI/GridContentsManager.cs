@@ -31,4 +31,11 @@ public class GridContentsManager : MonoBehaviour
     {
         contents.Clear();
     }
+
+    //this gets called by spirit grid after close animation
+    public void DeleteSelf()
+    {
+        print("destroyed?");
+        Destroy(this.gameObject);
+    }
 }

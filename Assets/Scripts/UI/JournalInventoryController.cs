@@ -7,6 +7,8 @@ public class JournalInventoryController : MonoBehaviour
     [SerializeField] List<GameObject> grids = new List<GameObject>();
     [SerializeField] GameObject unplacedItemsGO;
 
+    [SerializeField] JournalManager journalManager;
+
     public void KickAllUnplaced()
     {
         GridItemInventoryChecker[] flowers = unplacedItemsGO.GetComponentsInChildren<GridItemInventoryChecker>();
@@ -23,5 +25,10 @@ public class JournalInventoryController : MonoBehaviour
         {
             grid.GetComponent<ManageGridSquares>().KickFromInventory();
         }
+    }
+
+    void CloseInventory()
+    {
+        journalManager.DeactivateAll();
     }
 }

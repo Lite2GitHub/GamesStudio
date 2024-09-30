@@ -40,6 +40,8 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         {
             image.enabled = true;
         }
+
+        //journalPage = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>().inventory.GetComponent<RectTransform>();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -48,8 +50,9 @@ public class SnapOnDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         {
             if (eventData.pointerDrag != null)
             {
-                //snap the item to this grids position
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition + gridParent.anchoredPosition + rowParent.anchoredPosition + journalPage.anchoredPosition;
+
+               
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition -= eventData.pointerDrag.GetComponent<Transform>().parent.GetComponent<RectTransform>().anchoredPosition;
 
 

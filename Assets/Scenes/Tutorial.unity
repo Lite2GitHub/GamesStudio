@@ -5478,6 +5478,7 @@ MonoBehaviour:
   - {fileID: 2000491181}
   - {fileID: 2002100401}
   unplacedItemsGO: {fileID: 69865752}
+  journalManager: {fileID: 0}
 --- !u!1 &387023550
 GameObject:
   m_ObjectHideFlags: 0
@@ -13476,9 +13477,9 @@ MonoBehaviour:
   gridSqaureArray: []
   itemDraggingHolder: {fileID: 69865753}
   itemHolder: {fileID: 1432521599}
-  journalPage: {fileID: 383661831}
   numberOfActiveSqaures: 0
   squaresFilledCount: 0
+  spiritManager: {fileID: 0}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
 --- !u!4 &620444630 stripped
 Transform:
@@ -15705,9 +15706,9 @@ MonoBehaviour:
   gridSqaureArray: []
   itemDraggingHolder: {fileID: 856209436}
   itemHolder: {fileID: 2055981594}
-  journalPage: {fileID: 383661831}
   numberOfActiveSqaures: 0
   squaresFilledCount: 0
+  spiritManager: {fileID: 0}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
 --- !u!95 &839524896
 Animator:
@@ -28152,7 +28153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481858364
 Transform:
   m_ObjectHideFlags: 0
@@ -32256,13 +32257,11 @@ MonoBehaviour:
   notes: {fileID: 979833112}
   menu: {fileID: 348548153}
   help: {fileID: 119077380}
-  spiritGrids:
-  - {fileID: 839524892}
-  - {fileID: 2000491181}
-  - {fileID: 2002100401}
+  spiritManager: {fileID: 0}
   sceneController: {fileID: 0}
   backgroundFade: {fileID: 65405639}
   journalOpenClose: {fileID: 569366938}
+  spiritGridParent: {fileID: 0}
   hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
 --- !u!224 &1775892773
 RectTransform:
@@ -35679,9 +35678,9 @@ MonoBehaviour:
   gridSqaureArray: []
   itemDraggingHolder: {fileID: 856209436}
   itemHolder: {fileID: 736078889}
-  journalPage: {fileID: 383661831}
   numberOfActiveSqaures: 0
   squaresFilledCount: 0
+  spiritManager: {fileID: 0}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
 --- !u!95 &2000491185
 Animator:
@@ -35805,9 +35804,9 @@ MonoBehaviour:
   gridSqaureArray: []
   itemDraggingHolder: {fileID: 856209436}
   itemHolder: {fileID: 781330843}
-  journalPage: {fileID: 383661831}
   numberOfActiveSqaures: 0
   squaresFilledCount: 0
+  spiritManager: {fileID: 0}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
 --- !u!1 &2008216651
 GameObject:
@@ -37348,7 +37347,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 2e7b44983e3f10b4d83ed5d9c080aecb, type: 2}
+  sharedProfile: {fileID: 11400000, guid: e0d5a60090d82144a905467933fba3e6, type: 2}
 --- !u!114 &8872398695789598669
 MonoBehaviour:
   m_ObjectHideFlags: 0

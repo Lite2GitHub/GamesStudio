@@ -4,7 +4,7 @@ using UnityEngine;
 public class JournalManager : MonoBehaviour
 {
     [Header("Page References")]
-    [SerializeField] GameObject inventory;
+    public GameObject inventory;
     [SerializeField] GameObject research;
     [SerializeField] GameObject notes;
     [SerializeField] GameObject menu;
@@ -13,17 +13,16 @@ public class JournalManager : MonoBehaviour
     //Page animators
     Animator inventoryPageAnimator;
 
-    [Header("Hackey Spirit Flower Arrangements")]
-    [SerializeField] List<GameObject> spiritGrids = new List<GameObject>();
-
     [Header("References")]
+    [SerializeField] SpiritManagerSO spiritManager;
     [SerializeField] SceneController sceneController;
     [SerializeField] GameObject backgroundFade;
     [SerializeField] Animator journalOpenClose;
+    public Transform spiritGridParent; //this is just to store the ref so other objects can find as book is pretty much also dissabled
 
     [SerializeField] IHateMyselfSO hackyData;
 
-    bool vaseUIOpen = false;
+    bool vaseUIOpen = false;    
 
     bool isPaused = false;
     private Vector2 origInventoryPos;
@@ -98,6 +97,11 @@ public class JournalManager : MonoBehaviour
 
     public void DeactivateAll()
     {
+        if (spiritGridParent.GetChild(0) != null)
+        {
+            print("close grid");
+            Destroy(spiritGridParent.GetChild(0).gameObject);
+        }
         journalOpenClose.SetTrigger("Close");
         hackyData.inventoryOpen = false;
 
@@ -108,10 +112,7 @@ public class JournalManager : MonoBehaviour
         menu.SetActive(false);
         help.SetActive(false);
 
-        foreach (GameObject spiritGrid in spiritGrids)
-        {
-            spiritGrid.SetActive(false);
-        }
+        //ClearSpiritGrid();
 
         inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
     }
@@ -136,7 +137,7 @@ public class JournalManager : MonoBehaviour
 
     public void SetFlowerArrangeActive(int stage)
     {
-        spiritGrids[stage].SetActive(true);
+        spiritGridParent.GetChild(0).gameObject.SetActive(true);
         inventoryPageAnimator.SetTrigger("Reset");
         flowerArrangeOpen = true;
         print("is the animation going?");
@@ -145,9 +146,12 @@ public class JournalManager : MonoBehaviour
     }
     public void CloseFlowerArrange(int stage)
     {
-        spiritGrids[stage].GetComponent<Animator>().SetTrigger("Close");
+        spiritGridParent.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("Close");
+
         flowerArrangeOpen = false;
         print("is the animation going?");
+        
+        
         inventoryPageAnimator.SetBool("GridEnter", false);
     }
 
@@ -253,5 +257,14 @@ public class JournalManager : MonoBehaviour
                 help.SetActive(true);
                 return;
         }
+    }
+
+    public void ClearSpiritGrid()
+    {
+        for (int i = 0; i < spiritGridParent.childCount; i++)
+        {
+            Destroy(spiritGridParent.GetChild(i).gameObject);
+        }
+        
     }
 }

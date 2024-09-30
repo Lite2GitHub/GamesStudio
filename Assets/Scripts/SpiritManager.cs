@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpiritManager : MonoBehaviour, IInteractable
 {
     [Header("References")]
+    [SerializeField] SpiritManagerSO spiritManagerSO;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] TextBoxImageAssignment dialogueBox;
     [SerializeField] public InteractionController playerInteraction;
@@ -14,6 +15,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     [SerializeField] Material outlineMat;
 
     [Header("Dialogue Variables")]
+    [SerializeField] List<GameObject> gridList = new List<GameObject>();
     [SerializeField] int flowersRequired;
     [SerializeField] Dictionary<string, string> flowerSymbolsDict = new Dictionary<string, string> {
     { "poppy", "9,3,2"},
@@ -70,41 +72,21 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (!ready)
         {
-            dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
+            spiritManagerSO.spiritOrTotem = gameObject;
+            if (dialogueBox!= null)
+            {
+                spiritManagerSO.AddGrid(gridList[dialogueIndex], journalManager.spiritGridParent, this);
 
-            timerTracker = 0;
-            timerActive = true;
+                dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
 
-            //if (context != "")
-            //{
-            //    if (context == requiredFlowersList[dialogueIndex] || requiredFlowersList[dialogueIndex] == "final")
-            //    {
-            //        dialogueIndex++;
-            //        if (dialogueIndex > flowersRequired)
-            //        {
-            //            ready = true;
-            //            Destroy(gameObject);
-            //        }
-            //        else
-            //        {
-            //            //add tear stuff
-            //            dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
-
-            //            timerTracker = 0;
-            //            timerActive = true;
-            //            playerInteraction.heldItem = "";
-            //        }
-            //    }
-            //    else
-            //    {
-            //        playerInteraction.heldItem = "";
-            //    }
-            //}
-            //else
-            //{
-            //    //dialogueBox.FadeTextBox(1, false);
-
-            //}
+                timerTracker = 0;
+                timerActive = true;
+            }
+            else
+            {
+                spiritManagerSO.AddGrid(gridList[dialogueIndex], journalManager.spiritGridParent, this);
+                OpenJournal();
+            }
         }
     }
 
@@ -117,7 +99,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     public void LeftRange()
     {
         //dialogueBox.FadeTextBox(1, true);
-        dialogueBox.FadeOut();
+        if (dialogueBox!= null) dialogueBox.FadeOut();
     }
 
     void DialogueLengthTimer(float length)
@@ -153,7 +135,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     
     public void CheckIfFilledCorrectly(List<string> contents)
     {
-        if (dialogueIndex == requiredFlowersList.Count - 1)
+        if (dialogueIndex == gridList.Count - 1)
         {
             foreach (string item in contents)
             {
@@ -176,6 +158,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
             journalManager.CloseFlowerArrange(dialogueIndex);
             Destroy(gameObject);
             print("bouquet is correct");
+            //journalManager.ClearSpiritGrid();
         }
         else
         {
@@ -188,6 +171,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 }
             }
             print("contents correct");
+            //journalManager.ClearSpiritGrid();
             journalManager.CloseFlowerArrange(dialogueIndex);
             dialogueIndex++;
         }
