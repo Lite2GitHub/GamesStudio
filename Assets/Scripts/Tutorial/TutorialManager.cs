@@ -8,7 +8,6 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] IHateMyselfSO hackyData; //ignore this
     [SerializeField] TutorialTasksManager tutorialTasksManager;
     [SerializeField] SceneController sceneController;
-    [SerializeField] HintController hintController;
 
 
     public int tutorialStage;
@@ -85,8 +84,6 @@ public class TutorialManager : MonoBehaviour
                 {
                     if (stage1t1DoOnce)
                     {
-                        hintController.GiveHint("Spirits speak thier own language and ask for flowers");
-
                         tutorialTasksManager.RevealNextTask();
 
                         var spiritInst = Instantiate(spirit, moundTransform.position, Quaternion.identity);
@@ -96,7 +93,6 @@ public class TutorialManager : MonoBehaviour
 
                     if (spiritManager.timerActive && stage1t2DoOnce)
                     {
-                        hintController.EndHint();
                         tutorialTasksManager.CompleteNextTask();
                         tutorialTasksManager.RevealNextTask();
                         stage1t2DoOnce = false;
@@ -104,26 +100,23 @@ public class TutorialManager : MonoBehaviour
                 }
                 else
                 {
-                    if (spiritManager != null)
+                    if (spiritManager.dialogueIndex == 1)
                     {
-                        if (spiritManager.dialogueIndex == 1)
+                        tutorialTasksManager.CompleteNextTask();
+
+                        for (int i = 0; i < flowerDropAmount1; i++)
                         {
-                            tutorialTasksManager.CompleteNextTask();
+                            var particle = Instantiate(flowerDorpParticleEffect1, moundTransform.position, Quaternion.identity);
+                            DropItemParticle dropItemParticle = particle.GetComponent<DropItemParticle>();
 
-                            for (int i = 0; i < flowerDropAmount1; i++)
-                            {
-                                var particle = Instantiate(flowerDorpParticleEffect1, moundTransform.position, Quaternion.identity);
-                                DropItemParticle dropItemParticle = particle.GetComponent<DropItemParticle>();
-
-                                dropItemParticle.dropMaterial = flowerDropMaterial1;
-                                dropItemParticle.flowerToSpawn = flowerToSpawn1;
-                                dropItemParticle.releaseAngle = 45;
-                                dropItemParticle.Initiate();
-                                dropItemParticle.Play();
-                            }
-                            tutorialStage++;
-                            tutorialTasksManager.RevealNextTask();
+                            dropItemParticle.dropMaterial = flowerDropMaterial1;
+                            dropItemParticle.flowerToSpawn = flowerToSpawn1;
+                            dropItemParticle.releaseAngle = 45;
+                            dropItemParticle.Initiate();
+                            dropItemParticle.Play();
                         }
+                        tutorialStage++;
+                        tutorialTasksManager.RevealNextTask();
                     }
                 }
                 return;
@@ -135,8 +128,6 @@ public class TutorialManager : MonoBehaviour
                         tutorialTasksManager.CompleteNextTask();
                         tutorialTasksManager.RevealNextTask();
                         tutorialStage++;
-
-                        hintController.EndHint();
 
                         for (int i = 0; i < flowerDropAmount0; i++)
                         {
@@ -163,20 +154,13 @@ public class TutorialManager : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    hintController.GiveHint("Q and E will rotate the flower");
-                }
                 return;
             case 3:
-                hintController.GiveHint("Their bouquet can only contain the flowers previously asked for");
                 if (!hackyData.inventoryOpen)
                 {
-                    if (spiritManager.dialogueIndex == 3 && stage2t1DoOnce)
+                    if (spiritManager.dialogueIndex == 3)
                     {
                         sceneController.StartNextScene("LevelTest 1");
-                        hintController.EndHint();
-                        stage2t1DoOnce = false;
                     }
                 }
                 return;

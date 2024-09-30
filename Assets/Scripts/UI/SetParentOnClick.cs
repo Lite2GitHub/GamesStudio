@@ -30,7 +30,6 @@ public class SetParentOnClick : MonoBehaviour
             gridDragDrop.hackData = hackData;
             gridDragDrop.inWorldFlower = inWorldFlower;
             gridDragDrop.cursorData = cursorData;
-            gridDragDrop.flowerType = GetComponent<GridItemInventoryChecker>().flowerType;
         }
     }
 

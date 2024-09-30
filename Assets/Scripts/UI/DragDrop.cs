@@ -13,8 +13,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public GameObject occupiedSquare;
 
-    public string flowerType;
-
     [SerializeField] SetParentOnClick setParentOnClick; //I need this to access all of the grids in the flower, really  bad way to do it but
     [SerializeField] GridItemInventoryChecker gridItemInventoryChecker;
 

@@ -88,7 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -229,7 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -405,7 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -506,7 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -608,7 +604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 1
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -709,7 +704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -810,7 +804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -911,7 +904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -1012,7 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -1113,7 +1104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -1214,7 +1204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -1315,7 +1304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -1416,7 +1404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -1482,7 +1469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3546146459172655818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1517,8 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
-  active: 0
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
@@ -1782,7 +1768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3632393198579812318}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1817,8 +1803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
-  active: 0
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
@@ -2002,7 +1987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2063,9 +2047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e8e331cfe277b44bd1038b563c00ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTotem: 1
-  cursorData: {fileID: 11400000, guid: b9a4cd1e548c7864184508aefdb04c0f, type: 2}
-  hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   spiritManagerSO: {fileID: 11400000, guid: ab4b3065a7d4c2743828ffbb7d8ab552, type: 2}
   sprite: {fileID: 3310715950362300720}
   dialogueBox: {fileID: 0}
@@ -2075,16 +2056,10 @@ MonoBehaviour:
   gridList:
   - {fileID: 8855038329724587268}
   flowersRequired: 0
-  dialogueIndex: 0
-  timerActive: 0
   requiredFlowersList:
   - magnolia
   - lily
   Items: {fileID: 0}
-  kickParticle: {fileID: 0}
-  kickMaterial: {fileID: 0}
-  inWorldFlowerGO: {fileID: 0}
-  stonePrefab: {fileID: 0}
 --- !u!135 &786506145041223273
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2194,7 +2169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2390,7 +2364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2491,7 +2464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2777,7 +2749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2878,7 +2849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2984,7 +2954,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6333968452566980640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3019,8 +2989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
-  active: 0
+  active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
   gridSquaresManager: {fileID: 0}
@@ -3195,7 +3164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -3438,7 +3406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -3539,7 +3506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -3570,7 +3536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8981506943295111543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3619,7 +3585,6 @@ MonoBehaviour:
   itemHolder: {fileID: 6896388037182655910}
   numberOfActiveSqaures: 0
   squaresFilledCount: 0
-  spiritManager: {fileID: 0}
   hackData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
 --- !u!114 &6017429167663617036
 MonoBehaviour:

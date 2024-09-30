@@ -17,14 +17,6 @@ public class CinematicSceneManager : MonoBehaviour
         videoPlayer.loopPointReached += VideoEnd;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.E)) 
-        {
-            sceneController.StartNextScene("Tutorial");
-        }
-    }
-
     void VideoEnd(UnityEngine.Video.VideoPlayer vp)
     {
         sceneController.StartNextScene("Tutorial");

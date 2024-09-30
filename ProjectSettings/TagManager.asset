@@ -13,7 +13,6 @@ TagManager:
   - Spirit
   - Terrain
   - Tutorial
-  - SceneManager
   layers:
   - Default
   - TransparentFX
