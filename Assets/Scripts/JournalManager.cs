@@ -46,31 +46,34 @@ public class JournalManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (!hackyData.spiritTalking)
         {
-            if (!isPaused)
+            if (Input.GetKeyUp(KeyCode.Escape))
             {
-                isPaused = true;
-                escapedIn = true;
-                SetMenuActive();
+                if (!isPaused)
+                {
+                    isPaused = true;
+                    escapedIn = true;
+                    SetMenuActive();
+                }
+                else
+                {
+                    isPaused = false;
+                    DeactivateAll();
+                }
             }
-            else
+            if (Input.GetKeyUp(KeyCode.Tab))
             {
-                isPaused = false;
-                DeactivateAll();
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            if (!inventoryOpen)
-            {
-                tabbedIn = true;
-                SetInventoryActive();
-            }
-            else
-            {
-                DeactivateAll();
-                inventoryOpen = false;
+                if (!inventoryOpen)
+                {
+                    tabbedIn = true;
+                    SetInventoryActive();
+                }
+                else
+                {
+                    DeactivateAll();
+                    inventoryOpen = false;
+                }
             }
         }
     }

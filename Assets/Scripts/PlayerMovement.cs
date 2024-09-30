@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] IHateMyselfSO hackyData;
     [SerializeField] SpriteRenderer playerSprite;
     [SerializeField] Animator playerAnimator;
 
@@ -24,36 +25,39 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.z = Input.GetAxisRaw("Vertical");
+        if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.z = Input.GetAxisRaw("Vertical");
 
-        CheckFlipSprite();
+            CheckFlipSprite();
 
-        if (movement.x > 0.1 ||  movement.x < -0.1 )    //Walking Sideways axis, 1 Sprite sheet
-        {
-            playerAnimator.SetBool("WalkingSide", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("WalkingSide", false);
-        }
+            if (movement.x > 0.1 || movement.x < -0.1)    //Walking Sideways axis, 1 Sprite sheet
+            {
+                playerAnimator.SetBool("WalkingSide", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WalkingSide", false);
+            }
 
-        if (movement.z > 0.1)   //Walking Up direction, individual Sprite sheet 
-        {
-            playerAnimator.SetBool("WalkingUp", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("WalkingUp", false);
-        }
+            if (movement.z > 0.1)   //Walking Up direction, individual Sprite sheet 
+            {
+                playerAnimator.SetBool("WalkingUp", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WalkingUp", false);
+            }
 
-        if (movement.z < -0.1)  //Walking Down direction, individual Sprite sheet
-        {
-            playerAnimator.SetBool("WalkingDown", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("WalkingDown", false);
+            if (movement.z < -0.1)  //Walking Down direction, individual Sprite sheet
+            {
+                playerAnimator.SetBool("WalkingDown", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WalkingDown", false);
+            }
         }
     }
 

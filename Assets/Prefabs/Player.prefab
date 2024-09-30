@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6972c3d39a76f4396010fa2c0620b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   playerSprite: {fileID: 6758057403437712600}
   playerAnimator: {fileID: 5102732625295626270}
   movementSpeed: 1.25

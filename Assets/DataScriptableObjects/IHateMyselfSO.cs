@@ -13,6 +13,8 @@ public class IHateMyselfSO : ScriptableObject
 
     public bool openInventoryHoverBook = false;
 
+    public bool spiritTalking;
+
 
     private void OnEnable()
     {

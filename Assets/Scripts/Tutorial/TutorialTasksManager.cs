@@ -19,7 +19,7 @@ public class TutorialTasksManager : MonoBehaviour
     {
         tasks[taskRevealTracker].SetActive(true);
 
-        panel.sizeDelta = new Vector2(panel.sizeDelta.x, panel.sizeDelta.y + 50);
+        panel.sizeDelta = new Vector2(panel.sizeDelta.x, panel.sizeDelta.y + 55);
 
         taskRevealTracker++;
     }

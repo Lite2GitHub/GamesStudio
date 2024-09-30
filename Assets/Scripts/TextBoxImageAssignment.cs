@@ -6,6 +6,7 @@ using UnityEngine;
 public class TextBoxImageAssignment : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] IHateMyselfSO hackyData;
     [SerializeField] List<SpriteRenderer> symbolHolders = new List<SpriteRenderer>();
     [SerializeField] List<Sprite> symbol = new List<Sprite>();
     [SerializeField] GameObject dialogueBox;
@@ -42,6 +43,7 @@ public class TextBoxImageAssignment : MonoBehaviour
                 }
                 else 
                 {
+                    hackyData.spiritTalking = false;
                     spiritManager.OpenJournal();
                     if(!fadeSymbols && symbolsOn)
                     {
@@ -55,6 +57,7 @@ public class TextBoxImageAssignment : MonoBehaviour
     }
     public void SetSymbolImages(string inputSymbols)
     {
+
         ClearSymbols();
 
         for (int i = 0; i < inputSymbols.Length; i++)
@@ -97,6 +100,8 @@ public class TextBoxImageAssignment : MonoBehaviour
         textFadeIndex = symbolOffset;
 
         symbolsOn = true;
+        hackyData.spiritTalking = true;
+
     }
 
     public void ClearSymbols()

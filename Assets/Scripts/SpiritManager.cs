@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpiritManager : MonoBehaviour, IInteractable
 {
     [Header("References")]
+    [SerializeField] IHateMyselfSO hackyData;
     [SerializeField] SpiritManagerSO spiritManagerSO;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] TextBoxImageAssignment dialogueBox;
@@ -58,19 +59,23 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
     public void hover(bool hovering)
     {
-        if (hovering)
+        if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
         {
-            sprite.material = outlineMat;
+            if (hovering)
+            {
+                sprite.material = outlineMat;
+            }
+            else
+            {
+                sprite.material = standardMat;
+            }
         }
-        else
-        {
-            sprite.material = standardMat;
-        }
+
     }
 
     public void interact(string context)
     {
-        if (!ready)
+        if (!ready && !hackyData.inventoryOpen && !hackyData.spiritTalking)
         {
             spiritManagerSO.spiritOrTotem = gameObject;
             if (dialogueBox!= null)
@@ -142,7 +147,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 bool flowerMatches = false;
                 foreach (string flower in requiredFlowersList)
                 {
-                    if (item == flower || item == "stone")
+                    if (item == flower || item == "leaf")
                     {
                         flowerMatches = true;
                     }

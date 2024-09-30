@@ -2720,6 +2720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e8e331cfe277b44bd1038b563c00ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   spiritManagerSO: {fileID: 11400000, guid: ab4b3065a7d4c2743828ffbb7d8ab552, type: 2}
   sprite: {fileID: 3792815744113632099}
   dialogueBox: {fileID: 2804376711430125641}
