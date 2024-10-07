@@ -32,7 +32,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     public bool timerActive;
     bool fadeText;
     bool ready = false;
-    bool alive = false;
+    //bool alive = false;
 
     public List<string> requiredFlowersList = new List<string>();
 

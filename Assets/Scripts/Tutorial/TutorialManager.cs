@@ -5,7 +5,7 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     [Header ("General")]
-    [SerializeField] IHateMyselfSO hackyData; //ignore this
+    [SerializeField] IHateMyselfSO hackyData; //ignore this     //:thinking:
     [SerializeField] TutorialTasksManager tutorialTasksManager;
     [SerializeField] SceneController sceneController;
 

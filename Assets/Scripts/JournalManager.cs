@@ -22,13 +22,13 @@ public class JournalManager : MonoBehaviour
 
     [SerializeField] IHateMyselfSO hackyData;
 
-    bool vaseUIOpen = false;    
+    //bool vaseUIOpen = false;    
 
     bool isPaused = false;
     private Vector2 origInventoryPos;
 
     bool inventoryOpen = false;
-    bool flowerArrangeOpen = false;
+    bool flowerArrangeOpen = false;     
 
     bool tabbedIn = false;
     bool escapedIn = false;
