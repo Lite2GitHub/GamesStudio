@@ -14,6 +14,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     [SerializeField] public InteractionController playerInteraction;
     [SerializeField] Material standardMat;
     [SerializeField] Material outlineMat;
+    [SerializeField] Animator animator;
 
     [Header("Dialogue Variables")]
     [SerializeField] List<GameObject> gridList = new List<GameObject>();
@@ -80,6 +81,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
             spiritManagerSO.spiritOrTotem = gameObject;
             if (dialogueBox!= null)
             {
+                animator.SetTrigger("Sigh");
                 spiritManagerSO.AddGrid(gridList[dialogueIndex], journalManager.spiritGridParent, this);
 
                 dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
@@ -155,6 +157,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 if (!flowerMatches)
                 {
                     print("bouquet contents are incorrect");
+                    animator.SetTrigger("Shake");
                     journalManager.CloseFlowerArrange(dialogueIndex);
                     dialogueBox.SetSymbolImages("11,11,11");
                     return;
@@ -164,6 +167,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
             dialogueIndex++;
             //Destroy(gameObject);
             print("bouquet is correct");
+            animator.SetTrigger("Cry");
             //journalManager.ClearSpiritGrid();
         }
         else
@@ -173,10 +177,12 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 if (item != requiredFlowersList[dialogueIndex])
                 {
                     print("contents are incorrect");
+                    animator.SetTrigger("Shake");
                     return;
                 }
             }
             print("contents correct");
+            animator.SetTrigger("Nod");
             //journalManager.ClearSpiritGrid();
             dialogueIndex++;
             journalManager.CloseFlowerArrange(dialogueIndex);

@@ -32,6 +32,7 @@ public class JournalManager : MonoBehaviour
 
     bool tabbedIn = false;
     bool escapedIn = false;
+    bool gridIn = false;
 
     string pageOpening; //this stores the desired page so the animation can finsih transitioning
 
@@ -149,7 +150,7 @@ public class JournalManager : MonoBehaviour
         inventoryPageAnimator.SetTrigger("Reset");
         flowerArrangeOpen = true;
         print("is the animation going?");
-        tabbedIn = false;
+        gridIn = true;
         SetInventoryActive(true);
         inventoryPageAnimator.SetBool("GridEnter", true);
     }
@@ -244,14 +245,11 @@ public class JournalManager : MonoBehaviour
                 inventoryOpen = true;
                 backgroundFade.SetActive(true);
                 inventory.SetActive(true);
-                if (!tabbedIn)
+                if (gridIn)
                 {
                     print("grid in");
                     inventoryPageAnimator.SetBool("GridEnter", true);
-                }
-                else
-                {
-                    tabbedIn = false;
+                    gridIn = false;
                 }
                 return;
             case "research":
