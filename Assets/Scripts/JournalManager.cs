@@ -246,6 +246,7 @@ public class JournalManager : MonoBehaviour
                 inventory.SetActive(true);
                 if (!tabbedIn)
                 {
+                    print("grid in");
                     inventoryPageAnimator.SetBool("GridEnter", true);
                 }
                 else

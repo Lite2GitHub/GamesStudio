@@ -183,7 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -771,7 +770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 0
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2119,7 +2117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -2357,7 +2354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -4357,7 +4353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -10377,7 +10372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -10488,7 +10482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -10660,7 +10653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -10900,7 +10892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -11288,7 +11279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -12160,7 +12150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -12630,7 +12619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -13115,7 +13103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 0
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -13517,7 +13504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -13941,7 +13927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -15649,7 +15634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -20951,7 +20935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -21665,7 +21648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -21953,7 +21935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -22391,8 +22372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230fb0361f23ee64492b954a682c5166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 263440828}
-  hintText: {fileID: 1447893575}
 --- !u!95 &1233027578
 Animator:
   serializedVersion: 5
@@ -22464,7 +22443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -22565,7 +22543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 0
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -22941,7 +22918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -23608,7 +23584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -23709,7 +23684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -25639,7 +25613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -25885,7 +25858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -26938,7 +26910,6 @@ MonoBehaviour:
   hackyData: {fileID: 11400000, guid: 5d3c2124578bf1e42878265580288ce1, type: 2}
   tutorialTasksManager: {fileID: 2133502072}
   sceneController: {fileID: 686988065}
-  hintController: {fileID: 1233027577}
   tutorialStage: 0
   moundTransform: {fileID: 177740693}
   gridContentsManager: {fileID: 1134659801}
@@ -27476,7 +27447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 0
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -27577,7 +27547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -28925,7 +28894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -29205,7 +29173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -29290,7 +29257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grids:
   - {fileID: 1134659800}
-  unplacedItemsGO: {fileID: 1271331496}
+  unplacedItemsGO: {fileID: 1271331495}
   journalManager: {fileID: 1794263905}
 --- !u!95 &1884392976
 Animator:
@@ -29558,7 +29525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -29724,7 +29690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -30953,7 +30918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -31379,7 +31343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -31524,7 +31487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}
@@ -32438,7 +32400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52d13674b4e1a24bbebce3ceb393181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTearLocked: 0
   active: 1
   filled: 0
   flowerInSqaure: {fileID: 0}

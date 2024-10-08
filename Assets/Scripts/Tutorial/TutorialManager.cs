@@ -100,7 +100,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 else
                 {
-                    if (spiritManager.dialogueIndex == 1)
+                    if (spiritManager != null && spiritManager.dialogueIndex == 1)
                     {
                         tutorialTasksManager.CompleteNextTask();
 
