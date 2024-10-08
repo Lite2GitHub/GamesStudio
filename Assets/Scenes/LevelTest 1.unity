@@ -10198,7 +10198,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1775892772}
         m_TargetAssemblyTypeName: JournalManager, Assembly-CSharp
         m_MethodName: SetInventoryActive
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11176,7 +11176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grids:
   - {fileID: 615720203}
-  unplacedItemsGO: {fileID: 69865753}
+  unplacedItemsGO: {fileID: 69865752}
   journalManager: {fileID: 1775892772}
 --- !u!1001 &383745024
 PrefabInstance:
@@ -12008,7 +12008,6 @@ GameObject:
   - component: {fileID: 407488587}
   - component: {fileID: 407488586}
   - component: {fileID: 407488585}
-  - component: {fileID: 407488584}
   m_Layer: 0
   m_Name: Point (2)
   m_TagString: Untagged
@@ -12016,27 +12015,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &407488584
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407488583}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &407488585
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15176,7 +15154,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1775892772}
         m_TargetAssemblyTypeName: JournalManager, Assembly-CSharp
         m_MethodName: SetInventoryActive
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18197,7 +18175,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1775892772}
         m_TargetAssemblyTypeName: JournalManager, Assembly-CSharp
         m_MethodName: SetInventoryActive
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21482,7 +21460,6 @@ GameObject:
   - component: {fileID: 733263826}
   - component: {fileID: 733263825}
   - component: {fileID: 733263824}
-  - component: {fileID: 733263823}
   m_Layer: 0
   m_Name: Point (4)
   m_TagString: Untagged
@@ -21490,27 +21467,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &733263823
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733263822}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &733263824
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28782,7 +28738,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1775892772}
         m_TargetAssemblyTypeName: JournalManager, Assembly-CSharp
         m_MethodName: SetInventoryActive
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -32297,7 +32253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3634804, y: 0.000000016029494, z: -0.0000000062541807, w: 0.9316019}
+  m_LocalRotation: {x: 0.3634804, y: -0.000000016029498, z: 0.0000000062541816, w: 0.9316019}
   m_LocalPosition: {x: 16.47, y: 2.2053876, z: 40.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40518,7 +40474,6 @@ GameObject:
   - component: {fileID: 1349543493}
   - component: {fileID: 1349543492}
   - component: {fileID: 1349543491}
-  - component: {fileID: 1349543490}
   m_Layer: 0
   m_Name: Point (1)
   m_TagString: Untagged
@@ -40526,27 +40481,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1349543490
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349543489}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1349543491
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42166,7 +42100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3634804, y: 0.000000016029494, z: -0.0000000062541807, w: 0.9316019}
+  m_LocalRotation: {x: 0.3634804, y: -0.000000016029498, z: 0.0000000062541816, w: 0.9316019}
   m_LocalPosition: {x: 16.47, y: 2.2053876, z: 40.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47272,7 +47206,6 @@ GameObject:
   - component: {fileID: 1551491560}
   - component: {fileID: 1551491559}
   - component: {fileID: 1551491558}
-  - component: {fileID: 1551491557}
   m_Layer: 0
   m_Name: Point (3)
   m_TagString: Untagged
@@ -47280,27 +47213,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1551491557
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551491556}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1551491558
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49964,7 +49876,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1775892772}
         m_TargetAssemblyTypeName: JournalManager, Assembly-CSharp
         m_MethodName: SetInventoryActive
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -64015,7 +63927,6 @@ GameObject:
   - component: {fileID: 2117176948}
   - component: {fileID: 2117176947}
   - component: {fileID: 2117176946}
-  - component: {fileID: 2117176945}
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
@@ -64023,27 +63934,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &2117176945
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117176944}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2117176946
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -42,11 +42,11 @@ public class OpenJournalOnHover : MonoBehaviour, IPointerEnterHandler
     {
         if (eventData.dragging)
         {
-            journalManager.SetInventoryActive();
+            journalManager.SetInventoryActive(true);
         }
         else if (hackData.hackyEventDataItem != null)
         {
-            journalManager.SetInventoryActive();
+            journalManager.SetInventoryActive(true);
         }
     }
 

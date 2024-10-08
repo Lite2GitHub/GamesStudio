@@ -66,13 +66,13 @@ public class JournalManager : MonoBehaviour
             {
                 if (!inventoryOpen)
                 {
-                    tabbedIn = true;
-                    SetInventoryActive();
+                    isPaused = true;
+                    SetInventoryActive(true);
                 }
                 else
                 {
+                    isPaused = false;
                     DeactivateAll();
-                    inventoryOpen = false;
                 }
             }
         }
@@ -115,20 +115,25 @@ public class JournalManager : MonoBehaviour
         menu.SetActive(false);
         help.SetActive(false);
 
+        inventoryOpen = false;
         //ClearSpiritGrid();
 
         inventory.GetComponent<JournalInventoryController>().KickAllUnplaced();
     }
-    public void SetInventoryActive()
+    public void SetInventoryActive(bool openDirect)
     {
-        if (tabbedIn)
+        if (openDirect)
         {
             journalOpenClose.SetTrigger("Open");
+            tabbedIn = true;
+            isPaused = true;
         }
         else
         {
             journalOpenClose.SetTrigger("Close");
             journalOpenClose.SetBool("CloseOpen", true);
+
+            tabbedIn = true;
         }
         pageOpening = "inventory";
 
@@ -144,7 +149,8 @@ public class JournalManager : MonoBehaviour
         inventoryPageAnimator.SetTrigger("Reset");
         flowerArrangeOpen = true;
         print("is the animation going?");
-        SetInventoryActive();
+        tabbedIn = false;
+        SetInventoryActive(true);
         inventoryPageAnimator.SetBool("GridEnter", true);
     }
     public void CloseFlowerArrange(int stage)
