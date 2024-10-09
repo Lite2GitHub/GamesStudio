@@ -81,7 +81,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
             spiritManagerSO.spiritOrTotem = gameObject;
             if (dialogueBox!= null)
             {
-                //animator.SetTrigger("Sigh");
+                animator.SetTrigger("Sigh");
                 spiritManagerSO.AddGrid(gridList[dialogueIndex], journalManager.spiritGridParent, this);
 
                 dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
