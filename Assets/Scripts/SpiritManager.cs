@@ -22,6 +22,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
     [SerializeField] Animator animator;
     [SerializeField] GameObject stoneVariant;
     [SerializeField] GameObject tear;
+    [SerializeField] bool isHackHintSpirit = false;
 
     [Header("Dialogue Variables")]
     [SerializeField] List<GameObject> gridList = new List<GameObject>();
@@ -114,6 +115,19 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
                 timerTracker = 0;
                 timerActive = true;
+
+                if (isHackHintSpirit)
+                {
+                    if (dialogueIndex == 1)
+                    {
+                        GameObject.FindGameObjectWithTag("Hint").GetComponent<HintController>().GiveHint("Their bouquet can only contain the flowers previously asked for");
+                    }
+                    if (dialogueIndex == 2)
+                    {
+                        GameObject.FindGameObjectWithTag("Hint").GetComponent<HintController>().GiveHint("Leaves can be added to any arrangement to help fill the space");
+                    }
+                }
+
             }
             else
             {
@@ -170,7 +184,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 bool flowerMatches = false;
                 foreach (string flower in requiredFlowersList)
                 {
-                    if (item == flower || item == "leaf")
+                    if (item == flower || item == "leaf" || item == "tear")
                     {
                         flowerMatches = true;
                     }
@@ -191,8 +205,12 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
             if (isTotem)
             {
-                Instantiate(doorFractured, doorFracturedPos.transform);
+                var doorFracInst = Instantiate(doorFractured);
+                doorFracInst.transform.position = doorFracturedPos.transform.position;
+                doorFractured.transform.rotation = doorFracturedPos.transform.rotation;
                 Destroy(doorFracturedPos);
+
+                GameObject.FindGameObjectWithTag("Hint").GetComponent<HintController>().GiveHint("*You hear rocks crumble to your right*");
             }
             else
             {

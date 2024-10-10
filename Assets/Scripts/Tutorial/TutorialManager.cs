@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] TutorialTasksManager tutorialTasksManager;
     [SerializeField] SceneController sceneController;
     [SerializeField] HintController hintController;
+    [SerializeField] JournalManager journalManager;
 
 
     public int tutorialStage;
@@ -48,6 +49,13 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
+        if (gridContentsManager.contents.Contains("tear"))
+        {
+            journalManager.DeactivateAll();
+            sceneController.StartNextScene("LevelTest 1");
+            stage2t1DoOnce = false;
+        }
+
         switch (tutorialStage)
         {
             case 0:
@@ -192,12 +200,7 @@ public class TutorialManager : MonoBehaviour
                             hintController.GiveHint("Pick up the tear");
                             stage3t2DoOnce = false;
                         }
-                        
-                        if (gridContentsManager.contents.Contains("tear"))
-                        {
-                            sceneController.StartNextScene("LevelTest 1");
-                            stage2t1DoOnce = false;
-                        }
+                       
                     }
                 }
                 return;
