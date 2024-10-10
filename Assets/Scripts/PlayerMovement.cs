@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     Vector3 movement;
-    //bool facingRight = true;
+    bool facingRight = true;
 
     void Start()
     {
@@ -26,45 +26,47 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.z = Input.GetAxisRaw("Vertical");
+        if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.z = Input.GetAxisRaw("Vertical");
 
-        playerAnimator.SetFloat("Horizontal", movement.x);
-        playerAnimator.SetFloat("Vertical", movement.z);
+            //playerAnimator.SetFloat("Horizontal", movement.x);
+            //playerAnimator.SetFloat("Vertical", movement.z);
 
-        playerAnimator.SetFloat("Speed", movement.sqrMagnitude);
+            //playerAnimator.SetFloat("Speed", movement.sqrMagnitude);
 
-        // OLD CODE V
+            // OLD CODE V
 
-        //CheckFlipSprite();
+            CheckFlipSprite();
 
-        //if (movement.x > 0.1 || movement.x < -0.1)    //Walking Sideways axis, 1 Sprite sheet
-        //{
-        //    playerAnimator.SetBool("WalkingSide", true);
-        //}
-        //else
-        //{
-        //    playerAnimator.SetBool("WalkingSide", false);
-        //}
+            if (movement.x > 0.1 || movement.x < -0.1)    //Walking Sideways axis, 1 Sprite sheet
+            {
+                playerAnimator.SetBool("WalkingSide", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WalkingSide", false);
+            }
 
-        //if (movement.z > 0.1)   //Walking Up direction, individual Sprite sheet 
-        //{
-        //    playerAnimator.SetBool("WalkingUp", true);
-        //}
-        //else
-        //{
-        //    playerAnimator.SetBool("WalkingUp", false);
-        //}
+            if (movement.z > 0.1)   //Walking Up direction, individual Sprite sheet 
+            {
+                playerAnimator.SetBool("WalkingUp", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WalkingUp", false);
+            }
 
-        //if (movement.z < -0.1)  //Walking Down direction, individual Sprite sheet
-        //{
-        //    playerAnimator.SetBool("WalkingDown", true);
-        //}
-        //else
-        //{
-        //    playerAnimator.SetBool("WalkingDown", false);
-        //}
-
+            if (movement.z < -0.1)  //Walking Down direction, individual Sprite sheet
+            {
+                playerAnimator.SetBool("WalkingDown", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WalkingDown", false);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -75,23 +77,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //void CheckFlipSprite()
-    //{
-    //    if (movement.x < 0)
-    //    {
-    //        if (facingRight)
-    //        {
-    //            playerSprite.flipX = true;
-    //            facingRight = false;
-    //        }
-    //    }
-    //    else if (movement.x > 0)
-    //    {
-    //        if (!facingRight)
-    //        {
-    //            playerSprite.flipX = false;
-    //            facingRight = true;
-    //        }
-    //    }
-    //}
+    void CheckFlipSprite()
+    {
+        if (movement.x < 0)
+        {
+            if (facingRight)
+            {
+                playerSprite.flipX = true;
+                facingRight = false;
+            }
+        }
+        else if (movement.x > 0)
+        {
+            if (!facingRight)
+            {
+                playerSprite.flipX = false;
+                facingRight = true;
+            }
+        }
+    }
 }

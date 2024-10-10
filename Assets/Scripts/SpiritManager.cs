@@ -6,10 +6,15 @@ using UnityEngine;
 
 public class SpiritManager : MonoBehaviour, IInteractable
 {
+    [SerializeField] bool isTotem;
+
     [Header("References")]
     [SerializeField] IHateMyselfSO hackyData;
     [SerializeField] SpiritManagerSO spiritManagerSO;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] GameObject mesh;
+    [SerializeField] GameObject doorFractured;
+    [SerializeField] GameObject doorFracturedPos;
     [SerializeField] TextBoxImageAssignment dialogueBox;
     [SerializeField] public InteractionController playerInteraction;
     [SerializeField] Material standardMat;
@@ -50,6 +55,11 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
         journalManager = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>();
+
+        if (isTotem)
+        {
+            mesh.GetComponent<Outline>().enabled = false;
+        }
     }
 
     void Update()
@@ -64,13 +74,27 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
         {
-            if (hovering)
+            if (isTotem)
             {
-                sprite.material = outlineMat;
+                if (hovering)
+                {
+                    mesh.GetComponent<Outline>().enabled = true;
+                }
+                else
+                {
+                    mesh.GetComponent<Outline>().enabled = false;
+                }
             }
             else
             {
-                sprite.material = standardMat;
+                if (hovering)
+                {
+                    sprite.material = outlineMat;
+                }
+                else
+                {
+                    sprite.material = standardMat;
+                }
             }
         }
 
@@ -164,8 +188,16 @@ public class SpiritManager : MonoBehaviour, IInteractable
             dialogueIndex++;
             //Destroy(gameObject);
             print("bouquet is correct");
-            animator.SetTrigger("Cry");
-            //journalManager.ClearSpiritGrid();
+
+            if (isTotem)
+            {
+                Instantiate(doorFractured, doorFracturedPos.transform);
+                Destroy(doorFracturedPos);
+            }
+            else
+            {
+                animator.SetTrigger("Cry");
+            }
         }
         else
         {
@@ -190,7 +222,10 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         print("turned to stone");
         tear.SetActive(true);
-        stoneVariant.SetActive(true);
-        Destroy(gameObject);
+        if (stoneVariant != null)
+        {
+            stoneVariant.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 }
