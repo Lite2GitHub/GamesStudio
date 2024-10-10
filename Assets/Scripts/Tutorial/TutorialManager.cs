@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] TutorialTasksManager tutorialTasksManager;
     [SerializeField] SceneController sceneController;
     [SerializeField] HintController hintController;
+    [SerializeField] JournalManager journalManager;
 
 
     public int tutorialStage;
@@ -37,12 +38,24 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Stage 2")]
     bool stage2t1DoOnce = true;
+    bool stage2t2DoOnce = true;
+
+    [Header("Stage 3")]
+    bool stage3t1DoOnce = true;
+    bool stage3t2DoOnce = true;
 
     //general private variables
     SpiritManager spiritManager; //the manager from the tutorial spirit which will get assigned once instantiated
 
     void Update()
     {
+        if (gridContentsManager.contents.Contains("tear"))
+        {
+            journalManager.DeactivateAll();
+            sceneController.StartNextScene("LevelTest 1");
+            stage2t1DoOnce = false;
+        }
+
         switch (tutorialStage)
         {
             case 0:
@@ -89,14 +102,13 @@ public class TutorialManager : MonoBehaviour
 
                         tutorialTasksManager.RevealNextTask();
 
-                        var spiritInst = Instantiate(spirit, moundTransform.position, Quaternion.identity);
-                        spiritManager = spiritInst.GetComponent<SpiritManager>();
+                        spirit.SetActive(true);
+                        spiritManager = spirit.GetComponent<SpiritManager>();
                         stage1t1DoOnce = false;
                     }
 
                     if (spiritManager.timerActive && stage1t2DoOnce)
                     {
-                        hintController.EndHint();
                         tutorialTasksManager.CompleteNextTask();
                         tutorialTasksManager.RevealNextTask();
                         stage1t2DoOnce = false;
@@ -136,8 +148,6 @@ public class TutorialManager : MonoBehaviour
                         tutorialTasksManager.RevealNextTask();
                         tutorialStage++;
 
-                        hintController.EndHint();
-
                         for (int i = 0; i < flowerDropAmount0; i++)
                         {
                             var particle = Instantiate(flowerDorpParticleEffect0, moundTransform.position, Quaternion.identity);
@@ -165,18 +175,32 @@ public class TutorialManager : MonoBehaviour
                 }
                 else
                 {
-                    hintController.GiveHint("Q and E will rotate the flower");
+                    if (stage2t2DoOnce)
+                    {
+                        print("rotate call");
+                        hintController.GiveHint("Q and E will rotate the flower");
+                        stage2t2DoOnce = false;
+                    }
+                    
                 }
                 return;
             case 3:
-                hintController.GiveHint("Their bouquet can only contain the flowers previously asked for");
+                if (stage3t1DoOnce)
+                {
+                    hintController.GiveHint("Their bouquet can only contain the flowers previously asked for");
+                    stage3t1DoOnce = false;
+                }
+                
                 if (!hackyData.inventoryOpen)
                 {
                     if (spiritManager.dialogueIndex == 3 && stage2t1DoOnce)
                     {
-                        sceneController.StartNextScene("LevelTest 1");
-                        hintController.EndHint();
-                        stage2t1DoOnce = false;
+                        if (stage3t2DoOnce)
+                        {
+                            hintController.GiveHint("Pick up the tear");
+                            stage3t2DoOnce = false;
+                        }
+                       
                     }
                 }
                 return;

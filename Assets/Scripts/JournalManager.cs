@@ -65,7 +65,7 @@ public class JournalManager : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.Tab))
             {
-                if (!inventoryOpen)
+                if (!isPaused)
                 {
                     isPaused = true;
                     SetInventoryActive(true);
@@ -165,10 +165,20 @@ public class JournalManager : MonoBehaviour
         inventoryPageAnimator.SetBool("GridEnter", false);
     }
 
-    public void SetResearchActive()
+    public void SetResearchActive(bool openDirect)
     {
-        journalOpenClose.SetTrigger("Close");
-        journalOpenClose.SetBool("CloseOpen", true);
+        if (openDirect)
+        {
+            journalOpenClose.SetTrigger("Open");
+
+            isPaused = true;
+        }
+        else
+        {
+            journalOpenClose.SetTrigger("Close");
+            journalOpenClose.SetBool("CloseOpen", true);
+        }
+
         pageOpening = "research";
 
         backgroundFade.SetActive(true);

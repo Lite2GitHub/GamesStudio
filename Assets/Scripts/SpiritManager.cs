@@ -6,15 +6,23 @@ using UnityEngine;
 
 public class SpiritManager : MonoBehaviour, IInteractable
 {
+    [SerializeField] bool isTotem;
+
     [Header("References")]
     [SerializeField] IHateMyselfSO hackyData;
     [SerializeField] SpiritManagerSO spiritManagerSO;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] GameObject mesh;
+    [SerializeField] GameObject doorFractured;
+    [SerializeField] GameObject doorFracturedPos;
     [SerializeField] TextBoxImageAssignment dialogueBox;
     [SerializeField] public InteractionController playerInteraction;
     [SerializeField] Material standardMat;
     [SerializeField] Material outlineMat;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject stoneVariant;
+    [SerializeField] GameObject tear;
+    [SerializeField] bool isHackHintSpirit = false;
 
     [Header("Dialogue Variables")]
     [SerializeField] List<GameObject> gridList = new List<GameObject>();
@@ -48,6 +56,11 @@ public class SpiritManager : MonoBehaviour, IInteractable
 
         playerInteraction = GameObject.FindGameObjectWithTag("PlayerInteraction").GetComponent<InteractionController>();
         journalManager = GameObject.FindGameObjectWithTag("Journal").GetComponent<JournalManager>();
+
+        if (isTotem)
+        {
+            mesh.GetComponent<Outline>().enabled = false;
+        }
     }
 
     void Update()
@@ -62,13 +75,27 @@ public class SpiritManager : MonoBehaviour, IInteractable
     {
         if (!hackyData.inventoryOpen && !hackyData.spiritTalking)
         {
-            if (hovering)
+            if (isTotem)
             {
-                sprite.material = outlineMat;
+                if (hovering)
+                {
+                    mesh.GetComponent<Outline>().enabled = true;
+                }
+                else
+                {
+                    mesh.GetComponent<Outline>().enabled = false;
+                }
             }
             else
             {
-                sprite.material = standardMat;
+                if (hovering)
+                {
+                    sprite.material = outlineMat;
+                }
+                else
+                {
+                    sprite.material = standardMat;
+                }
             }
         }
 
@@ -81,13 +108,26 @@ public class SpiritManager : MonoBehaviour, IInteractable
             spiritManagerSO.spiritOrTotem = gameObject;
             if (dialogueBox!= null)
             {
-                //animator.SetTrigger("Sigh");
+                animator.SetTrigger("Sigh");
                 spiritManagerSO.AddGrid(gridList[dialogueIndex], journalManager.spiritGridParent, this);
 
                 dialogueBox.SetSymbolImages(flowerSymbolsDict[requiredFlowersList[dialogueIndex]]);
 
                 timerTracker = 0;
                 timerActive = true;
+
+                if (isHackHintSpirit)
+                {
+                    if (dialogueIndex == 1)
+                    {
+                        GameObject.FindGameObjectWithTag("Hint").GetComponent<HintController>().GiveHint("Their bouquet can only contain the flowers previously asked for");
+                    }
+                    if (dialogueIndex == 2)
+                    {
+                        GameObject.FindGameObjectWithTag("Hint").GetComponent<HintController>().GiveHint("Leaves can be added to any arrangement to help fill the space");
+                    }
+                }
+
             }
             else
             {
@@ -115,11 +155,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
         {
             //dialogueBox.FadeTextBox(1, true);
             dialogueBox.FadeOut();
-
-            if (ready)
-            {
-                Destroy(gameObject);
-            }
         }
         else
         {
@@ -149,7 +184,7 @@ public class SpiritManager : MonoBehaviour, IInteractable
                 bool flowerMatches = false;
                 foreach (string flower in requiredFlowersList)
                 {
-                    if (item == flower || item == "leaf")
+                    if (item == flower || item == "leaf" || item == "tear")
                     {
                         flowerMatches = true;
                     }
@@ -167,8 +202,20 @@ public class SpiritManager : MonoBehaviour, IInteractable
             dialogueIndex++;
             //Destroy(gameObject);
             print("bouquet is correct");
-            animator.SetTrigger("Cry");
-            //journalManager.ClearSpiritGrid();
+
+            if (isTotem)
+            {
+                var doorFracInst = Instantiate(doorFractured);
+                doorFracInst.transform.position = doorFracturedPos.transform.position;
+                doorFractured.transform.rotation = doorFracturedPos.transform.rotation;
+                Destroy(doorFracturedPos);
+
+                GameObject.FindGameObjectWithTag("Hint").GetComponent<HintController>().GiveHint("*You hear rocks crumble to your right*");
+            }
+            else
+            {
+                animator.SetTrigger("Cry");
+            }
         }
         else
         {
@@ -186,6 +233,17 @@ public class SpiritManager : MonoBehaviour, IInteractable
             //journalManager.ClearSpiritGrid();
             dialogueIndex++;
             journalManager.CloseFlowerArrange(dialogueIndex);
+        }
+    }
+
+    public void TurnToStone()
+    {
+        print("turned to stone");
+        tear.SetActive(true);
+        if (stoneVariant != null)
+        {
+            stoneVariant.SetActive(true);
+            Destroy(gameObject);
         }
     }
 }

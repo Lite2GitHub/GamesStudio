@@ -16,20 +16,28 @@ public class JournalPageFlipManager : MonoBehaviour
     List<GameObject> pageLeftRightOld = new List<GameObject>();
     int pagePosition = 0; //keeps track of position within pages
 
+    [SerializeField] ResearchPageToggle daisyToggle;
+    [SerializeField] ResearchPageToggle lilyToggle;
+    [SerializeField] ResearchPageToggle magnoliaToggle;
+    [SerializeField] ResearchPageToggle poppyToggle;
+
     void Start()
     {
-        DeactivateAllPages();
+        if (pageLeftRightOld.Count <= 0)
+        {
+            DeactivateAllPages();
 
-        leftCorner.GetComponent<JournalCorner>().journalPageManager = this;
-        rightCorner.GetComponent<JournalCorner>().journalPageManager = this;
-        pageFlip.GetComponent<PageFlip>().journalPageManager = this;
+            leftCorner.GetComponent<JournalCorner>().journalPageManager = this;
+            rightCorner.GetComponent<JournalCorner>().journalPageManager = this;
+            pageFlip.GetComponent<PageFlip>().journalPageManager = this;
 
-        FillPageList(pageLeftRightOld);
-        pageLeftRightOld[0].SetActive(true); //turn on left page
-        pageLeftRightOld[1].SetActive(true); //turn on right page
+            FillPageList(pageLeftRightOld);
+            pageLeftRightOld[0].SetActive(true); //turn on left page
+            pageLeftRightOld[1].SetActive(true); //turn on right page
 
-        CheckActiveCorners(true);
-        CheckActiveCorners(false);// slghtly hacky to call twice for both sides but idk seemed fine as itll almost exclusively be used as a one or the other from now on
+            CheckActiveCorners(true);
+            CheckActiveCorners(false);// slghtly hacky to call twice for both sides but idk seemed fine as itll almost exclusively be used as a one or the other from now on
+        }
     }
 
     public void TurnPage(bool rightPage)
@@ -123,6 +131,105 @@ public class JournalPageFlipManager : MonoBehaviour
             {
                 rightCorner.SetActive(false);
             }
+        }
+    }
+
+    void SetPageNoFlip(int pageNumber)
+    {
+        if (pageNumber != pagePosition)
+        {
+            if (pageLeftRightOld.Count <= 0)
+            {
+                DeactivateAllPages();
+
+                leftCorner.GetComponent<JournalCorner>().journalPageManager = this;
+                rightCorner.GetComponent<JournalCorner>().journalPageManager = this;
+                pageFlip.GetComponent<PageFlip>().journalPageManager = this;
+
+                FillPageList(pageLeftRightOld);
+                pageLeftRightOld[0].SetActive(true); //turn on left page
+                pageLeftRightOld[1].SetActive(true); //turn on right page
+
+                CheckActiveCorners(true);
+                CheckActiveCorners(false);// slghtly hacky to call twice for both sides but idk seemed fine as itll almost exclusively be used as a one or the other from now on
+            }
+
+            if (pageNumber > pagePosition)
+            {
+                pagePosition++;
+
+                FillPageList(pageLeftRightNew);
+
+                pageLeftRightNew[1].SetActive(true);
+                pageLeftRightNew.RemoveAt(1);
+                pageLeftRightOld[1].SetActive(false);
+                pageLeftRightOld.RemoveAt(1);
+
+                pageLeftRightNew[0].SetActive(true);
+                pageLeftRightNew.Clear();
+                pageLeftRightOld[0].SetActive(false);
+                pageLeftRightOld.Clear();
+
+                FillPageList(pageLeftRightOld);
+
+                CheckActiveCorners(true);
+                CheckActiveCorners(false);
+
+                CheckActiveCorners(false); //only check right page 
+            }
+            else
+            {
+                pagePosition--;
+
+                FillPageList(pageLeftRightNew);
+
+                pageLeftRightNew[0].SetActive(true);
+                pageLeftRightNew.RemoveAt(0);
+                pageLeftRightOld[0].SetActive(false);
+                pageLeftRightOld.RemoveAt(0);
+
+                pageLeftRightNew[0].SetActive(true);
+                pageLeftRightNew.Clear();
+                pageLeftRightOld[0].SetActive(false);
+                pageLeftRightOld.Clear();
+
+                FillPageList(pageLeftRightOld);
+
+                CheckActiveCorners(true);
+                CheckActiveCorners(false);
+
+                CheckActiveCorners(true); //only check left page 
+            }
+        }
+    }
+
+    public void AddPage(string pageType)
+    {
+        print("page added");
+
+        switch (pageType)
+        {
+            case "daisy": //on page 0
+                SetPageNoFlip(0);
+
+                print("daisy back on");
+                daisyToggle.ActivatePage();
+                return;
+            case "poppy": //on page 1
+                SetPageNoFlip(1);
+
+                poppyToggle.ActivatePage();
+                return;
+            case "magnolia": //on page 1
+                SetPageNoFlip(1);
+
+                magnoliaToggle.ActivatePage();
+                return;
+            case "lily": //on page 0
+                SetPageNoFlip(0);
+
+                lilyToggle.ActivatePage();
+                return;
         }
     }
 }

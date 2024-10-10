@@ -9,7 +9,7 @@ public class GridItemInventoryChecker : MonoBehaviour
     [SerializeField] Material kickMaterial;
     [SerializeField] GameObject inWorldFlowerGO;
 
-    [SerializeField] string flowerType;
+    public string flowerType;
 
     [SerializeField] Image flowerImage;
 
@@ -75,6 +75,10 @@ public class GridItemInventoryChecker : MonoBehaviour
         setParentOnClick.squareArray[0].GetComponent<DragDrop>().RemoveFromInventory(flowerType);
     }
 
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
     public void KickFromInventory()
     {
         print("kicked from inventory");

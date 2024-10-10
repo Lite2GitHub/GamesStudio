@@ -10,9 +10,14 @@ public class UIController : MonoBehaviour
 
     public void StartGame()
     {
-        sceneController.StartNextScene("Cutscene"); 
+        sceneController.StartNextScene("Cutscene");
     }
-    
+
+    public void MainMenu()
+    {
+        sceneController.StartNextScene("MainMenu");
+    }
+
     public void SettingsMenu()
     {
 
@@ -20,7 +25,7 @@ public class UIController : MonoBehaviour
 
     public void CreditsMenu()
     {
-
+        sceneController.StartNextScene("GameEnd");
     }
 
     public void QuitGame()

@@ -2725,7 +2725,10 @@ MonoBehaviour:
   dialogueBox: {fileID: 2804376711430125641}
   playerInteraction: {fileID: 0}
   standardMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  outlineMat: {fileID: 2100000, guid: 37f149cf4d8e6c24bb58a21ca9d51d57, type: 2}
+  outlineMat: {fileID: 2100000, guid: a4108cbe2725d0a45964ca158d8ab1e0, type: 2}
+  animator: {fileID: 780727777165212104}
+  stoneVariant: {fileID: 0}
+  tear: {fileID: 0}
   gridList:
   - {fileID: 6279437474827108352}
   - {fileID: 2015084501502272059}
@@ -3101,6 +3104,7 @@ GameObject:
   - component: {fileID: 731616023919005084}
   - component: {fileID: 3792815744113632099}
   - component: {fileID: 780727777165212104}
+  - component: {fileID: 5447476638566661189}
   m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
@@ -3196,6 +3200,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5447476638566661189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560650295604550161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34793a1f4d81e784d926b8c36a8b9370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spiritManager: {fileID: 4177111548274898494}
 --- !u!1 &6565566209281690266
 GameObject:
   m_ObjectHideFlags: 0

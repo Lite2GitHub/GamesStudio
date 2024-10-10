@@ -12,6 +12,8 @@ public class HintController : MonoBehaviour
 
     Animator animator;
 
+    bool showingHint = false;
+
     void Start()
     {
         animator= GetComponent<Animator>();
@@ -19,6 +21,10 @@ public class HintController : MonoBehaviour
 
     public void GiveHint(string hint)
     {
+        if (showingHint)
+        {
+            EndHint();
+        }
 
         print("hint triggered");
 
@@ -28,11 +34,14 @@ public class HintController : MonoBehaviour
         hintText.text = hint;
 
         animator.SetTrigger("Open");
+
+        showingHint = true;
     }
 
     public void EndHint()
     {
         animator.SetTrigger("Close");
+        showingHint= false;
     }
 
     void DisableHint()

@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8f2dbbce7e59e4695586b1eb7c893b, type: 3}
   m_Name: hack_data
   m_EditorClassIdentifier: 
+  hackyEventDataItem: {fileID: 0}
+  value: 0
+  inventoryOpen: 0
+  openInventoryHoverBook: 0
+  spiritTalking: 0

@@ -20,9 +20,12 @@ public class SetParentOnClick : MonoBehaviour
 
     [SerializeField] CursorSO cursorData;
 
+    GridItemInventoryChecker inventoryChecker;
+
     //loop through the grid sqaures to hand down references (wish I did this with more things and sooner but too late now)
     private void Awake()
     {
+        inventoryChecker = GetComponent<GridItemInventoryChecker>();
         foreach (GameObject grid in squareArray)
         {
             var gridDragDrop = grid.GetComponent<DragDrop>();
@@ -30,6 +33,8 @@ public class SetParentOnClick : MonoBehaviour
             gridDragDrop.hackData = hackData;
             gridDragDrop.inWorldFlower = inWorldFlower;
             gridDragDrop.cursorData = cursorData;
+
+            gridDragDrop.flowerType = inventoryChecker.flowerType;
         }
     }
 
