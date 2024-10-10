@@ -28531,6 +28531,7 @@ MonoBehaviour:
   tutorialTasksManager: {fileID: 2133502072}
   sceneController: {fileID: 686988065}
   hintController: {fileID: 1233027577}
+  journalManager: {fileID: 280635971}
   tutorialStage: 0
   moundTransform: {fileID: 177740693}
   gridContentsManager: {fileID: 1901007186}

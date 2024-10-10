@@ -16496,7 +16496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832104941356780470, guid: f0fb3330689e71e458239484e0775166, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.6
+      value: 35.69
       objectReference: {fileID: 0}
     - target: {fileID: 3832104941356780470, guid: f0fb3330689e71e458239484e0775166, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16504,7 +16504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832104941356780470, guid: f0fb3330689e71e458239484e0775166, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.7
+      value: 44.11
       objectReference: {fileID: 0}
     - target: {fileID: 3832104941356780470, guid: f0fb3330689e71e458239484e0775166, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52220,7 +52220,7 @@ Transform:
   m_GameObject: {fileID: 1040937566}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3634804, y: -0.000000016029496, z: 0.0000000062541825, w: 0.9316019}
-  m_LocalPosition: {x: 35.6, y: 2.2053876, z: 41.940002}
+  m_LocalPosition: {x: 35.69, y: 2.2053876, z: 42.350002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54073,7 +54073,7 @@ GameObject:
   - component: {fileID: 1077628635}
   - component: {fileID: 1077628634}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: GameEndTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54144,7 +54144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8194acc400030924e81d651e97e603d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hackyData: {fileID: 0}
+  sceneController: {fileID: 1087870381}
 --- !u!1 &1079062561
 GameObject:
   m_ObjectHideFlags: 0
@@ -68133,7 +68133,7 @@ Transform:
   m_GameObject: {fileID: 1398395670}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3634804, y: -0.000000016029496, z: 0.0000000062541825, w: 0.9316019}
-  m_LocalPosition: {x: 35.6, y: 2.2053876, z: 41.940002}
+  m_LocalPosition: {x: 35.69, y: 2.2053876, z: 42.350002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82610,7 +82610,7 @@ MonoBehaviour:
     Path: event:/MainSong
   Event: 
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

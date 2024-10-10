@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
-    [SerializeField] IHateMyselfSO hackyData;
+    [SerializeField] SceneController sceneController;
     void OnTriggerEnter(Collider other)
     {
-        hackyData.spiritTalking = true;
-        sceneController.StartNextScene("LevelTest 1");
+        if (other.CompareTag("Player"))
+        {
+            sceneController.StartNextScene("GameEnd");
+        }
     }
 }
