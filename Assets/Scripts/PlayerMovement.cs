@@ -32,9 +32,11 @@ public class PlayerMovement : MonoBehaviour
             movement.z = Input.GetAxisRaw("Vertical");
 
             playerAnimator.SetFloat("Horizontal", movement.x);
-            playerAnimator.SetFloat("Vertical", movement.z);
+            playerAnimator.SetFloat("Vertical", movement.z/2);
 
             playerAnimator.SetFloat("Speed", movement.sqrMagnitude);
+
+
 
             // OLD CODE V
 

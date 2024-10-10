@@ -6,11 +6,12 @@ using System.Xml.Serialization;
 
 public class CameraZoneSwitcher : MonoBehaviour
 {
-    public string triggerTag;
-    public bool isPrimaryCam = true;
+    //public string triggerTag;
+    public bool isPrimaryCam;
 
     public CinemachineVirtualCamera primaryCam;
-    public CinemachineVirtualCamera panOutCam;
+    public CinemachineVirtualCamera crumbleCam;
+    public CinemachineVirtualCamera panOutPlainsCam;
 
     public CinemachineVirtualCamera[] virtualCameras;
 
@@ -19,46 +20,81 @@ public class CameraZoneSwitcher : MonoBehaviour
     private void Start()
     {
         SwitchToCamera(primaryCam);
+        isPrimaryCam = true;
     }
 
     private void Update()
     {
-        PanFunction();
+        //PanFunction();
+        //CrumbleFunction();
+        CameraController();
     }
 
-    public void PanFunction()
+    //public void PanFunction()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha1))
+    //    {
+    //        if (isPrimaryCam)
+    //        {
+    //            SwitchToCamera(panOutPlainsCam);
+    //        }
+    //        else
+    //        {
+    //            SwitchToCamera(primaryCam);
+    //        }
+    //        isPrimaryCam = !isPrimaryCam;
+    //    }
+    //}
+
+    //public void CrumbleFunction()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha2))
+    //    {
+    //        if (isPrimaryCam)
+    //        {
+    //            SwitchToCamera(crumbleCam);
+    //        }
+    //        else
+    //        {
+    //            SwitchToCamera(primaryCam);
+    //        }
+    //        isPrimaryCam = !isPrimaryCam;
+    //    }
+    //}
+
+    public void CameraController()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (isPrimaryCam)
-            {
-                SwitchToCamera(panOutCam);
-            }
-            else
-            {
-                SwitchToCamera(primaryCam);
-            }
-            isPrimaryCam = !isPrimaryCam;
-        }
-    }
-
-    private void OnTriggerEnter(Collider player)
-    {
-        if (player.CompareTag(triggerTag))
-        {
-            CinemachineVirtualCamera targetCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
-            SwitchToCamera(targetCamera);
-        }
-    }
-
-    private void OnTriggerExit(Collider player)
-    {
-        if (player.CompareTag(triggerTag))
-        {
             SwitchToCamera(primaryCam);
-            isPrimaryCam = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchToCamera(crumbleCam);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchToCamera(panOutPlainsCam);
         }
     }
+
+    //private void OnTriggerEnter(Collider player)
+    //{
+    //    if (player.CompareTag(triggerTag))
+    //    {
+    //        CinemachineVirtualCamera targetCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+    //        SwitchToCamera(targetCamera);
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider player)
+    //{
+    //    if (player.CompareTag(triggerTag))
+    //    {
+    //        SwitchToCamera(primaryCam);
+    //        isPrimaryCam = true;
+    //    }
+    //}
 
     private void SwitchToCamera(CinemachineVirtualCamera targetCamera)
     {
