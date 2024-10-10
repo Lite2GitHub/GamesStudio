@@ -23,18 +23,21 @@ public class JournalPageFlipManager : MonoBehaviour
 
     void Start()
     {
-        DeactivateAllPages();
+        if (pageLeftRightOld.Count <= 0)
+        {
+            DeactivateAllPages();
 
-        leftCorner.GetComponent<JournalCorner>().journalPageManager = this;
-        rightCorner.GetComponent<JournalCorner>().journalPageManager = this;
-        pageFlip.GetComponent<PageFlip>().journalPageManager = this;
+            leftCorner.GetComponent<JournalCorner>().journalPageManager = this;
+            rightCorner.GetComponent<JournalCorner>().journalPageManager = this;
+            pageFlip.GetComponent<PageFlip>().journalPageManager = this;
 
-        FillPageList(pageLeftRightOld);
-        pageLeftRightOld[0].SetActive(true); //turn on left page
-        pageLeftRightOld[1].SetActive(true); //turn on right page
+            FillPageList(pageLeftRightOld);
+            pageLeftRightOld[0].SetActive(true); //turn on left page
+            pageLeftRightOld[1].SetActive(true); //turn on right page
 
-        CheckActiveCorners(true);
-        CheckActiveCorners(false);// slghtly hacky to call twice for both sides but idk seemed fine as itll almost exclusively be used as a one or the other from now on
+            CheckActiveCorners(true);
+            CheckActiveCorners(false);// slghtly hacky to call twice for both sides but idk seemed fine as itll almost exclusively be used as a one or the other from now on
+        }
     }
 
     public void TurnPage(bool rightPage)
@@ -135,6 +138,22 @@ public class JournalPageFlipManager : MonoBehaviour
     {
         if (pageNumber != pagePosition)
         {
+            if (pageLeftRightOld.Count <= 0)
+            {
+                DeactivateAllPages();
+
+                leftCorner.GetComponent<JournalCorner>().journalPageManager = this;
+                rightCorner.GetComponent<JournalCorner>().journalPageManager = this;
+                pageFlip.GetComponent<PageFlip>().journalPageManager = this;
+
+                FillPageList(pageLeftRightOld);
+                pageLeftRightOld[0].SetActive(true); //turn on left page
+                pageLeftRightOld[1].SetActive(true); //turn on right page
+
+                CheckActiveCorners(true);
+                CheckActiveCorners(false);// slghtly hacky to call twice for both sides but idk seemed fine as itll almost exclusively be used as a one or the other from now on
+            }
+
             if (pageNumber > pagePosition)
             {
                 pagePosition++;

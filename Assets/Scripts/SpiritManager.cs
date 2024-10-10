@@ -15,6 +15,8 @@ public class SpiritManager : MonoBehaviour, IInteractable
     [SerializeField] Material standardMat;
     [SerializeField] Material outlineMat;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject stoneVariant;
+    [SerializeField] GameObject tear;
 
     [Header("Dialogue Variables")]
     [SerializeField] List<GameObject> gridList = new List<GameObject>();
@@ -115,11 +117,6 @@ public class SpiritManager : MonoBehaviour, IInteractable
         {
             //dialogueBox.FadeTextBox(1, true);
             dialogueBox.FadeOut();
-
-            if (ready)
-            {
-                Destroy(gameObject);
-            }
         }
         else
         {
@@ -187,5 +184,13 @@ public class SpiritManager : MonoBehaviour, IInteractable
             dialogueIndex++;
             journalManager.CloseFlowerArrange(dialogueIndex);
         }
+    }
+
+    public void TurnToStone()
+    {
+        print("turned to stone");
+        tear.SetActive(true);
+        stoneVariant.SetActive(true);
+        Destroy(gameObject);
     }
 }

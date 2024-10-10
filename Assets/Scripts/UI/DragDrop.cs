@@ -237,7 +237,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 Instantiate(inWorldFlower, hit.point, Quaternion.identity);
             }
 
-            Destroy(gameObject);
+            gridItemInventoryChecker.DestroyObject();
         }
     }
 
